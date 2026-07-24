@@ -72,7 +72,7 @@
 
     /* HERO */
     .hero{min-height:100svh;display:flex;flex-direction:column;justify-content:flex-end;position:relative;overflow:hidden}
-    .hero-img{position:absolute;inset:0;background-image:url('assets/hero.webp');background-size:cover;background-position:center top}
+    .hero-img{position:absolute;inset:0;background-image:url('assets/scaramouche_stage_warm.webp');background-size:cover;background-position:center 30%}
     .hero-overlay{position:absolute;inset:0;background:linear-gradient(180deg,rgba(10,10,15,.25) 0%,rgba(10,10,15,.5) 50%,var(--ink) 100%)}
     .hero-figures{position:absolute;inset:0;pointer-events:none;overflow:hidden}
     .hero-fig{position:absolute;opacity:.18;mix-blend-mode:screen}
@@ -212,8 +212,8 @@
     /* UNTERSTUETZER */
     .unterstuetzer{padding:4rem 0;background:var(--panel);border-top:1px solid var(--border);border-bottom:1px solid var(--border)}
     .unterstuetzer-label{font-family:var(--ff-m);font-size:.65rem;letter-spacing:.25em;text-transform:uppercase;color:var(--muted);text-align:center;margin-bottom:2.5rem}
-    .supporter-logos{display:flex;align-items:center;justify-content:center;gap:4rem;flex-wrap:wrap}
-    .supporter-logos img{height:40px;object-fit:contain;filter:grayscale(1) brightness(0.5);transition:filter .3s;max-width:140px}
+    .supporter-logos{display:flex;align-items:center;justify-content:center;gap:3rem;flex-wrap:wrap}
+    .supporter-logos img{height:70px;object-fit:contain;filter:grayscale(1) brightness(0.7);transition:filter .3s;max-width:200px}
     .supporter-logos img:hover{filter:grayscale(0) brightness(1)}
 
     /* BLOG */
@@ -435,9 +435,9 @@
 </section>
 
 <div class="img-break fade-up">
-  <img src="assets/scaramouche_stage_warm.webp" alt="Scaramouche live auf der Bühne – Archivaufnahme" loading="lazy" />
+  <img src="assets/scaramouche_guitar_blue.webp" alt="Scaramouche live – Gitarrist unter Bühnenlicht, 1990er Jahre" loading="lazy" />
   <div class="img-break-overlay"></div>
-  <span class="img-caption">Scaramouche live · Archivaufnahme 1990er</span>
+  <span class="img-caption">Scaramouche · Archivaufnahme 1990er</span>
 </div>
 
 <!-- ALBEN -->
@@ -515,10 +515,12 @@
         <img src="assets/swr1_studio.webp" alt="Im SWR1 Studio – Maik und Pirmin Styrnol mit der Scaramouche-Band, 3. Mai 2019" loading="lazy" />
       </div>
       <div class="presse-tracks fade-up">
-        <p class="eyebrow">Radio &amp; Interviews</p>
-        <h2 class="section-title">Hört rein.</h2>
-        <p>Das waren die Momente, die den Film ins Rollen brachten. SWR1, Radio OHR – Scaramouche war wieder in aller Munde.</p>
-        <ul class="track-list" role="list">
+
+        <!-- MUSIK -->
+        <p class="eyebrow" style="margin-bottom:.75rem">Musik</p>
+        <h2 class="section-title" style="font-size:clamp(1.5rem,3vw,2.25rem);margin-bottom:1.25rem">Scaramouche Songs</h2>
+        <p style="color:var(--body);margin-bottom:1.5rem;font-size:.95rem">Live-Aufnahmen vom letzten Konzert im Jazzhaus Freiburg 2001 und Studio-Tracks.</p>
+        <ul class="track-list" role="list" style="margin-bottom:2.5rem">
           <li class="track-item">
             <button class="track-play" onclick="playTrack(this,'assets/scaramouche_heart_and_soul_live.opus')"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></button>
             <div class="track-info"><p class="track-title">Heart and Soul (Live)</p><p class="track-meta">Scaramouche · Jazzhaus Freiburg 2001</p></div>
@@ -539,35 +541,45 @@
             <button class="track-play" onclick="playTrack(this,'assets/scaramouche_sensation.opus')"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></button>
             <div class="track-info"><p class="track-title">Sensation</p><p class="track-meta">Scaramouche</p></div>
           </li>
+        </ul>
+
+        <!-- RADIO & INTERVIEWS -->
+        <p class="eyebrow" style="margin-bottom:.75rem">Radio &amp; Interviews</p>
+        <h2 class="section-title" style="font-size:clamp(1.5rem,3vw,2.25rem);margin-bottom:1.25rem">Hört rein.</h2>
+        <p style="color:var(--body);margin-bottom:1.5rem;font-size:.95rem">SWR1, Radio OHR – Scaramouche war wieder in aller Munde.</p>
+        <ul class="track-list" role="list">
           <li class="track-item">
             <button class="track-play" onclick="playTrack(this,'assets/swr1_corvin_04may.opus')"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></button>
-            <div class="track-info"><p class="track-title">SWR1 – Interview & Unplugged-Konzert</p><p class="track-meta">Corvin Tondera-Klein & Scaramouche · 04.05.2019</p></div>
+            <div class="track-info"><p class="track-title">SWR1 – Interview &amp; Unplugged-Konzert</p><p class="track-meta">Corvin Tondera-Klein &amp; Scaramouche · 04.05.2019</p></div>
           </li>
           <li class="track-item">
             <button class="track-play" onclick="playTrack(this,'assets/swr1_ingo_maik_19apr.opus')"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></button>
-            <div class="track-info"><p class="track-title">SWR1 – Interview & Side By Side</p><p class="track-meta">Ingo Lege & Maik Styrnol · 19.04.2020</p></div>
+            <div class="track-info"><p class="track-title">SWR1 – Interview &amp; Side By Side</p><p class="track-meta">Ingo Lege &amp; Maik Styrnol · 19.04.2020</p></div>
           </li>
         </ul>
         <div style="margin-top:1rem">
-          <a href="presse/" class="blog-link">Alle Radio- & TV-Berichte →</a>
+          <a href="presse/" class="blog-link">Alle Radio- &amp; TV-Berichte →</a>
         </div>
+
       </div>
     </div>
   </div>
 </section>
 
-<div class="img-break fade-up">
-  <img src="assets/scaramouche_guitar_blue.webp" alt="Scaramouche live – Gitarrist unter Bühnenlicht, 1990er Jahre" loading="lazy" />
-  <div class="img-break-overlay"></div>
-  <span class="img-caption">Scaramouche · Live in concert · Archiv</span>
-</div>
+<div class="divider"></div>
 
 <!-- PROJECT UNITED -->
 <section class="project-united" id="project-united">
   <div class="container">
     <div class="project-inner">
-      <div class="fade-up">
+      <div class="fade-up" style="display:flex;flex-direction:column;gap:1rem">
         <img src="assets/project_united.webp" alt="Project United – 70 Musiker aus 10 Ländern spielen Side by Side von Scaramouche, 2020" class="project-img" loading="lazy" />
+        <a href="https://www.youtube.com/watch?v=YHXstXiPXsY" target="_blank" rel="noopener"
+           style="display:flex;align-items:center;gap:.75rem;background:#ff0000;color:#fff;padding:.75rem 1.25rem;font-family:var(--ff-m);font-size:.72rem;letter-spacing:.15em;text-transform:uppercase;font-weight:700;transition:background .2s;text-decoration:none"
+           onmouseover="this.style.background='#cc0000'" onmouseout="this.style.background='#ff0000'">
+          <svg viewBox="0 0 24 24" fill="currentColor" style="width:20px;height:20px;flex-shrink:0"><path d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.5 12 3.5 12 3.5s-7.5 0-9.4.6A3 3 0 0 0 .5 6.2C0 8.1 0 12 0 12s0 3.9.5 5.8a3 3 0 0 0 2.1 2.1c1.9.6 9.4.6 9.4.6s7.5 0 9.4-.6a3 3 0 0 0 2.1-2.1C24 15.9 24 12 24 12s0-3.9-.5-5.8zM9.7 15.5V8.5l6.3 3.5-6.3 3.5z"/></svg>
+          Video auf YouTube ansehen
+        </a>
       </div>
       <div class="project-text fade-up">
         <p class="eyebrow">2020 · Project United</p>
