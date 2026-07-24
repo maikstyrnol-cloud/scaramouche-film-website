@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" /><meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Gästebuch – Heart and Soul | Scaramouche Dokumentarfilm</title>
+  <meta name="description" content="Schreibt uns eure Erinnerungen an Scaramouche. Das Gästebuch zum Dokumentarfilm Heart and Soul aus Lahr." />
+  <link rel="canonical" href="https://www.scaramouche-film.de/gaestebuch/" />
+  <meta property="og:title" content="Gästebuch – Heart and Soul | Scaramouche" />
+  <meta property="og:url" content="https://www.scaramouche-film.de/gaestebuch/" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=Inter:wght@300;400;500;600&family=Courier+Prime:wght@400;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../assets/site.css" />
+  <style>
+    .gb-layout{display:grid;grid-template-columns:1fr 1.1fr;gap:5rem;padding:4rem 0 6rem;align-items:start}
+    .gb-entries{display:flex;flex-direction:column;gap:1rem}
+    .gb-entry{background:var(--panel);border-left:2px solid var(--gold);padding:1.25rem 1.5rem}
+    .gb-entry.reply{background:transparent;border-left:2px solid var(--border);margin-left:2rem;margin-top:-.5rem}
+    .gb-entry.reply .gb-author{color:var(--gold)}
+    .gb-author{font-family:var(--ff-m);font-size:.65rem;letter-spacing:.2em;text-transform:uppercase;color:var(--light);margin-bottom:.15rem}
+    .gb-date{font-family:var(--ff-m);font-size:.58rem;color:var(--muted);margin-bottom:.5rem}
+    .gb-text{font-size:.9rem;color:var(--body);line-height:1.65}
+    .gb-form-wrap{background:var(--panel);border:1px solid var(--border);padding:2.5rem;position:sticky;top:5rem}
+    .gb-form-wrap h2{font-family:var(--ff-d);font-size:1.5rem;color:var(--light);margin-bottom:.5rem}
+    .gb-form-wrap > p{font-size:.9rem;color:var(--muted);margin-bottom:2rem}
+    .form-group{margin-bottom:1rem}
+    .form-group label{display:block;font-family:var(--ff-m);font-size:.62rem;letter-spacing:.2em;text-transform:uppercase;color:var(--muted);margin-bottom:.5rem}
+    .form-group input,.form-group textarea{width:100%;background:var(--deep);border:1px solid var(--border);color:var(--light);padding:.75rem 1rem;font-family:var(--ff-b);font-size:.9rem;outline:none;transition:border-color .2s;resize:vertical}
+    .form-group input:focus,.form-group textarea:focus{border-color:var(--gold-dim)}
+    .form-group textarea{min-height:130px}
+    .btn-primary{background:var(--gold);color:var(--ink);border:1px solid var(--gold);padding:.8rem 1.5rem;font-family:var(--ff-m);font-size:.72rem;letter-spacing:.15em;text-transform:uppercase;cursor:pointer;font-weight:700;width:100%;transition:background .2s}
+    .btn-primary:hover{background:var(--cream)}
+    .form-note{font-family:var(--ff-m);font-size:.6rem;color:var(--muted);margin-top:.75rem;letter-spacing:.08em}
+    .success-msg{display:none;background:rgba(201,168,76,.1);border:1px solid var(--gold-dim);padding:1rem;font-family:var(--ff-m);font-size:.72rem;color:var(--gold);letter-spacing:.1em;margin-top:1rem}
+    @media(max-width:900px){.gb-layout{grid-template-columns:1fr;gap:3rem}.gb-form-wrap{position:static}}
+  </style>
+</head>
+<body>
+<div id="navMount"></div>
+<div id="filmstripMount"></div>
+
+<div class="container">
+  <div class="page-hero fade-up">
+    <p class="eyebrow">Eure Stimmen</p>
+    <h1>Gästebuch</h1>
+    <p>Kennt ihr Scaramouche noch? Habt ein Konzert besucht, die Alben gehört, erinnert euch an die Lahrer Musikszene der 90er? Schreibt uns – diese Geschichten sind Teil des Films.</p>
+  </div>
+
+  <div class="gb-layout">
+    <!-- EXISTING ENTRIES (29 from Wix) -->
+    <div class="gb-entries">
+      <p class="eyebrow" style="margin-bottom:1.5rem">29 Einträge</p>
+
+      <div class="gb-entry fade-up">
+        <p class="gb-author">Jan</p><p class="gb-date">vor 6 Monaten</p>
+        <p class="gb-text">Hallo, mich würde auch interessieren, ob das noch weiterverfolgt wird. Es würde mich persönlich wahnsinnig freuen, wenn dieser Film zustande käme. Viele Grüße, Jan</p>
+      </div>
+      <div class="gb-entry fade-up">
+        <p class="gb-author">Sven</p><p class="gb-date">vor 6 Monaten</p>
+        <p class="gb-text">Hallo, wie sieht es denn aus? Lebt das Thema noch oder ist es eingestampft?</p>
+      </div>
+      <div class="gb-entry fade-up">
+        <p class="gb-author">Sven</p><p class="gb-date">vor einem Jahr</p>
+        <p class="gb-text">Hallo zusammen, wollte mal nach einem Update fragen. Wie sieht es denn aus – gibt es irgendwann einen Film oder ist das Projekt beendet? Wäre schön mal wieder was zu hören, am besten mit einem ungefähren Zeitplan.</p>
+      </div>
+      <div class="gb-entry fade-up">
+        <p class="gb-author">Marc</p><p class="gb-date">vor 2 Jahren</p>
+        <p class="gb-text">Hallo! Gibt's irgendwelche News zu diesem tollen Projekt?</p>
+      </div>
+      <div class="gb-entry fade-up">
+        <p class="gb-author">Liane</p><p class="gb-date">vor 3 Jahren</p>
+        <p class="gb-text">Hallo, wie sieht es aus? Der letzte Blogeintrag ist nun auch wieder über ein Jahr her. Geht es weiter?</p>
+      </div>
+      <div class="gb-entry reply fade-up">
+        <p class="gb-author">Pirmin</p><p class="gb-date">vor 3 Jahren</p>
+        <p class="gb-text">Hi Liane, danke für deine Frage! Wir drehen schon seit einer ganzen Weile wieder, aber dein Eintrag hier hat mich inspiriert endlich wieder einen Eintrag in den Blog zu machen. Ja, es geht weiter. Und wir freuen uns sehr darüber!</p>
+      </div>
+      <div class="gb-entry fade-up">
+        <p class="gb-author">Elke</p><p class="gb-date">vor 3 Jahren</p>
+        <p class="gb-text">Juhu, es geht weiter!</p>
+      </div>
+      <div class="gb-entry fade-up">
+        <p class="gb-author">Der_Ex-Lohrer</p><p class="gb-date">vor 3 Jahren</p>
+        <p class="gb-text">Schwingt die Hufe! Wir wollen endlich was über SCARAMOUCHE sehen. Bald 25 Jahre her, dass wir vor der Bühne im Stadtpark abgefeiert haben. Grüße gehen raus an alle Lohrer. „I believe in the Queen of England"!!!</p>
+      </div>
+      <div class="gb-entry reply fade-up">
+        <p class="gb-author">Pirmin</p><p class="gb-date">vor 3 Jahren</p>
+        <p class="gb-text">WIR SCHWINGEN! Sind wieder voll im Drehmodus.</p>
+      </div>
+      <div class="gb-entry fade-up">
+        <p class="gb-author">Tom</p><p class="gb-date">vor 3 Jahren</p>
+        <p class="gb-text">Das würde mich auch sehr interessieren! Oder wird es hier nicht mehr weiter gehen? Ich hoffe nicht….</p>
+      </div>
+      <div class="gb-entry reply fade-up">
+        <p class="gb-author">Pirmin</p><p class="gb-date">vor 3 Jahren</p>
+        <p class="gb-text">Es geht definitiv weiter. Wir mussten wegen Corona leider eine ungeplante und sehr deprimierende Auszeit nehmen. Aber seit März laufen die Kameras wieder.</p>
+      </div>
+      <div class="gb-entry fade-up">
+        <p class="gb-author">Sven</p><p class="gb-date">vor 3 Jahren</p>
+        <p class="gb-text">Hallo zusammen, gibt es Neuigkeiten über den Film bzw. das Projekt?</p>
+      </div>
+      <div class="gb-entry reply fade-up">
+        <p class="gb-author">Pirmin</p><p class="gb-date">vor 3 Jahren</p>
+        <p class="gb-text">Hi Sven, alles Neue gibt's im jüngsten Blogartikel. Wir sind wieder voll im Arbeitsmodus.</p>
+      </div>
+      <div class="gb-entry fade-up">
+        <p class="gb-author">Armin Andreas Pangerl</p><p class="gb-date">vor 4 Jahren</p>
+        <p class="gb-text">Lang lang ist es her aber ich freue mich, dass es sowas wie eine Reunion gibt. Schön wäre es auch, einen Wikipedia-Artikel darüber zu lesen.</p>
+      </div>
+      <div class="gb-entry fade-up">
+        <p class="gb-author">Sven</p><p class="gb-date">vor 5 Jahren</p>
+        <p class="gb-text">Hallo, ich hoffe euch geht's allen gut. Wollte mal nachfragen ob es schon eine weitere Planung für das Projekt gibt. Wir freuen uns.</p>
+      </div>
+      <div class="gb-entry fade-up">
+        <p class="gb-author">Eli</p><p class="gb-date">vor 6 Jahren</p>
+        <p class="gb-text">Bin schon richtig gespannt auf den Film. Läuft der dann auch in Hannover?</p>
+      </div>
+      <div class="gb-entry fade-up">
+        <p class="gb-author">Alex</p><p class="gb-date">vor 7 Jahren</p>
+        <p class="gb-text">Hab auf Instagram gesehen, dass ihr bei Deep Purple gefilmt habt. Schreibt ihr da auch noch was im Blog? Wäre cool.</p>
+      </div>
+      <div class="gb-entry fade-up">
+        <p class="gb-author">Petra</p><p class="gb-date">vor 7 Jahren</p>
+        <p class="gb-text">Scaramouche bei SWR1. Wahnsinn! Hab nicht gedacht dass ich das nochmal erlebe. Toll.</p>
+      </div>
+      <div class="gb-entry fade-up">
+        <p class="gb-author">Alex</p><p class="gb-date">vor 7 Jahren</p>
+        <p class="gb-text">Toller Blog, den ihr da schreibt. Bin schon gespannt wie's weitergeht.</p>
+      </div>
+      <div class="gb-entry fade-up">
+        <p class="gb-author">Arnold</p><p class="gb-date">vor 7 Jahren</p>
+        <p class="gb-text">Früher als Kind war das meine Lieblingsband und dass jetzt eine Doku kommt ist sehr schön.</p>
+      </div>
+      <div class="gb-entry fade-up">
+        <p class="gb-author">Niclas Haas</p><p class="gb-date">vor 7 Jahren</p>
+        <p class="gb-text">Ich kenn die Band leider nicht so gut aber die Musik ist echt nice und Herr Vetter ist mein Lehrer und ich feier seine Musik voll und freu mich auch über den Film.</p>
+      </div>
+      <div class="gb-entry fade-up">
+        <p class="gb-author">claus-Dieter ruf (Doctor)</p><p class="gb-date">vor 7 Jahren</p>
+        <p class="gb-text">Vorschlag von mir: Macht doch ein Reunion-Konzert von Scaramouche im Schlachthof, und den Eintritt nehmt ihr zur Finanzierung. Der Laden wird mit Sicherheit voll. Habe früher alle Konzerte mitgenommen. Kenne Marc und Gert schon lange, bin selber Musiker.</p>
+      </div>
+      <div class="gb-entry fade-up">
+        <p class="gb-author">Elke S.</p><p class="gb-date">vor 7 Jahren</p>
+        <p class="gb-text">Wow, was für ein tolles Video ihr da zum Crowdfunding gedreht habt. Das macht Lust auf den Film. Und da ich den Film unbedingt möchte, habe ich mich natürlich schon beteiligt. Ich freu mich soooo!</p>
+      </div>
+      <div class="gb-entry fade-up">
+        <p class="gb-author">Lukas</p><p class="gb-date">vor 7 Jahren</p>
+        <p class="gb-text">Wow, ich hab Scaramouche zwar nie live erlebt, bin wohl noch zu jung. Aber ich werd's mir trotzdem angucken. Eine Kinodoku aus Lahr. Geil...</p>
+      </div>
+      <div class="gb-entry fade-up">
+        <p class="gb-author">Mel</p><p class="gb-date">vor 7 Jahren</p>
+        <p class="gb-text">Also wenn der Film so wird wie die Fotos vom ersten Drehtag… Sieht stark aus! Ich bin gespannt.</p>
+      </div>
+      <div class="gb-entry fade-up">
+        <p class="gb-author">pommes</p><p class="gb-date">vor 8 Jahren</p>
+        <p class="gb-text">Ich erinnere mich an ein total geiles Konzert zusammen mit „Gypsy Child" in der Halle in Sulzgrün – war einfach nur eine mega tolle Zeit!!! Viel Erfolg, ich freu mich jetzt schon auf den Film.</p>
+      </div>
+      <div class="gb-entry fade-up">
+        <p class="gb-author">Chris</p><p class="gb-date">vor 8 Jahren</p>
+        <p class="gb-text">Geil. Rock on!</p>
+      </div>
+      <div class="gb-entry fade-up">
+        <p class="gb-author">Martin aus der Nähe von Heidelberg</p><p class="gb-date">vor 8 Jahren</p>
+        <p class="gb-text">Send a rose... The bigger the better. When I will stop running. Das sagt doch alles. Bravo! Weiter so. DANKE!!!</p>
+      </div>
+      <div class="gb-entry fade-up">
+        <p class="gb-author">Beathe</p><p class="gb-date">vor 8 Jahren</p>
+        <p class="gb-text">Na das ist ja mal was! Ich habe immer noch alle CDs. Da wird man ja richtig ungeduldig…</p>
+      </div>
+      <div class="gb-entry fade-up">
+        <p class="gb-author">😎</p><p class="gb-date">vor 8 Jahren</p>
+        <p class="gb-text">Ich erinnere mich noch an einen Auftritt beim Lichterfest. Strömender Regen, hat aber keinen gestört...</p>
+      </div>
+      <div class="gb-entry fade-up">
+        <p class="gb-author">Larry B.</p><p class="gb-date">vor 8 Jahren</p>
+        <p class="gb-text">Ich bin arg gespannt auf alles was da auf die „alten" Freunde zukommen wird … Ich hab tolle Erinnerungen an viele Konzerte die wir zusammen mit Scaramouche in Luxemburg gespielt haben … War 'ne geile Zeit!!</p>
+      </div>
+      <div class="gb-entry reply fade-up">
+        <p class="gb-author">Frank</p><p class="gb-date">vor 8 Jahren</p>
+        <p class="gb-text">Hi Larry, altes Haus! Wie viel Jahre ist das her, dass wir uns mehrmals im Jahr in den heiligen Luxemburger Hallen trafen? Ich beneide dich heute noch für euren Auftritt vor Michael Jackson... mit Mundschutz... Viele Grüße nach LUX</p>
+      </div>
+      <div class="gb-entry fade-up">
+        <p class="gb-author">Corinna</p><p class="gb-date">vor 8 Jahren</p>
+        <p class="gb-text">Wow! Schon fast vergessen, dass es hier mal so abging! Ich bin gespannt! Revival..?</p>
+      </div>
+      <div class="gb-entry fade-up">
+        <p class="gb-author">Laura</p><p class="gb-date">vor 8 Jahren</p>
+        <p class="gb-text">Ein mega Projekt!! Wünsche euch viel Erfolg!</p>
+      </div>
+    </div>
+
+    <!-- FORM -->
+    <div class="gb-form-wrap fade-up">
+      <h2>Eintrag hinterlassen</h2>
+      <p>Kennt ihr die Band? Habt ihr Erinnerungen? Schreibt uns — nach kurzer Prüfung erscheint euer Eintrag hier.</p>
+      <form action="https://formspree.io/f/DEINE_FORMSPREE_ID" method="POST" id="gbForm">
+        <input type="hidden" name="_subject" value="Neuer Gästebucheintrag – Heart and Soul" />
+        <input type="hidden" name="_next" value="https://www.scaramouche-film.de/gaestebuch/?danke=1" />
+        <div class="form-group">
+          <label for="gb-name">Name *</label>
+          <input type="text" id="gb-name" name="name" placeholder="Euer Name" autocomplete="name" required />
+        </div>
+        <div class="form-group">
+          <label for="gb-ort">Ort (optional)</label>
+          <input type="text" id="gb-ort" name="ort" placeholder="z.B. Lahr, Offenburg, Luxemburg…" />
+        </div>
+        <div class="form-group">
+          <label for="gb-text">Euer Eintrag *</label>
+          <textarea id="gb-text" name="eintrag" placeholder="Eure Erinnerung, euer Erlebnis, eure Erwartung an den Film…" required></textarea>
+        </div>
+        <button type="submit" class="btn-primary">Eintrag senden</button>
+        <p class="form-note">Euer Eintrag wird nach kurzer Prüfung freigeschaltet. Kein Spam, keine Weitergabe eurer Daten.</p>
+      </form>
+      <div class="success-msg" id="successMsg">✓ Danke für euren Eintrag! Er erscheint nach kurzer Prüfung im Gästebuch.</div>
+    </div>
+  </div>
+</div>
+
+<div id="footerMount"></div>
+<script src="../assets/site.js"></script>
+<script>
+  document.getElementById('filmstripMount').outerHTML = renderFilmstrip();
+  document.getElementById('navMount').outerHTML = renderNav('Gästebuch');
+  document.getElementById('footerMount').outerHTML = renderFooter();
+
+  // Show thank you if redirected back
+  if (window.location.search.includes('danke=1')) {
+    document.getElementById('gbForm').style.display = 'none';
+    document.getElementById('successMsg').style.display = 'block';
+  }
+</script>
+</body>
+</html>

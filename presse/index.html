@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" /><meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Presse – Heart and Soul | Scaramouche Dokumentarfilm</title>
+  <meta name="description" content="Pressestimmen, Radio- und TV-Berichte zum Dokumentarfilm Heart and Soul über die Kultband Scaramouche aus Lahr." />
+  <link rel="canonical" href="https://www.scaramouche-film.de/presse/" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=Inter:wght@300;400;500;600&family=Courier+Prime:wght@400;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../assets/site.css" />
+  <style>
+    .presse-sections{padding:3rem 0 6rem;display:flex;flex-direction:column;gap:5rem}
+    .presse-section h2{font-family:var(--ff-d);font-size:2rem;color:var(--light);margin-bottom:2rem;padding-bottom:1rem;border-bottom:1px solid var(--border)}
+    /* Radio players */
+    .radio-grid{display:flex;flex-direction:column;gap:.75rem}
+    /* Print list */
+    .print-list{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem}
+    .print-item{background:var(--panel);border:1px solid var(--border);padding:1.25rem;transition:border-color .2s}
+    .print-item:hover{border-color:var(--gold-dim)}
+    .print-item a{display:flex;flex-direction:column;gap:.35rem}
+    .print-outlet{font-family:var(--ff-m);font-size:.65rem;letter-spacing:.2em;text-transform:uppercase;color:var(--gold)}
+    .print-title{font-size:.9rem;color:var(--light);line-height:1.4}
+    /* TV */
+    .tv-list{display:flex;flex-direction:column;gap:1rem}
+    .tv-item{background:var(--panel);border:1px solid var(--border);padding:1.5rem;display:flex;align-items:start;gap:1.5rem;transition:border-color .2s}
+    .tv-item:hover{border-color:var(--gold-dim)}
+    .tv-date{font-family:var(--ff-m);font-size:.62rem;letter-spacing:.15em;text-transform:uppercase;color:var(--muted);white-space:nowrap;padding-top:.15rem}
+    .tv-info h3{font-family:var(--ff-d);font-size:1.1rem;color:var(--light);margin-bottom:.3rem}
+    .tv-info p{font-size:.85rem;color:var(--muted)}
+    @media(max-width:900px){.print-list{grid-template-columns:1fr 1fr}}
+    @media(max-width:600px){.print-list{grid-template-columns:1fr}.tv-item{flex-direction:column;gap:.75rem}}
+  </style>
+</head>
+<body>
+<div id="navMount"></div>
+<div id="filmstripMount"></div>
+
+<div class="container">
+  <div class="page-hero fade-up">
+    <p class="eyebrow">Medienberichte</p>
+    <h1>Presse</h1>
+    <p>Radio- und TV-Auftritte, Printberichte und Online-Artikel zum Dokumentarfilm Heart and Soul über Scaramouche.</p>
+  </div>
+
+  <div class="presse-sections">
+
+    <!-- RADIO -->
+    <section class="fade-up">
+      <h2>Radio</h2>
+      <div class="radio-grid">
+
+        <div class="audio-player">
+          <button class="ap-btn" onclick="playTrack(this,'../assets/swr1_corvin_04may.opus')"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></button>
+          <div class="ap-info">
+            <div class="ap-title">SWR1 – Der Abend | Interview & Unplugged-Konzert</div>
+            <div class="ap-meta">Corvin Tondera-Klein & Scaramouche · 04.05.2019</div>
+          </div>
+          <div class="ap-progress"><div class="ap-bar"></div></div>
+          <span class="ap-time">0:00</span>
+        </div>
+
+        <div class="audio-player">
+          <button class="ap-btn" onclick="playTrack(this,'../assets/swr1_corvin_05may.opus')"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></button>
+          <div class="ap-info">
+            <div class="ap-title">SWR1 – Der Abend | Interview & Unplugged-Konzert (Teil 2)</div>
+            <div class="ap-meta">Corvin Tondera-Klein & Scaramouche · 05.05.2019</div>
+          </div>
+          <div class="ap-progress"><div class="ap-bar"></div></div>
+          <span class="ap-time">0:00</span>
+        </div>
+
+        <div class="audio-player">
+          <button class="ap-btn" onclick="playTrack(this,'../assets/swr1_ingo_maik_19apr.opus')"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></button>
+          <div class="ap-info">
+            <div class="ap-title">SWR1 – Der Abend | Interview & Side By Side</div>
+            <div class="ap-meta">Ingo Lege & Maik Styrnol · 19.04.2020</div>
+          </div>
+          <div class="ap-progress"><div class="ap-bar"></div></div>
+          <span class="ap-time">0:00</span>
+        </div>
+
+        <div class="audio-player">
+          <button class="ap-btn" onclick="playTrack(this,'../assets/swr1_corvin_pirmin_23nov.opus')"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></button>
+          <div class="ap-info">
+            <div class="ap-title">SWR1 – Interview</div>
+            <div class="ap-meta">Corvin Tondera-Klein, Pirmin Styrnol & Scaramouche · 23.11.2019</div>
+          </div>
+          <div class="ap-progress"><div class="ap-bar"></div></div>
+          <span class="ap-time">0:00</span>
+        </div>
+
+        <div class="audio-player">
+          <button class="ap-btn" onclick="playTrack(this,'../assets/radio_jan_pirmin_17apr.opus')"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></button>
+          <div class="ap-info">
+            <div class="ap-title">Die neue Welle – Interview</div>
+            <div class="ap-meta">Jan Zipperer & Pirmin Styrnol · 17.04.2019</div>
+          </div>
+          <div class="ap-progress"><div class="ap-bar"></div></div>
+          <span class="ap-time">0:00</span>
+        </div>
+
+        <div class="audio-player">
+          <button class="ap-btn" onclick="playTrack(this,'../assets/radio_jasmin_pirmin_06may.opus')"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></button>
+          <div class="ap-info">
+            <div class="ap-title">Radio OHR – Interview</div>
+            <div class="ap-meta">Jasmin Zehner & Pirmin Styrnol · 06.05.2019</div>
+          </div>
+          <div class="ap-progress"><div class="ap-bar"></div></div>
+          <span class="ap-time">0:00</span>
+        </div>
+
+        <div class="audio-player">
+          <button class="ap-btn" onclick="playTrack(this,'../assets/radio_jasmin_pirmin_27dec.opus')"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></button>
+          <div class="ap-info">
+            <div class="ap-title">Radio OHR – Interview</div>
+            <div class="ap-meta">Jasmin Zehner & Pirmin Styrnol · 27.12.2018</div>
+          </div>
+          <div class="ap-progress"><div class="ap-bar"></div></div>
+          <span class="ap-time">0:00</span>
+        </div>
+
+        <div class="audio-player">
+          <button class="ap-btn" onclick="playTrack(this,'../assets/radio_jasmin_pirmin_31oct.opus')"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></button>
+          <div class="ap-info">
+            <div class="ap-title">Radio OHR – Interview</div>
+            <div class="ap-meta">Jasmin Zehner & Pirmin Styrnol · 31.10.2018</div>
+          </div>
+          <div class="ap-progress"><div class="ap-bar"></div></div>
+          <span class="ap-time">0:00</span>
+        </div>
+
+        <div class="audio-player">
+          <button class="ap-btn" onclick="playTrack(this,'../assets/radio_jasmin_21jan.opus')"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></button>
+          <div class="ap-info">
+            <div class="ap-title">Radio OHR – Interview</div>
+            <div class="ap-meta">Jasmin Zehner · 21.01.2019</div>
+          </div>
+          <div class="ap-progress"><div class="ap-bar"></div></div>
+          <span class="ap-time">0:00</span>
+        </div>
+
+        <div class="audio-player">
+          <button class="ap-btn" onclick="playTrack(this,'../assets/radio_ohr_1.opus')"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></button>
+          <div class="ap-info">
+            <div class="ap-title">Radio OHR – Interview Pirmin Styrnol</div>
+            <div class="ap-meta">3. Oktober 2018</div>
+          </div>
+          <div class="ap-progress"><div class="ap-bar"></div></div>
+          <span class="ap-time">0:00</span>
+        </div>
+
+        <div class="audio-player">
+          <button class="ap-btn" onclick="playTrack(this,'../assets/radio_regina_21jan.opus')"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></button>
+          <div class="ap-info">
+            <div class="ap-title">Radio – Interview</div>
+            <div class="ap-meta">Regina Bruch & Phillip Stammer · 21.01.2019</div>
+          </div>
+          <div class="ap-progress"><div class="ap-bar"></div></div>
+          <span class="ap-time">0:00</span>
+        </div>
+
+        <div class="audio-player">
+          <button class="ap-btn" onclick="playTrack(this,'../assets/swr1_side_by_side.opus')"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></button>
+          <div class="ap-info">
+            <div class="ap-title">SWR1 – Der Abend | Side By Side</div>
+            <div class="ap-meta">19. April 2020</div>
+          </div>
+          <div class="ap-progress"><div class="ap-bar"></div></div>
+          <span class="ap-time">0:00</span>
+        </div>
+
+        <p style="font-family:var(--ff-m);font-size:.65rem;color:var(--muted);margin-top:.5rem">
+          Außerdem: <a href="http://radio.rtl.lu/emissiounen/feature/2494531.html" target="_blank" rel="noopener" style="color:var(--gold)">RTL Radio Luxembourg – Feature</a>
+        </p>
+      </div>
+    </section>
+
+    <!-- TV -->
+    <section class="fade-up">
+      <h2>TV</h2>
+      <div class="tv-list">
+        <div class="tv-item">
+          <span class="tv-date">SWR · ARD-Mediathek<br/>03.04.2020</span>
+          <div class="tv-info">
+            <h3><a href="https://www.ardmediathek.de/ard/player/Y3JpZDovL3N3ci5kZS9hZXgvbzEyMjI4NTY/side-by-side-oder-eine-hymne-fuer-den-zusammenhalt" target="_blank" rel="noopener">„Side by Side": Eine Hymne für den Zusammenhalt</a></h3>
+            <p>SWR · ARD-Mediathek</p>
+          </div>
+        </div>
+        <div class="tv-item">
+          <span class="tv-date">SWR1<br/>22.11.2019</span>
+          <div class="tv-info">
+            <h3><a href="https://www.swr.de/swr1/bw/programm/Scaramouche-beim-SWR1-Interview,scaramouche-beim-swr1-interview-100.html" target="_blank" rel="noopener">Scaramouche beim SWR1-Interview</a></h3>
+            <p>SWR1 Baden-Württemberg</p>
+          </div>
+        </div>
+        <div class="tv-item">
+          <span class="tv-date">Baden TV Süd<br/>06.08.2019</span>
+          <div class="tv-info">
+            <h3><a href="https://baden-tv-sued.com/heart-soul-erinnerungen-an-kultband-scaramouche/" target="_blank" rel="noopener">Heart &amp; Soul – Erinnerung an Kultband Scaramouche</a></h3>
+            <p>Baden TV Süd</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PRINT -->
+    <section class="fade-up">
+      <h2>Print &amp; Online</h2>
+      <div class="print-list">
+        <div class="print-item"><a href="https://www.scaramouche-film.de/zett" target="_blank" rel="noopener"><span class="print-outlet">Zett.</span><span class="print-title">Bericht über Heart and Soul</span></a></div>
+        <div class="print-item"><a href="https://www.scaramouche-film.de/swr1-bw" target="_blank" rel="noopener"><span class="print-outlet">SWR1 Baden-Württemberg</span><span class="print-title">Musik-Doku „Heart and Soul" – Über Scaramouche kommt</span></a></div>
+        <div class="print-item"><a href="https://www.scaramouche-film.de/kurier" target="_blank" rel="noopener"><span class="print-outlet">Kurier</span><span class="print-title">Side by Side: Die badenwürttembergische Version von „Heal the World"</span></a></div>
+        <div class="print-item"><a href="https://www.scaramouche-film.de/art-noir" target="_blank" rel="noopener"><span class="print-outlet">Art Noir Musik Magazin</span><span class="print-title">Bericht über Heart and Soul</span></a></div>
+        <div class="print-item"><a href="https://www.scaramouche-film.de/lahrer-zeitung" target="_blank" rel="noopener"><span class="print-outlet">Lahrer Zeitung</span><span class="print-title">Bericht über Heart and Soul</span></a></div>
+        <div class="print-item"><a href="https://www.scaramouche-film.de/badische-zeitung" target="_blank" rel="noopener"><span class="print-outlet">Badische Zeitung</span><span class="print-title">Bericht über Heart and Soul</span></a></div>
+        <div class="print-item"><a href="https://www.scaramouche-film.de/hellfire-magazin" target="_blank" rel="noopener"><span class="print-outlet">Hellfire Magazin</span><span class="print-title">Bericht über Heart and Soul</span></a></div>
+        <div class="print-item"><a href="https://www.scaramouche-film.de/laut-de" target="_blank" rel="noopener"><span class="print-outlet">Laut.de</span><span class="print-title">Bericht über Heart and Soul</span></a></div>
+        <div class="print-item"><a href="https://www.scaramouche-film.de/old-fashioned-radio" target="_blank" rel="noopener"><span class="print-outlet">Old Fashioned Radio</span><span class="print-title">Bericht über Heart and Soul</span></a></div>
+        <div class="print-item"><a href="https://www.scaramouche-film.de/luxembourg-chronicle" target="_blank" rel="noopener"><span class="print-outlet">Luxembourg Chronicle</span><span class="print-title">Bericht über Heart and Soul</span></a></div>
+        <div class="print-item"><a href="https://www.scaramouche-film.de/baden-online" target="_blank" rel="noopener"><span class="print-outlet">Baden Online</span><span class="print-title">Bericht über Heart and Soul</span></a></div>
+        <div class="print-item"><a href="https://www.scaramouche-film.de/time-for-metal" target="_blank" rel="noopener"><span class="print-outlet">Time for Metal</span><span class="print-title">Bericht über Heart and Soul</span></a></div>
+        <div class="print-item"><a href="https://www.scaramouche-film.de/die-neue-welle" target="_blank" rel="noopener"><span class="print-outlet">Die neue Welle</span><span class="print-title">Bericht über Heart and Soul</span></a></div>
+        <div class="print-item"><a href="https://www.scaramouche-film.de/meine-heimat" target="_blank" rel="noopener"><span class="print-outlet">Meine Heimat</span><span class="print-title">Bericht über Heart and Soul</span></a></div>
+        <div class="print-item"><a href="https://www.scaramouche-film.de/badische-neueste-nachrichten" target="_blank" rel="noopener"><span class="print-outlet">Badische Neueste Nachrichten</span><span class="print-title">Bericht über Heart and Soul</span></a></div>
+        <div class="print-item"><a href="https://www.scaramouche-film.de/badisches-tagblatt" target="_blank" rel="noopener"><span class="print-outlet">Badisches Tagblatt</span><span class="print-title">Bericht über Heart and Soul</span></a></div>
+        <div class="print-item"><a href="https://www.scaramouche-film.de/lahr-de" target="_blank" rel="noopener"><span class="print-outlet">Lahr.de</span><span class="print-title">Bericht über Heart and Soul</span></a></div>
+        <div class="print-item"><a href="https://www.scaramouche-film.de/lahrer-anzeiger" target="_blank" rel="noopener"><span class="print-outlet">Lahrer Anzeiger</span><span class="print-title">Bericht über Heart and Soul</span></a></div>
+      </div>
+    </section>
+
+  </div>
+</div>
+
+<div id="footerMount"></div>
+<script src="../assets/site.js"></script>
+<script>
+  document.getElementById('filmstripMount').outerHTML = renderFilmstrip();
+  document.getElementById('navMount').outerHTML = renderNav('Presse');
+  document.getElementById('footerMount').outerHTML = renderFooter();
+</script>
+</body>
+</html>
