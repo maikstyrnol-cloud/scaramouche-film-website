@@ -10,7 +10,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=Inter:wght@300;400;500;600&family=Courier+Prime:wght@400;700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="../assets/site.css" />
+  <link rel="stylesheet" href="/assets/site.css" />
   <style>
     .gb-layout{display:grid;grid-template-columns:1fr 1.1fr;gap:5rem;padding:4rem 0 6rem;align-items:start}
     .gb-entries{display:flex;flex-direction:column;gap:1rem}
@@ -195,7 +195,7 @@
       <p>Kennt ihr die Band? Habt ihr Erinnerungen? Schreibt uns — nach kurzer Prüfung erscheint euer Eintrag hier.</p>
       <form action="https://formspree.io/f/DEINE_FORMSPREE_ID" method="POST" id="gbForm">
         <input type="hidden" name="_subject" value="Neuer Gästebucheintrag – Heart and Soul" />
-        <input type="hidden" name="_next" value="https://www.scaramouche-film.de/gaestebuch/?danke=1" />
+        <input type="hidden" name="_next" value="/gaestebuch/?danke=1" />
         <div class="form-group">
           <label for="gb-name">Name *</label>
           <input type="text" id="gb-name" name="name" placeholder="Euer Name" autocomplete="name" required />
@@ -217,7 +217,7 @@
 </div>
 
 <div id="footerMount"></div>
-<script src="../assets/site.js"></script>
+<script src="/assets/site.js"></script>
 <script>
   document.getElementById('filmstripMount').outerHTML = renderFilmstrip();
   document.getElementById('navMount').outerHTML = renderNav('Gästebuch');

@@ -53,11 +53,10 @@
     @keyframes filmroll{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
 
     /* NAV */
-    .nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:1.2rem 0;transition:background .4s,padding .4s}
-    .nav.scrolled{background:rgba(10,10,15,.96);backdrop-filter:blur(12px);padding:.75rem 0;border-bottom:1px solid var(--border)}
+    .nav{position:sticky;top:0;z-index:100;background:rgba(10,10,15,.96);backdrop-filter:blur(12px);border-bottom:1px solid var(--border);padding:.9rem 0}
     .nav-inner{max-width:var(--max);margin:0 auto;padding:0 2rem;display:flex;align-items:center;justify-content:space-between;gap:2rem}
-    .nav-logo{font-family:var(--ff-d);font-size:1.1rem;font-weight:900;color:var(--gold);letter-spacing:.04em;line-height:1}
-    .nav-logo span{display:block;font-size:.55rem;font-family:var(--ff-m);font-weight:400;letter-spacing:.3em;color:var(--muted);text-transform:uppercase;margin-top:.15rem}
+    .nav-logo{font-family:var(--ff-d);font-size:1rem;font-weight:900;color:var(--gold);letter-spacing:.04em;line-height:1}
+    .nav-logo span{display:block;font-size:.5rem;font-family:var(--ff-m);font-weight:400;letter-spacing:.3em;color:var(--muted);text-transform:uppercase;margin-top:.1rem}
     .nav-links{display:flex;align-items:center;gap:2rem;list-style:none}
     .nav-links a{font-size:.8rem;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);transition:color .2s;font-weight:500}
     .nav-links a:hover{color:var(--light)}
@@ -318,25 +317,25 @@
 
 <div class="mobile-menu" id="mobileMenu" role="dialog">
   <button class="mobile-close" onclick="toggleMenu()">✕</button>
-  <a href="#story" onclick="toggleMenu()">Der Film</a>
-  <a href="#alben" onclick="toggleMenu()">Discografie</a>
-  <a href="#status" onclick="toggleMenu()">Status</a>
-  <a href="#blog" onclick="toggleMenu()">Blog</a>
-  <a href="#gaestebuch" onclick="toggleMenu()">Gästebuch</a>
-  <a href="#filmteam" onclick="toggleMenu()">Filmteam</a>
-  <a href="https://www.paypal.com/paypalme/punchlinestudio" target="_blank" rel="noopener">Unterstützen</a>
+  <a href="/" onclick="toggleMenu()">Startseite</a>
+  <a href="/presse/" onclick="toggleMenu()">Presse</a>
+  <a href="/blog/" onclick="toggleMenu()">Blog</a>
+  <a href="/gaestebuch/" onclick="toggleMenu()">Gästebuch</a>
+  <a href="/filmteam/" onclick="toggleMenu()">Filmteam</a>
+  <a href="/unterstuetzer/" onclick="toggleMenu()">Unterstützer</a>
+  <a href="https://www.paypal.com/paypalme/punchlinestudio" target="_blank" rel="noopener" onclick="toggleMenu()">Jetzt unterstützen</a>
 </div>
 
 <nav class="nav" id="mainNav">
   <div class="nav-inner">
-    <a href="#" class="nav-logo">HEART AND SOUL<span>Ein Film von Punchline Studio</span></a>
+    <a href="/" class="nav-logo">HEART AND SOUL<span>Ein Film von Punchline Studio</span></a>
     <ul class="nav-links">
-      <li><a href="#story">Der Film</a></li>
-      <li><a href="#alben">Discografie</a></li>
-      <li><a href="#status">Status</a></li>
-      <li><a href="#blog">Blog</a></li>
-      <li><a href="#gaestebuch">Gästebuch</a></li>
-      <li><a href="#filmteam">Filmteam</a></li>
+      <li><a href="/" class="active">Startseite</a></li>
+      <li><a href="/presse/">Presse</a></li>
+      <li><a href="/blog/">Blog</a></li>
+      <li><a href="/gaestebuch/">Gästebuch</a></li>
+      <li><a href="/filmteam/">Filmteam</a></li>
+      <li><a href="/unterstuetzer/">Unterstützer</a></li>
       <li><a href="https://www.paypal.com/paypalme/punchlinestudio" target="_blank" rel="noopener" class="nav-cta">Jetzt unterstützen</a></li>
     </ul>
     <button class="nav-hamburger" onclick="toggleMenu()"><span></span><span></span><span></span></button>
@@ -675,16 +674,16 @@
         <p class="eyebrow" style="margin-bottom:1rem">Aus der Produktion</p>
         <h2 class="section-title">Der Blog</h2>
       </div>
-      <a href="https://www.scaramouche-film.de/blog" class="blog-link">Alle Einträge →</a>
+      <a href="/blog/" class="blog-link">Alle Einträge →</a>
     </div>
     <div class="blog-grid">
       <article class="blog-card fade-up">
-        <img src="assets/tonband.webp" alt="Tonband im Backofen – Archivrestaurierung für Heart and Soul" class="blog-card-img" loading="lazy" />
+        <img src="assets/tonband.webp" alt="Thomas Körffer bei der Tonband-Restaurierung für Heart and Soul" class="blog-card-img" loading="lazy" />
         <div class="blog-card-body">
           <p class="blog-card-date">25. Juni 2024 · 2 Min.</p>
           <h3 class="blog-card-title">Wenn Tonbänder im Backofen schmoren…</h3>
           <p class="blog-card-excerpt">Tonbänder im Backofen – ein untrügliches Zeichen dafür, dass Profis am Werk sind. Die Restaurierung des Archivmaterials beginnt.</p>
-          <a href="https://www.scaramouche-film.de/post/wenn-tonb%C3%A4nder-im-backofen-schmoren" class="blog-card-arrow">Beitrag lesen →</a>
+          <a href="/blog/wenn-tonbänder-im-backofen-schmoren/" class="blog-card-arrow">Beitrag lesen →</a>
         </div>
       </article>
       <article class="blog-card fade-up">
@@ -693,16 +692,16 @@
           <p class="blog-card-date">8. Dez. 2023 · 5 Min.</p>
           <h3 class="blog-card-title">Badischer Underground, Bon Jovi und Proberaumgeschichten</h3>
           <p class="blog-card-excerpt">„Acres Wild waren sowas wie die Popstars von Lahr. Und wir waren halt der Badische Underground." Es gibt Momente als Filmemacher, in…</p>
-          <a href="https://www.scaramouche-film.de/post/badischer-underground-bon-jovi-und-andere-proberaumgeschichten" class="blog-card-arrow">Beitrag lesen →</a>
+          <a href="/blog/badischer-underground-bon-jovi-und-andere-proberaumgeschichten/" class="blog-card-arrow">Beitrag lesen →</a>
         </div>
       </article>
       <article class="blog-card fade-up">
-        <img src="assets/marc_vetter_interview.webp" alt="Interview mit Marc Vetter für den Dokumentarfilm Heart and Soul" class="blog-card-img" loading="lazy" />
+        <img src="assets/marc_vetter_interview.webp" alt="Frank Vetter beim Sommerinterview für den Dokumentarfilm Heart and Soul" class="blog-card-img" loading="lazy" />
         <div class="blog-card-body">
           <p class="blog-card-date">11. Aug. 2023 · 3 Min.</p>
           <h3 class="blog-card-title">Von Spargel und Pfifferlingen: Die Sommerinterviews</h3>
           <p class="blog-card-excerpt">Sommer, Sonne, Nieselregen. So könnte man unsere jüngsten Drehtage zusammenfassen. Die Sommerinterviews sind im Kasten.</p>
-          <a href="https://www.scaramouche-film.de/post/von-spargel-und-pfifferlingen-die-heart-soul-sommerinterviews" class="blog-card-arrow">Beitrag lesen →</a>
+          <a href="/blog/von-spargel-und-pfifferlingen-die-heart-soul-sommerinterviews/" class="blog-card-arrow">Beitrag lesen →</a>
         </div>
       </article>
     </div>
@@ -727,7 +726,7 @@
           <p class="entry-name">Thomas K. · Freiburg</p>
           <p class="entry-text">„Jeans Song lief auf meinem ersten Kassettenrecorder. Diese Band hat meine Jugend mitgeprägt."</p>
         </div>
-        <a href="https://www.scaramouche-film.de/gaestebuch" class="blog-link" style="display:inline-block;margin-top:.5rem">Alle Einträge lesen →</a>
+        <a href="/gaestebuch/" class="blog-link" style="display:inline-block;margin-top:.5rem">Alle Einträge lesen →</a>
       </div>
       <div class="fade-up">
         <form class="gb-form" onsubmit="handleGaestebuch(event)" novalidate>
@@ -764,23 +763,23 @@
     </div>
     <div class="team-grid">
       <div class="team-card fade-up">
-        <img src="assets/cameraman_live.webp" alt="Maik Styrnol beim Dreh – Kameramann mit Gimbal auf Konzertbühne" class="team-card-img" loading="lazy" />
+        <img src="assets/team_maik_pirmin.webp" alt="Maik Styrnol (links) – Punchline Studio Lahr" class="team-card-img" loading="lazy" style="object-position:25% center" />
         <div class="team-card-body">
           <h3 class="team-name">Maik Styrnol</h3>
-          <p class="team-role">Regie · Kamera · Ton · Schnitt</p>
+          <p class="team-role">Kreativdirektion · Ton · Musik · Kamera</p>
         </div>
       </div>
       <div class="team-card fade-up">
-        <img src="assets/editing_suite.webp" alt="Pirmin Styrnol beim Schnitt in DaVinci Resolve im Punchline Studio" class="team-card-img" loading="lazy" />
+        <img src="assets/team_maik_pirmin.webp" alt="Pirmin Styrnol (rechts) – Punchline Studio Lahr" class="team-card-img" loading="lazy" style="object-position:75% center" />
         <div class="team-card-body">
           <h3 class="team-name">Pirmin Styrnol</h3>
-          <p class="team-role">Regie · Produktion · Color Grading</p>
+          <p class="team-role">Regie · Skript · Color Grading · Sprecher</p>
         </div>
       </div>
       <div class="team-card fade-up">
-        <img src="assets/tonband.webp" alt="Tonband-Restaurierung im Punchline Studio" class="team-card-img" loading="lazy" />
+        <img src="assets/punchline_logo_weiss.webp" alt="punchline studio – Pirmin &amp; Maik Styrnol GbR, Lahr/Schwarzwald" class="team-card-img" loading="lazy" style="object-fit:contain;padding:2rem;background:var(--deep)" />
         <div class="team-card-body">
-          <h3 class="team-name">Punchline Studio</h3>
+          <h3 class="team-name">punchline studio</h3>
           <p class="team-role">Audioproduktion · Filmproduktion · Lahr</p>
         </div>
       </div>
@@ -813,7 +812,7 @@
           <li><a href="#alben">Discografie</a></li>
           <li><a href="#status">Produktionsstatus</a></li>
           <li><a href="#filmteam">Das Filmteam</a></li>
-          <li><a href="https://www.scaramouche-film.de/presse">Presse</a></li>
+          <li><a href="/presse/">Presse</a></li>
         </ul>
       </div>
       <div class="footer-col">
@@ -821,7 +820,7 @@
         <ul>
           <li><a href="#blog">Blog</a></li>
           <li><a href="#gaestebuch">Gästebuch</a></li>
-          <li><a href="https://www.scaramouche-film.de/unterstuetzer">Alle Unterstützer</a></li>
+          <li><a href="/unterstuetzer/">Alle Unterstützer</a></li>
           <li><a href="#support">Jetzt unterstützen</a></li>
           <li><a href="#audio">Radio &amp; Interviews</a></li>
         </ul>
@@ -831,22 +830,19 @@
         <ul>
           <li><a href="mailto:studio@film-und-ton.de">studio@film-und-ton.de</a></li>
           <li><a href="https://film-und-ton.de" target="_blank" rel="noopener">film-und-ton.de</a></li>
-          <li><a href="https://www.scaramouche-film.de/impressum">Impressum</a></li>
+          <li><a href="/impressum/">Impressum</a></li>
         </ul>
       </div>
     </div>
     <div class="footer-bottom">
       <p>© 2024 Pirmin Styrnol &amp; Maik Styrnol GbR · Punchline Studio · Lahr/Schwarzwald</p>
-      <p><a href="https://www.scaramouche-film.de/impressum">Impressum</a> · <a href="mailto:studio@film-und-ton.de">Kontakt</a></p>
+      <p><a href="/impressum/">Impressum</a> · <a href="mailto:studio@film-und-ton.de">Kontakt</a></p>
     </div>
   </div>
 </footer>
 
 <script>
   // NAV
-  const nav = document.getElementById('mainNav');
-  window.addEventListener('scroll', () => nav.classList.toggle('scrolled', window.scrollY > 60), {passive:true});
-
   // MOBILE MENU
   function toggleMenu() {
     const m = document.getElementById('mobileMenu');
