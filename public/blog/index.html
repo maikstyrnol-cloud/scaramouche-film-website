@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" /><meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Blog – Heart and Soul | Scaramouche Dokumentarfilm</title>
+  <meta name="description" content="Der Produktionsblog zum Dokumentarfilm Heart and Soul über die Kultband Scaramouche aus Lahr. Alle 28 Einträge seit 2018." />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://www.scaramouche-film.de/blog/" />
+  <meta property="og:title" content="Blog – Heart and Soul | Scaramouche Dokumentarfilm" />
+  <meta property="og:url" content="https://www.scaramouche-film.de/blog/" />
+  <meta property="og:type" content="website" />
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"Blog","name":"Heart and Soul – Produktionsblog","url":"https://www.scaramouche-film.de/blog/","publisher":{"@type":"Organization","name":"Punchline Studio","url":"https://film-und-ton.de"}}</script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=Inter:wght@300;400;500;600&family=Courier+Prime:wght@400;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/assets/site.css" />
+  <style>
+    .blog-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;padding:3rem 0 6rem}
+    .blog-card{background:var(--panel);border:1px solid var(--border);display:flex;flex-direction:column;transition:border-color .2s,transform .2s}
+    .blog-card:hover{border-color:var(--gold-dim);transform:translateY(-3px)}
+    .blog-card a{display:flex;flex-direction:column;flex:1;color:inherit}
+    .blog-card-img{width:100%;aspect-ratio:16/10;object-fit:cover;object-position:center;background:var(--deep)}
+    .blog-card-img-placeholder{width:100%;aspect-ratio:16/10;background:var(--deep);display:flex;align-items:center;justify-content:center;font-family:var(--ff-m);font-size:.6rem;letter-spacing:.2em;color:var(--border);text-transform:uppercase}
+    .blog-card-body{padding:1.5rem;flex:1;display:flex;flex-direction:column}
+    .blog-card-date{font-family:var(--ff-m);font-size:.62rem;color:var(--muted);letter-spacing:.15em;margin-bottom:.6rem}
+    .blog-card-title{font-family:var(--ff-d);font-size:1.05rem;color:var(--light);line-height:1.3;margin-bottom:.7rem;flex:1}
+    .blog-card-excerpt{font-size:.85rem;color:var(--muted);line-height:1.6;margin-bottom:1.25rem}
+    .blog-card-arrow{font-family:var(--ff-m);font-size:.65rem;letter-spacing:.15em;text-transform:uppercase;color:var(--gold);margin-top:auto}
+    .blog-intro{padding:1.5rem 0 0}
+    .blog-intro p{color:var(--body);font-size:1.05rem;max-width:600px;margin-top:.75rem}
+    .blog-audio-bar{background:var(--panel);border-bottom:1px solid var(--border);padding:1rem 0}
+    .blog-audio-inner{max-width:1140px;margin:0 auto;padding:0 2rem;display:flex;align-items:center;gap:1rem;flex-wrap:wrap}
+    .blog-audio-label{font-family:var(--ff-m);font-size:.62rem;letter-spacing:.2em;text-transform:uppercase;color:var(--muted);white-space:nowrap}
+    .blog-audio-inner .audio-player{flex:1;min-width:280px}
+    @media(max-width:900px){.blog-grid{grid-template-columns:1fr 1fr}}
+    @media(max-width:600px){.blog-grid{grid-template-columns:1fr}}
+  </style>
+</head>
+<body>
+<div id="navMount"></div>
+<div id="filmstripMount"></div>
+
+<div class="blog-audio-bar">
+  <div class="blog-audio-inner">
+    <span class="blog-audio-label">Jetzt hören:</span>
+    <div class="audio-player">
+      <button class="ap-btn" onclick="playTrack(this,'/assets/swr1_corvin_04may.opus')" aria-label="Abspielen">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+      </button>
+      <div class="ap-info">
+        <div class="ap-title">SWR1 – Der Abend | Interview & Unplugged-Konzert</div>
+        <div class="ap-meta">Corvin Tondera-Klein & Scaramouche · 04.05.2019</div>
+      </div>
+      <div class="ap-progress"><div class="ap-bar"></div></div>
+      <span class="ap-time">0:00</span>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+  <div class="blog-intro fade-up">
+    <p class="eyebrow">Aus der Produktion</p>
+    <h1 class="section-title">Der Blog</h1>
+    <p>Alle 28 Einträge aus der Produktion von Heart and Soul – von den ersten Recherchen 2018 bis heute.</p>
+  </div>
+
+  <div class="blog-grid">
+      <article class="blog-card fade-up">
+        <a href="/blog/wenn-tonbänder-im-backofen-schmoren/">
+          <img src="/assets/tonband.webp" alt="Wenn Tonbänder im Backofen schmoren..." class="blog-card-img" loading="lazy" />
+          <div class="blog-card-body">
+            <p class="blog-card-date">25. Juni 2024 · 2 Min. Lesezeit</p>
+            <h2 class="blog-card-title">Wenn Tonbänder im Backofen schmoren...</h2>
+            <p class="blog-card-excerpt">Wenn Tonbänder im Backofen schmoren, dann ist das meist ein untrügliches Indiz dafür, dass Profis am Werk sind. </p>
+            <span class="blog-card-arrow">Weiterlesen →</span>
+          </div>
+        </a>
+      </article>
+      <article class="blog-card fade-up">
+        <a href="/blog/badischer-underground-bon-jovi-und-andere-proberaumgeschichten/">
+          <img src="/assets/kasetten.webp" alt="Badischer Underground, Bon Jovi und andere Proberaumgeschichten" class="blog-card-img" loading="lazy" />
+          <div class="blog-card-body">
+            <p class="blog-card-date">7. Dez. 2023 · 5 Min. Lesezeit</p>
+            <h2 class="blog-card-title">Badischer Underground, Bon Jovi und andere Proberaumgeschichten</h2>
+            <p class="blog-card-excerpt">"Acres Wild waren sowas wie die Popstars von Lahr. Und wir waren halt der Badische Underground." Es gibt Momente als Filmemacher, in...</p>
+            <span class="blog-card-arrow">Weiterlesen →</span>
+          </div>
+        </a>
+      </article>
+      <article class="blog-card fade-up">
+        <a href="/blog/cleopha-87-nostalgie-im-nieselregen/">
+          <img src="/assets/scaramouche_stage_warm.webp" alt="Cleopha 87 - Nostalgie im Nieselregen" class="blog-card-img" loading="lazy" />
+          <div class="blog-card-body">
+            <p class="blog-card-date">22. Nov. 2023 · 3 Min. Lesezeit</p>
+            <h2 class="blog-card-title">Cleopha 87 - Nostalgie im Nieselregen</h2>
+            <p class="blog-card-excerpt">"DSGO-Hinweis!" - das weiße Din-A4-Blatt stach uns sofort ins Auge, als wir den Fußballplatz in Grafenhausen mit unserem Filmequipment...</p>
+            <span class="blog-card-arrow">Weiterlesen →</span>
+          </div>
+        </a>
+      </article>
+      <article class="blog-card fade-up">
+        <a href="/blog/von-spargel-und-pfifferlingen-die-heart-soul-sommerinterviews/">
+          <img src="/assets/marc_vetter_interview.webp" alt="Von Spargel und Pfifferlingen: Die Heart&Soul-"Sommerinterviews"" class="blog-card-img" loading="lazy" />
+          <div class="blog-card-body">
+            <p class="blog-card-date">11. Aug. 2023 · 3 Min. Lesezeit</p>
+            <h2 class="blog-card-title">Von Spargel und Pfifferlingen: Die Heart&Soul-"Sommerinterviews"</h2>
+            <p class="blog-card-excerpt">Sommer, Sonne, Nieselregen. So könnte man unsere jüngsten Drehtage für den Scaramouche-Film zusammenfassen. Denn im krassen Gegensatz zu...</p>
+            <span class="blog-card-arrow">Weiterlesen →</span>
+          </div>
+        </a>
+      </article>
+      <article class="blog-card fade-up">
+        <a href="/blog/und-bitte-die-drehs-laufen-wieder/">
+          <img src="/assets/editing_mac.webp" alt="Und bitte! - die Drehs laufen wieder" class="blog-card-img" loading="lazy" />
+          <div class="blog-card-body">
+            <p class="blog-card-date">18. Juli 2023 · 3 Min. Lesezeit</p>
+            <h2 class="blog-card-title">Und bitte! - die Drehs laufen wieder</h2>
+            <p class="blog-card-excerpt">Ja es stimmt, es gab doch ganz schön lange nichts neues über "Heart and Soul" zu lesen oder zu hören. Und deshalb mehren sich die Fragen...</p>
+            <span class="blog-card-arrow">Weiterlesen →</span>
+          </div>
+        </a>
+      </article>
+      <article class="blog-card fade-up">
+        <a href="/blog/warum-so-lange-nichts-von-uns-zu-hören-war/">
+          <img src="/assets/pressordner.webp" alt="Warum so lange nichts von uns zu hören war..." class="blog-card-img" loading="lazy" />
+          <div class="blog-card-body">
+            <p class="blog-card-date">22. Feb. 2022 · 4 Min. Lesezeit</p>
+            <h2 class="blog-card-title">Warum so lange nichts von uns zu hören war...</h2>
+            <p class="blog-card-excerpt">Hallo, hier sind wir wieder. Nach einer ganz schön langen Durstrecke in diesem Blog. In letzter Zeit häufen sich aber die E-Mails und...</p>
+            <span class="blog-card-arrow">Weiterlesen →</span>
+          </div>
+        </a>
+      </article>
+      <article class="blog-card fade-up">
+        <a href="/blog/endlich-wieder-heart-and-soul-die-ersten-drehtage-seit-märz/">
+          <img src="/assets/editing_suite.webp" alt="Endlich wieder Heart and Soul - Die ersten Drehtage seit März" class="blog-card-img" loading="lazy" />
+          <div class="blog-card-body">
+            <p class="blog-card-date">14. Okt. 2020 · 3 Min. Lesezeit</p>
+            <h2 class="blog-card-title">Endlich wieder Heart and Soul - Die ersten Drehtage seit März</h2>
+            <p class="blog-card-excerpt">Zum ersten Mal seit dem Shutdown im März machten wir uns wieder auf, um Protagonisten für unsere Musikdoku zu interviewen...</p>
+            <span class="blog-card-arrow">Weiterlesen →</span>
+          </div>
+        </a>
+      </article>
+      <article class="blog-card fade-up">
+        <a href="/blog/project-united-wie-70-musiker-aus-10-ländern-einen-scaramouche-song-einspielten/">
+          <img src="/assets/project_united.webp" alt="“Project United” - Wie 70 Musiker aus 10 Ländern einen Scaramouche-Song einspielten" class="blog-card-img" loading="lazy" />
+          <div class="blog-card-body">
+            <p class="blog-card-date">6. Apr. 2020 · 4 Min. Lesezeit</p>
+            <h2 class="blog-card-title">“Project United” - Wie 70 Musiker aus 10 Ländern einen Scaramouche-Song einspielten</h2>
+            <p class="blog-card-excerpt">So war das ja nun wirklich nicht geplant. Eigentlich hatten wir erwartet zum jetzigen Zeitpunkt mit den Dreharbeiten für “Heart and Soul”...</p>
+            <span class="blog-card-arrow">Weiterlesen →</span>
+          </div>
+        </a>
+      </article>
+      <article class="blog-card fade-up">
+        <a href="/blog/du-bist-aus-lahr-wenn-du-hilfe-aus-kanada-erhältst/">
+          <div class="blog-card-img-placeholder">Beitragsbild</div>
+          <div class="blog-card-body">
+            <p class="blog-card-date">6. März 2020 · 2 Min. Lesezeit</p>
+            <h2 class="blog-card-title">“Du bist aus Lahr, wenn…” ...du Hilfe aus Kanada erhältst</h2>
+            <p class="blog-card-excerpt">Im Oktober 2018 gingen wir zum ersten Mal mit unserer Filmidee an die Öffentlichkeit. Damals baten wir die gesamte Ortenau um Hilfe:...</p>
+            <span class="blog-card-arrow">Weiterlesen →</span>
+          </div>
+        </a>
+      </article>
+      <article class="blog-card fade-up">
+        <a href="/blog/heart-and-soul-bei-deep-purple-ein-sonntag-mit-rocklegenden/">
+          <div class="blog-card-img-placeholder">Beitragsbild</div>
+          <div class="blog-card-body">
+            <p class="blog-card-date">6. Dez. 2019 · 6 Min. Lesezeit</p>
+            <h2 class="blog-card-title">Zum Filmdreh bei Deep Purple - Ein Sonntag mit Rocklegenden</h2>
+            <p class="blog-card-excerpt">Es gibt Momente, den wird man sich erst so richtig bewusst, wenn sie vorbei sind. Das hier, dieser Tag in Kärnten, das war so einer.</p>
+            <span class="blog-card-arrow">Weiterlesen →</span>
+          </div>
+        </a>
+      </article>
+      <article class="blog-card fade-up">
+        <a href="/blog/ein-drehtag-in-der-rockfabrik-heart-and-soul-im-rocker-paradies/">
+          <div class="blog-card-img-placeholder">Beitragsbild</div>
+          <div class="blog-card-body">
+            <p class="blog-card-date">14. Nov. 2019 · 4 Min. Lesezeit</p>
+            <h2 class="blog-card-title">Ein Drehtag in der Rockfabrik - “Heart and Soul” im Rocker-Paradies</h2>
+            <p class="blog-card-excerpt">Wolfgang “Hasche” Hagemann sitzt lachend in seinem “Wohnzimmer”, direkt vor der Tanzfläche in der Rockfabrik Ludwigsburg...</p>
+            <span class="blog-card-arrow">Weiterlesen →</span>
+          </div>
+        </a>
+      </article>
+      <article class="blog-card fade-up">
+        <a href="/blog/von-welt-drummer-im-interview-patrick-moser-muss-hoch-hinaus/">
+          <div class="blog-card-img-placeholder">Beitragsbild</div>
+          <div class="blog-card-body">
+            <p class="blog-card-date">4. Nov. 2019 · 2 Min. Lesezeit</p>
+            <h2 class="blog-card-title">“VON WELT”-Drummer im Interview - Patrick Moser muss “hoch hinaus”</h2>
+            <p class="blog-card-excerpt">Es gibt Settings, die sehen wirklich toll aus. Das Setting für unser Interview mit “VON WELT”-Drummer Patrick Moser war so eins. “VON...</p>
+            <span class="blog-card-arrow">Weiterlesen →</span>
+          </div>
+        </a>
+      </article>
+      <article class="blog-card fade-up">
+        <a href="/blog/heavy-metal-in-mannheim-break-out-maloik-und-ein-bisschen-nervosität/">
+          <div class="blog-card-img-placeholder">Beitragsbild</div>
+          <div class="blog-card-body">
+            <p class="blog-card-date">1. Nov. 2019 · 2 Min. Lesezeit</p>
+            <h2 class="blog-card-title">Heavy Metal in Mannheim - Break Out, Maloik und ein bisschen Nervosität</h2>
+            <p class="blog-card-excerpt">Unser Drehtag am Mittwoch in Mannheim startete eigentlich schon am Dienstagabend. Mit einem Facebook-Post unseres Interviewpartners Chris...</p>
+            <span class="blog-card-arrow">Weiterlesen →</span>
+          </div>
+        </a>
+      </article>
+      <article class="blog-card fade-up">
+        <a href="/blog/knapp-30-000-menschen-bei-einem-festival-in-lahr-das-ist-doch-toll/">
+          <div class="blog-card-img-placeholder">Beitragsbild</div>
+          <div class="blog-card-body">
+            <p class="blog-card-date">26. Okt. 2019 · 2 Min. Lesezeit</p>
+            <h2 class="blog-card-title">“Knapp 30.000 Menschen bei einem Festival in Lahr - das ist doch toll!”</h2>
+            <p class="blog-card-excerpt">Kaum haben wir begonnen, rast die Zeit. Mittlerweile haben wir schon vier Drehtage und drei lange Interviews absolviert - und auch...</p>
+            <span class="blog-card-arrow">Weiterlesen →</span>
+          </div>
+        </a>
+      </article>
+      <article class="blog-card fade-up">
+        <a href="/blog/film-ab-der-erste-drehtag-apostelsee-und-andere-geschichten/">
+          <div class="blog-card-img-placeholder">Beitragsbild</div>
+          <div class="blog-card-body">
+            <p class="blog-card-date">15. Okt. 2019 · 3 Min. Lesezeit</p>
+            <h2 class="blog-card-title">Film ab! Der erste Interview-Drehtag - Apostelsee und andere Geschichten</h2>
+            <p class="blog-card-excerpt">Los ging’s um 12 Uhr, Drehstart am Apostelsee in Ettenheim. Warum? Weil dort vor genau 31 Jahren der erste Geburtstag von “Cleopha 87”...</p>
+            <span class="blog-card-arrow">Weiterlesen →</span>
+          </div>
+        </a>
+      </article>
+      <article class="blog-card fade-up">
+        <a href="/blog/das-drehbuch-ist-fertig/">
+          <div class="blog-card-img-placeholder">Beitragsbild</div>
+          <div class="blog-card-body">
+            <p class="blog-card-date">10. Sept. 2019 · 1 Min. Lesezeit</p>
+            <h2 class="blog-card-title">Das Drehbuch ist fertig</h2>
+            <p class="blog-card-excerpt">Ehrlich gesagt, so richtig viel Durchschnaufen gab es nach dem Crowdfunding dann doch nicht für unser Filmteam von “Heart and Soul”.
+Eigentl</p>
+            <span class="blog-card-arrow">Weiterlesen →</span>
+          </div>
+        </a>
+      </article>
+      <article class="blog-card fade-up">
+        <a href="/blog/erfolgreiches-crowdfunding/">
+          <div class="blog-card-img-placeholder">Beitragsbild</div>
+          <div class="blog-card-body">
+            <p class="blog-card-date">16. Juni 2019 · 1 Min. Lesezeit</p>
+            <h2 class="blog-card-title">Erfolgreiches Crowdfunding!</h2>
+            <p class="blog-card-excerpt">Unglaublich! Es ist geschafft! So ganz können wir es noch nicht glauben: am 15.06.2019 um 23:59 Uhr ging unser Crowdfunding erfolgreich...</p>
+            <span class="blog-card-arrow">Weiterlesen →</span>
+          </div>
+        </a>
+      </article>
+      <article class="blog-card fade-up">
+        <a href="/blog/scaramouche-unplugged-bei-swr1/">
+          <img src="/assets/swr1_unplugged.webp" alt="Scaramouche Unplugged bei SWR1" class="blog-card-img" loading="lazy" />
+          <div class="blog-card-body">
+            <p class="blog-card-date">6. Mai 2019 · 2 Min. Lesezeit</p>
+            <h2 class="blog-card-title">Scaramouche Unplugged bei SWR1</h2>
+            <p class="blog-card-excerpt">Unglaublich. Eine Band, die seit 18 Jahren nicht mehr gemeinsam gespielt hat, gibt ein Unplugged-Konzert bei SWR1. Da denkt man natürlich...</p>
+            <span class="blog-card-arrow">Weiterlesen →</span>
+          </div>
+        </a>
+      </article>
+      <article class="blog-card fade-up">
+        <a href="/blog/unser-crowdfunding-im-swr1/">
+          <div class="blog-card-img-placeholder">Beitragsbild</div>
+          <div class="blog-card-body">
+            <p class="blog-card-date">3. Mai 2019 · 1 Min. Lesezeit</p>
+            <h2 class="blog-card-title">Unser Crowdfunding bei SWR1</h2>
+            <p class="blog-card-excerpt">Schon vor knapp zwei Wochen waren wir beim Karlsruher Radiosender "die neue welle" zu Gast. Moderator Jan Zipperer fragte uns über unser...</p>
+            <span class="blog-card-arrow">Weiterlesen →</span>
+          </div>
+        </a>
+      </article>
+      <article class="blog-card fade-up">
+        <a href="/blog/das-crowdfunding-läuft-auch-zermet-volksbank-und-stadt-lahr-als-erste-geldgeber-mit-dabei/">
+          <div class="blog-card-img-placeholder">Beitragsbild</div>
+          <div class="blog-card-body">
+            <p class="blog-card-date">18. Apr. 2019 · 2 Min. Lesezeit</p>
+            <h2 class="blog-card-title">Das Crowdfunding läuft - Auch Zermet, Volksbank und Stadt Lahr als erste Geldgeber mit dabei</h2>
+            <p class="blog-card-excerpt">Seit Montag sind wir offiziell ein Crowdfunding-Projekt! Unter www.startnext.com/heart-and-soul kann seitdem jeder, der auch als Sponsor...</p>
+            <span class="blog-card-arrow">Weiterlesen →</span>
+          </div>
+        </a>
+      </article>
+      <article class="blog-card fade-up">
+        <a href="/blog/wir-zählen-auf-euch/">
+          <div class="blog-card-img-placeholder">Beitragsbild</div>
+          <div class="blog-card-body">
+            <p class="blog-card-date">12. Apr. 2019 · 2 Min. Lesezeit</p>
+            <h2 class="blog-card-title">Wir zählen auf Euch!</h2>
+            <p class="blog-card-excerpt">Ab dem 15. April gibt’s unser Crowdfunding bei startnext.com. Bald ist es so weit: Unser angekündigtes Crowdfunding soll am 15. April...</p>
+            <span class="blog-card-arrow">Weiterlesen →</span>
+          </div>
+        </a>
+      </article>
+      <article class="blog-card fade-up">
+        <a href="/blog/ein-erstes-skript/">
+          <div class="blog-card-img-placeholder">Beitragsbild</div>
+          <div class="blog-card-body">
+            <p class="blog-card-date">30. März 2019 · 2 Min. Lesezeit</p>
+            <h2 class="blog-card-title">Ein erstes Skript</h2>
+            <p class="blog-card-excerpt">Am Anfang ist immer Leere. Weiße Leere. Dieses gemeine, weiße Blatt Papier, das gefüllt werden möchte. Jeder Kreative kennt das. Auch das...</p>
+            <span class="blog-card-arrow">Weiterlesen →</span>
+          </div>
+        </a>
+      </article>
+      <article class="blog-card fade-up">
+        <a href="/blog/scaramouche-film-finanzierung/">
+          <div class="blog-card-img-placeholder">Beitragsbild</div>
+          <div class="blog-card-body">
+            <p class="blog-card-date">3. März 2019 · 2 Min. Lesezeit</p>
+            <h2 class="blog-card-title">Sponsoren in Sicht - Wie unsere Finanzierungsphase läuft</h2>
+            <p class="blog-card-excerpt">Hui, da haben wir aber wirklich lange nichts mehr von uns hören lassen. Das liegt einfach daran, dass wir gerade an einem Teilaspekt der...</p>
+            <span class="blog-card-arrow">Weiterlesen →</span>
+          </div>
+        </a>
+      </article>
+      <article class="blog-card fade-up">
+        <a href="/blog/oil-live-in-concert-das-erste-video-ist-online/">
+          <div class="blog-card-img-placeholder">Beitragsbild</div>
+          <div class="blog-card-body">
+            <p class="blog-card-date">2. Feb. 2019 · 2 Min. Lesezeit</p>
+            <h2 class="blog-card-title">OIL live in Concert! Das erste Video ist online</h2>
+            <p class="blog-card-excerpt">Nein, „OIL“ ist nicht Scaramouche. Eigentlich hat die Hard-Rock-Band rein stilistisch auch nicht viel mit „Scaramouche“ zu tun. Die drei...</p>
+            <span class="blog-card-arrow">Weiterlesen →</span>
+          </div>
+        </a>
+      </article>
+      <article class="blog-card fade-up">
+        <a href="/blog/der-erste-drehtag-scaramouche-lahr/">
+          <div class="blog-card-img-placeholder">Beitragsbild</div>
+          <div class="blog-card-body">
+            <p class="blog-card-date">21. Jan. 2019 · 4 Min. Lesezeit</p>
+            <h2 class="blog-card-title">Der erste Drehtag – Voodoo, Oil und ganz viel Hard Rock</h2>
+            <p class="blog-card-excerpt">Da war was los… Unser erster Drehtag ist Geschichte und lässt uns müde aber euphorisiert zurück. Um vier Uhr am Sonntagmorgen durfte...</p>
+            <span class="blog-card-arrow">Weiterlesen →</span>
+          </div>
+        </a>
+      </article>
+      <article class="blog-card fade-up">
+        <a href="/blog/jetzt-geht-s-los-der-erste-drehtag-ein-konzertfilm-im-lahrer-schlachthof/">
+          <div class="blog-card-img-placeholder">Beitragsbild</div>
+          <div class="blog-card-body">
+            <p class="blog-card-date">18. Jan. 2019 · 2 Min. Lesezeit</p>
+            <h2 class="blog-card-title">Jetzt geht’s los! Der erste Drehtag: Ein Konzertfilm im Lahrer Schlachthof
+</h2>
+            <p class="blog-card-excerpt">Am Samstag, 19.01.2019 ist es endlich so weit: Unser erster Drehtag steht an. Eigentlich wollten wir mit dem offiziellen Drehbeginn ja...</p>
+            <span class="blog-card-arrow">Weiterlesen →</span>
+          </div>
+        </a>
+      </article>
+      <article class="blog-card fade-up">
+        <a href="/blog/band-scaramouche-film-lahr/">
+          <div class="blog-card-img-placeholder">Beitragsbild</div>
+          <div class="blog-card-body">
+            <p class="blog-card-date">8. Jan. 2019 · 3 Min. Lesezeit</p>
+            <h2 class="blog-card-title">Der Scaramouche-Film - Wo fängt man an?</h2>
+            <p class="blog-card-excerpt">Wo und wie fängt man an, für ein so großes Doku-Projekt zu arbeiten? Was in einem Blogartikel erstmal wie ein unspektakulärer...</p>
+            <span class="blog-card-arrow">Weiterlesen →</span>
+          </div>
+        </a>
+      </article>
+      <article class="blog-card fade-up">
+        <a href="/blog/das-filmteam-sagt-danke/">
+          <div class="blog-card-img-placeholder">Beitragsbild</div>
+          <div class="blog-card-body">
+            <p class="blog-card-date">31. Dez. 2018 · 1 Min. Lesezeit</p>
+            <h2 class="blog-card-title">Das Filmteam sagt Danke!</h2>
+            <p class="blog-card-excerpt">Seit rund zwei Monaten laufen unsere Recherchen auf Hochtouren - und seit Weihnachten ist klar: Dank Hilfe aus der gesamten Region haben...</p>
+            <span class="blog-card-arrow">Weiterlesen →</span>
+          </div>
+        </a>
+      </article>
+  </div>
+</div>
+
+<div id="footerMount"></div>
+<script src="/assets/site.js"></script>
+<script>
+  document.getElementById('filmstripMount').outerHTML = renderFilmstrip();
+  document.getElementById('navMount').outerHTML = renderNav('Blog');
+  document.getElementById('footerMount').outerHTML = renderFooter();
+</script>
+</body>
+</html>

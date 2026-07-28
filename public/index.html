@@ -1,0 +1,985 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Heart and Soul – Scaramouche | Der Dokumentarfilm | Punchline Studio</title>
+  <meta name="description" content="Heart and Soul – der Dokumentarfilm über die Kultband Scaramouche aus Lahr. Von den Anfängen als Acres Wild bis zur Bandauflösung 2001. Punchline Studio, Lahr/Schwarzwald." />
+  <meta name="keywords" content="Scaramouche, Dokumentarfilm, Musikdoku, Lahr, Heart and Soul, Punchline Studio, Frank Vetter, Marc Vetter, Gert Endres, Thomas Schwendemann, Kai Escher, Ortenau, 90er, 80er, Rockband, Acres Wild, Born in December, Warner Music" />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://www.scaramouche-film.de" />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Heart and Soul – Scaramouche | Der Dokumentarfilm" />
+  <meta property="og:description" content="Der Dokumentarfilm über die Kultband Scaramouche aus Lahr. Zwischen 1993 und 2001 spielten sie bis zu 80 Konzerte pro Jahr. Jetzt kommt ihre Geschichte auf die Leinwand." />
+  <meta property="og:url" content="https://www.scaramouche-film.de" />
+  <meta property="og:image" content="https://www.scaramouche-film.de/assets/hero.webp" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Heart and Soul – Scaramouche | Dokumentarfilm" />
+  <meta name="twitter:description" content="Der Dokumentarfilm über die Kultband Scaramouche aus Lahr. Punchline Studio." />
+  <meta name="twitter:image" content="https://www.scaramouche-film.de/assets/hero.webp" />
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"Movie","name":"Heart and Soul","description":"Dokumentarfilm über die Kultband Scaramouche aus Lahr, produziert von Punchline Studio.","genre":"Documentary","productionCompany":{"@type":"Organization","name":"Punchline Studio","url":"https://film-und-ton.de"},"url":"https://www.scaramouche-film.de"}</script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=Inter:wght@300;400;500;600&family=Courier+Prime:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --ink:#0a0a0f;--deep:#111118;--panel:#181820;--border:#2a2a38;
+      --muted:#5a5a72;--body:#c8c8d8;--light:#e8e8f0;
+      --gold:#c9a84c;--gold-dim:#8a6f2e;--cream:#f0e6c8;--red:#9b2335;
+      --ff-d:'Playfair Display',Georgia,serif;
+      --ff-b:'Inter',system-ui,sans-serif;
+      --ff-m:'Courier Prime','Courier New',monospace;
+      --max:1140px;--gap:7rem;
+    }
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+    html{scroll-behavior:smooth}
+    body{background:var(--ink);color:var(--body);font-family:var(--ff-b);font-size:1rem;line-height:1.7;overflow-x:hidden}
+    img{max-width:100%;display:block}
+    a{color:inherit;text-decoration:none}
+    .container{max-width:var(--max);margin:0 auto;padding:0 2rem}
+    .eyebrow{font-family:var(--ff-m);font-size:.72rem;letter-spacing:.25em;text-transform:uppercase;color:var(--gold)}
+    .section-title{font-family:var(--ff-d);font-size:clamp(2rem,4vw,3rem);font-weight:700;color:var(--light);line-height:1.15}
+    .divider{width:100%;height:1px;background:linear-gradient(to right,transparent,var(--border),transparent)}
+
+    /* FILMSTRIP */
+    .filmstrip{width:100%;overflow:hidden;background:var(--ink);padding:.6rem 0;position:relative}
+    .filmstrip::before,.filmstrip::after{content:'';position:absolute;top:0;bottom:0;width:6rem;z-index:2;pointer-events:none}
+    .filmstrip::before{left:0;background:linear-gradient(to right,var(--ink),transparent)}
+    .filmstrip::after{right:0;background:linear-gradient(to left,var(--ink),transparent)}
+    .filmstrip-track{display:flex;gap:2rem;width:max-content;animation:filmroll 30s linear infinite}
+    .filmstrip-track:hover{animation-play-state:paused}
+    .filmstrip-item{font-family:var(--ff-m);font-size:.65rem;letter-spacing:.3em;text-transform:uppercase;color:var(--gold-dim);white-space:nowrap;padding:0 1rem;display:flex;align-items:center;gap:1.5rem}
+    .filmstrip-item::before{content:'◆';font-size:.4rem;color:var(--red)}
+    @keyframes filmroll{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
+
+    /* NAV */
+    .nav{position:sticky;top:0;z-index:100;background:rgba(10,10,15,.96);backdrop-filter:blur(12px);border-bottom:1px solid var(--border);padding:.9rem 0}
+    .nav-inner{max-width:var(--max);margin:0 auto;padding:0 2rem;display:flex;align-items:center;justify-content:space-between;gap:2rem}
+    .nav-logo{font-family:var(--ff-d);font-size:1rem;font-weight:900;color:var(--gold);letter-spacing:.04em;line-height:1}
+    .nav-logo span{display:block;font-size:.5rem;font-family:var(--ff-m);font-weight:400;letter-spacing:.3em;color:var(--muted);text-transform:uppercase;margin-top:.1rem}
+    .nav-links{display:flex;align-items:center;gap:1.5rem;list-style:none}
+    .nav-links a{font-size:.8rem;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);transition:color .2s;font-weight:500}
+    .nav-links a:hover{color:var(--light)}
+    .nav-cta{color:var(--gold)!important;border:1px solid var(--gold-dim);padding:.5rem 1rem;font-family:var(--ff-m);font-size:.72rem;letter-spacing:.15em;transition:background .2s,color .2s!important;white-space:nowrap;flex-shrink:0}
+    .nav-cta:hover{background:var(--gold)!important;color:var(--ink)!important}
+    .nav-hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;background:none;border:none;padding:4px}
+    .nav-hamburger span{display:block;width:24px;height:2px;background:var(--light);transition:.3s}
+    .mobile-menu{display:none;position:fixed;inset:0;background:var(--ink);z-index:99;flex-direction:column;align-items:center;justify-content:center;gap:2rem}
+    .mobile-menu.open{display:flex}
+    .mobile-menu a{font-family:var(--ff-d);font-size:2rem;color:var(--light)}
+    .mobile-menu a:hover{color:var(--gold)}
+    .mobile-close{position:absolute;top:1.5rem;right:2rem;background:none;border:none;color:var(--muted);font-size:1.5rem;cursor:pointer}
+
+    /* HERO */
+    .hero{min-height:100svh;display:flex;flex-direction:column;justify-content:flex-end;position:relative;overflow:hidden}
+    .hero-img{position:absolute;inset:0;background-image:url('assets/hero_concert.webp');background-size:cover;background-position:center 5%}
+    .hero-overlay{position:absolute;inset:0;background:linear-gradient(180deg,rgba(10,10,15,.25) 0%,rgba(10,10,15,.5) 50%,var(--ink) 100%)}
+    .hero-figures{position:absolute;inset:0;pointer-events:none;overflow:hidden}
+    .hero-fig{position:absolute;opacity:.18;mix-blend-mode:screen}
+    .hero-fig-1{right:8%;top:10%;width:280px;transform:rotate(12deg)}
+    .hero-fig-2{right:25%;top:5%;width:200px;transform:rotate(-8deg)}
+    .hero-fig-3{right:3%;top:35%;width:180px;transform:rotate(5deg);opacity:.12}
+    .hero-content{position:relative;z-index:2;max-width:var(--max);margin:0 auto;padding:0 2rem 6rem;width:100%}
+    .hero-presented{font-family:var(--ff-m);font-size:.7rem;letter-spacing:.3em;text-transform:uppercase;color:var(--muted);margin-bottom:1rem}
+    .hero-presented a{color:var(--gold-dim);transition:color .2s}
+    .hero-presented a:hover{color:var(--gold)}
+    .hero-title{font-family:var(--ff-d);font-size:clamp(4rem,12vw,9rem);font-weight:900;line-height:.9;color:var(--light);margin-bottom:.4rem;letter-spacing:-.02em}
+    .hero-title em{font-style:italic;color:var(--gold)}
+    .hero-sub{font-family:var(--ff-d);font-size:clamp(1rem,2.5vw,1.5rem);font-weight:400;font-style:italic;color:var(--muted);margin-bottom:2.5rem}
+    .hero-meta{display:flex;align-items:center;gap:2rem;flex-wrap:wrap}
+    .hero-badge{font-family:var(--ff-m);font-size:.65rem;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);border:1px solid var(--gold-dim);padding:.4rem .8rem}
+    .hero-badge-dark{color:var(--muted);border-color:var(--border)}
+    .hero-audio{display:flex;align-items:center;gap:1rem;margin-left:auto}
+    .audio-btn{background:none;border:1px solid var(--border);color:var(--muted);font-family:var(--ff-m);font-size:.62rem;letter-spacing:.15em;text-transform:uppercase;padding:.5rem .9rem;cursor:pointer;transition:border-color .2s,color .2s;display:flex;align-items:center;gap:.5rem}
+    .audio-btn:hover{border-color:var(--gold-dim);color:var(--gold)}
+    .audio-btn svg{width:14px;height:14px;flex-shrink:0}
+
+    /* STORY */
+    .story{padding:var(--gap) 0}
+    .story-inner{display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:start}
+    .story-left .eyebrow{margin-bottom:1.5rem}
+    .story-left .section-title{margin-bottom:2rem}
+    .story-left p{color:var(--body);margin-bottom:1.25rem;font-size:1.05rem}
+    .story-left p.lead{font-family:var(--ff-d);font-size:1.25rem;color:var(--light);line-height:1.5}
+    .story-right{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
+    .fact-card{border-left:2px solid var(--gold);padding:1.5rem 1.25rem 1.25rem 1.5rem;background:var(--panel)}
+    .fact-num{font-family:var(--ff-d);font-size:2.5rem;font-weight:900;color:var(--gold);line-height:1;margin-bottom:.2rem}
+    .fact-label{font-family:var(--ff-m);font-size:.62rem;letter-spacing:.2em;text-transform:uppercase;color:var(--muted);margin-bottom:.4rem}
+    .fact-text{font-size:.85rem;color:var(--body)}
+
+    /* ARCHIV IMAGE BREAK */
+    .img-break{width:100%;overflow:hidden;position:relative}
+    .img-break img{width:100%;height:480px;object-fit:cover;object-position:center 30%}
+    .img-break-overlay{position:absolute;inset:0;background:linear-gradient(180deg,var(--ink) 0%,transparent 20%,transparent 80%,var(--ink) 100%)}
+    .img-caption{position:absolute;bottom:2rem;left:50%;transform:translateX(-50%);font-family:var(--ff-m);font-size:.65rem;letter-spacing:.25em;text-transform:uppercase;color:var(--gold);border:1px solid var(--gold-dim);padding:.4rem 1rem;background:rgba(10,10,15,.7);white-space:nowrap}
+
+    /* ALBEN */
+    .alben{padding:var(--gap) 0;background:var(--deep)}
+    .alben-header{text-align:center;margin-bottom:3.5rem}
+    .alben-header .eyebrow{margin-bottom:1rem}
+    .alben-header .section-title{margin-bottom:.75rem}
+    .alben-header p{color:var(--body);max-width:500px;margin:0 auto;font-size:1.05rem}
+    .alben-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2rem}
+    .album-card{background:var(--panel);border:1px solid var(--border);overflow:hidden;transition:border-color .2s,transform .2s}
+    .album-card:hover{border-color:var(--gold-dim);transform:translateY(-4px)}
+    .album-img{width:100%;aspect-ratio:1;object-fit:cover}
+    .album-body{padding:1.5rem}
+    .album-year{font-family:var(--ff-m);font-size:.62rem;letter-spacing:.2em;color:var(--gold);margin-bottom:.4rem}
+    .album-title{font-family:var(--ff-d);font-size:1.1rem;color:var(--light);margin-bottom:.4rem}
+    .album-label{font-size:.82rem;color:var(--muted)}
+
+    /* PRESS QUOTE */
+    .press-quote{padding:var(--gap) 0}
+    .press-inner{display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:center}
+    .press-img-wrap{position:relative}
+    .press-img{width:100%;aspect-ratio:16/10;object-fit:cover;object-position:center top}
+    .press-text .eyebrow{margin-bottom:1.5rem}
+    .press-text blockquote{font-family:var(--ff-d);font-size:clamp(1.4rem,2.5vw,2rem);font-style:italic;color:var(--light);line-height:1.4;margin-bottom:1.25rem}
+    .press-text cite{font-family:var(--ff-m);font-size:.7rem;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);font-style:normal}
+    .on-stage{margin-top:2.5rem}
+    .on-stage-label{font-family:var(--ff-m);font-size:.62rem;letter-spacing:.2em;text-transform:uppercase;color:var(--muted);margin-bottom:.75rem}
+    .band-pills{display:flex;flex-wrap:wrap;gap:.5rem}
+    .band-pill{font-family:var(--ff-m);font-size:.62rem;letter-spacing:.15em;text-transform:uppercase;color:var(--muted);border:1px solid var(--border);padding:.3rem .7rem}
+
+    /* PRESSE AUDIO */
+    .presse-audio{padding:var(--gap) 0;background:var(--deep)}
+    .presse-inner{display:grid;grid-template-columns:1fr 1fr;gap:4rem}
+    .presse-img-col{position:sticky;top:6rem}
+    .presse-img-col img{width:100%;border:1px solid var(--border)}
+    .presse-tracks .eyebrow{margin-bottom:1.5rem}
+    .presse-tracks .section-title{margin-bottom:1.5rem}
+    .presse-tracks p{color:var(--body);margin-bottom:2rem;font-size:1rem}
+    .track-list{list-style:none}
+    .track-item{display:flex;align-items:center;gap:1rem;padding:1rem 0;border-bottom:1px solid var(--border)}
+    .track-item:last-child{border-bottom:none}
+    .track-play{background:none;border:1px solid var(--border);color:var(--muted);width:36px;height:36px;border-radius:50%;cursor:pointer;display:flex;align-items:center;justify-content:center;flex-shrink:0;transition:border-color .2s,color .2s,background .2s}
+    .track-play:hover,.track-play.playing{border-color:var(--gold);color:var(--gold)}
+    .track-play.playing{background:var(--gold);color:var(--ink)}
+    .track-play svg{width:12px;height:12px}
+    .track-info{flex:1}
+    .track-title{font-family:var(--ff-d);font-size:.95rem;color:var(--light);margin-bottom:.15rem}
+    .track-meta{font-family:var(--ff-m);font-size:.6rem;letter-spacing:.15em;text-transform:uppercase;color:var(--muted)}
+
+    /* AUDIO SECTIONS (Musik / Radio) */
+    .audio-section{padding:5rem 0}
+    .audio-section-header{max-width:640px;margin-bottom:2.5rem}
+    .audio-section-photo{width:100%;max-height:420px;object-fit:cover;border:1px solid var(--border);margin-bottom:3rem}
+    .audio-grid{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
+    .audio-player{background:var(--panel);border:1px solid var(--border);padding:1rem 1.25rem;display:flex;align-items:center;gap:1rem;transition:border-color .2s}
+    .audio-player:hover{border-color:var(--gold-dim)}
+    .ap-btn{background:none;border:1px solid var(--border);color:var(--muted);width:36px;height:36px;border-radius:50%;cursor:pointer;display:flex;align-items:center;justify-content:center;flex-shrink:0;transition:all .2s}
+    .ap-btn:hover,.ap-btn.playing{border-color:var(--gold);color:var(--gold)}
+    .ap-btn.playing{background:var(--gold);color:var(--ink)}
+    .ap-btn svg{width:12px;height:12px}
+    .ap-info{flex:1;min-width:0}
+    .ap-title{font-family:var(--ff-d);font-size:.9rem;color:var(--light);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+    .ap-meta{font-family:var(--ff-m);font-size:.58rem;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin-top:.15rem}
+    .ap-progress{flex:1;height:3px;background:var(--border);cursor:pointer;position:relative;min-width:50px}
+    .ap-bar{height:100%;background:var(--gold);width:0%;transition:width .1s linear}
+    .ap-time{font-family:var(--ff-m);font-size:.58rem;color:var(--muted);white-space:nowrap}
+    @media(max-width:700px){.audio-grid{grid-template-columns:1fr}.audio-player{flex-wrap:wrap}}
+    .track-duration{font-family:var(--ff-m);font-size:.65rem;color:var(--muted)}
+
+    /* PROJECT UNITED */
+    .project-united{padding:var(--gap) 0}
+    .project-inner{display:grid;grid-template-columns:1.2fr 1fr;gap:4rem;align-items:center}
+    .project-img{width:100%;border:1px solid var(--border)}
+    .project-text .eyebrow{margin-bottom:1.5rem}
+    .project-text .section-title{margin-bottom:1.25rem}
+    .project-text p{color:var(--body);margin-bottom:1rem;font-size:1.05rem}
+    .project-stat{display:flex;align-items:baseline;gap:.5rem;margin-top:2rem}
+    .project-stat-num{font-family:var(--ff-d);font-size:3rem;font-weight:900;color:var(--gold)}
+    .project-stat-label{font-family:var(--ff-m);font-size:.65rem;letter-spacing:.2em;text-transform:uppercase;color:var(--muted)}
+
+    /* STATUS */
+    .status{padding:var(--gap) 0;background:var(--deep)}
+    .status-inner{display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:start}
+    .status-text .eyebrow{margin-bottom:1.5rem}
+    .status-text .section-title{margin-bottom:1.5rem}
+    .status-text p{color:var(--body);margin-bottom:1rem;font-size:1.05rem}
+    .progress-list{list-style:none;margin-top:2rem}
+    .progress-list li{display:flex;align-items:center;gap:1rem;padding:.75rem 0;border-bottom:1px solid var(--border);font-size:.9rem;color:var(--body)}
+    .progress-list li::before{content:'▶';font-size:.5rem;color:var(--gold);flex-shrink:0}
+    .progress-list li.done::before{content:'✓';color:#4caf50}
+    .progress-list li.done{color:var(--muted)}
+    .notify-box{background:var(--panel);border:1px solid var(--border);padding:2.5rem}
+    .notify-box h3{font-family:var(--ff-d);font-size:1.4rem;color:var(--light);margin-bottom:.75rem}
+    .notify-box p{font-size:.9rem;color:var(--muted);margin-bottom:1.5rem}
+    .input-row{display:flex}
+    .input-row input{flex:1;background:var(--deep);border:1px solid var(--border);border-right:none;color:var(--light);padding:.75rem 1rem;font-family:var(--ff-b);font-size:.9rem;outline:none}
+    .input-row input::placeholder{color:var(--muted)}
+    .input-row input:focus{border-color:var(--gold-dim)}
+    .btn-primary{background:var(--gold);color:var(--ink);border:1px solid var(--gold);padding:.75rem 1.25rem;font-family:var(--ff-m);font-size:.72rem;letter-spacing:.15em;text-transform:uppercase;cursor:pointer;font-weight:700;transition:background .2s;white-space:nowrap}
+    .btn-primary:hover{background:var(--cream);border-color:var(--cream)}
+    .notify-small{font-family:var(--ff-m);font-size:.62rem;color:var(--muted);margin-top:.75rem;letter-spacing:.1em}
+    .social-btns{display:flex;gap:.75rem;flex-wrap:wrap;margin-top:1.5rem}
+    .btn-outline{background:transparent;color:var(--gold);border:1px solid var(--gold-dim);padding:.5rem .9rem;font-family:var(--ff-m);font-size:.65rem;letter-spacing:.15em;text-transform:uppercase;cursor:pointer;transition:background .2s,color .2s}
+    .btn-outline:hover{background:var(--gold);color:var(--ink)}
+    a.btn-outline{display:inline-block}
+
+    /* SUPPORT */
+    .support{padding:var(--gap) 0}
+    .support-inner{display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:center}
+    .support-text .eyebrow{margin-bottom:1.5rem}
+    .support-text .section-title{margin-bottom:1.25rem}
+    .support-text p{color:var(--body);margin-bottom:2rem;font-size:1.05rem}
+    .btn-paypal{display:inline-flex;align-items:center;gap:.75rem;background:#0070ba;color:#fff;padding:1rem 2rem;font-family:var(--ff-m);font-size:.8rem;letter-spacing:.15em;text-transform:uppercase;font-weight:700;transition:background .2s}
+    .btn-paypal:hover{background:#005ea6}
+    .btn-paypal svg{width:20px;height:20px}
+    .support-note{font-family:var(--ff-m);font-size:.65rem;color:var(--muted);margin-top:1.25rem;letter-spacing:.1em}
+    .support-img{width:100%;object-fit:cover;aspect-ratio:4/3;border:1px solid var(--border)}
+
+    /* UNTERSTUETZER */
+    .unterstuetzer{padding:5rem 0;background:var(--panel);border-top:1px solid var(--border);border-bottom:1px solid var(--border)}
+    .unterstuetzer-label{font-family:var(--ff-m);font-size:.7rem;letter-spacing:.25em;text-transform:uppercase;color:var(--muted);text-align:center;margin-bottom:3rem}
+    .supporter-logos{display:flex;align-items:center;justify-content:center;gap:4rem;flex-wrap:wrap}
+    .supporter-logos img{height:130px;object-fit:contain;filter:grayscale(1) brightness(0.85);transition:filter .3s;max-width:320px}
+    .supporter-logos img:hover{filter:grayscale(0) brightness(1)}
+    .unterstuetzer-more{text-align:center;margin-top:2.5rem}
+
+    /* BLOG */
+    .blog{padding:var(--gap) 0}
+    .blog-header{display:flex;align-items:flex-end;justify-content:space-between;margin-bottom:3rem;gap:2rem}
+    .blog-link{font-family:var(--ff-m);font-size:.72rem;letter-spacing:.15em;text-transform:uppercase;color:var(--gold);border-bottom:1px solid var(--gold-dim);padding-bottom:2px;transition:color .2s}
+    .blog-link:hover{color:var(--light)}
+    .blog-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem}
+    .blog-card{background:var(--panel);border:1px solid var(--border);transition:border-color .2s,transform .2s;display:flex;flex-direction:column}
+    .blog-card:hover{border-color:var(--gold-dim);transform:translateY(-3px)}
+    .blog-card-img{width:100%;aspect-ratio:16/10;object-fit:cover;object-position:center}
+    .blog-card-body{padding:1.5rem;flex:1;display:flex;flex-direction:column}
+    .blog-card-date{font-family:var(--ff-m);font-size:.62rem;color:var(--muted);letter-spacing:.15em;margin-bottom:.75rem}
+    .blog-card-title{font-family:var(--ff-d);font-size:1.05rem;color:var(--light);line-height:1.3;margin-bottom:.75rem;flex:1}
+    .blog-card-excerpt{font-size:.85rem;color:var(--muted);line-height:1.6}
+    .blog-card-arrow{margin-top:1.5rem;font-family:var(--ff-m);font-size:.65rem;letter-spacing:.15em;text-transform:uppercase;color:var(--gold)}
+
+    /* GAESTEBUCH */
+    .gaestebuch{padding:var(--gap) 0;background:var(--deep)}
+    .gaestebuch-inner{display:grid;grid-template-columns:1fr 1.2fr;gap:5rem;align-items:start}
+    .gaestebuch-left .eyebrow{margin-bottom:1.5rem}
+    .gaestebuch-left .section-title{margin-bottom:1.25rem}
+    .gaestebuch-left p{color:var(--body);margin-bottom:1.5rem;font-size:1.05rem}
+    .entry-sample{background:var(--panel);border-left:2px solid var(--gold);padding:1.25rem 1.5rem;margin-bottom:1rem}
+    .entry-name{font-family:var(--ff-m);font-size:.65rem;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);margin-bottom:.4rem}
+    .entry-text{font-size:.9rem;color:var(--body);font-style:italic}
+    .gb-form .form-group{margin-bottom:1rem}
+    .gb-form label{display:block;font-family:var(--ff-m);font-size:.65rem;letter-spacing:.2em;text-transform:uppercase;color:var(--muted);margin-bottom:.5rem}
+    .gb-form input,.gb-form textarea{width:100%;background:var(--panel);border:1px solid var(--border);color:var(--light);padding:.75rem 1rem;font-family:var(--ff-b);font-size:.9rem;outline:none;transition:border-color .2s;resize:vertical}
+    .gb-form input:focus,.gb-form textarea:focus{border-color:var(--gold-dim)}
+    .gb-form textarea{min-height:120px}
+
+    /* FILMTEAM */
+    .filmteam{padding:var(--gap) 0}
+    .filmteam-intro{max-width:600px;margin-bottom:3.5rem}
+    .filmteam-intro .eyebrow{margin-bottom:1rem}
+    .filmteam-intro .section-title{margin-bottom:1rem}
+    .filmteam-intro p{color:var(--body)}
+    .team-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem}
+    .team-card{border:1px solid var(--border);background:var(--panel);overflow:hidden;transition:border-color .2s}
+    .team-card:hover{border-color:var(--gold-dim)}
+    .team-card-img{width:100%;aspect-ratio:16/10;object-fit:cover;object-position:center top}
+    .team-card-body{padding:1.25rem}
+    .team-name{font-family:var(--ff-d);font-size:1rem;color:var(--light);margin-bottom:.25rem}
+    .team-role{font-family:var(--ff-m);font-size:.62rem;letter-spacing:.18em;text-transform:uppercase;color:var(--muted)}
+
+    /* FOOTER */
+    footer{border-top:1px solid var(--border);padding:3rem 0 2rem}
+    .footer-inner{display:grid;grid-template-columns:1.5fr 1fr 1fr 1fr;gap:3rem;margin-bottom:3rem}
+    .footer-brand .nav-logo{margin-bottom:1rem}
+    .footer-brand p{font-size:.85rem;color:var(--muted);line-height:1.6;margin-bottom:1.25rem}
+    .social-row{display:flex;gap:1rem}
+    .social-link{width:32px;height:32px;border:1px solid var(--border);display:flex;align-items:center;justify-content:center;color:var(--muted);font-size:.7rem;transition:border-color .2s,color .2s}
+    .social-link:hover{border-color:var(--gold-dim);color:var(--gold)}
+    .footer-col h4{font-family:var(--ff-m);font-size:.65rem;letter-spacing:.25em;text-transform:uppercase;color:var(--gold);margin-bottom:1.25rem}
+    .footer-col ul{list-style:none}
+    .footer-col ul li{margin-bottom:.6rem}
+    .footer-col ul li a{font-size:.85rem;color:var(--muted);transition:color .2s}
+    .footer-col ul li a:hover{color:var(--light)}
+    .footer-bottom{border-top:1px solid var(--border);padding-top:1.5rem;display:flex;align-items:center;justify-content:space-between;gap:2rem;flex-wrap:wrap}
+    .footer-bottom p{font-family:var(--ff-m);font-size:.62rem;letter-spacing:.1em;color:var(--muted)}
+    .footer-bottom a{color:var(--muted)}
+    .footer-bottom a:hover{color:var(--light)}
+
+    /* FADE UP */
+    @media(prefers-reduced-motion:no-preference){
+      .fade-up{opacity:0;transform:translateY(24px);transition:opacity .6s ease,transform .6s ease}
+      .fade-up.visible{opacity:1;transform:translateY(0)}
+    }
+    @media(prefers-reduced-motion:reduce){.filmstrip-track{animation:none}}
+
+    /* RESPONSIVE */
+    @media(max-width:1150px){
+      .nav-links{display:none}
+      .nav-hamburger{display:flex}
+    }
+    @media(max-width:900px){
+      .story-inner,.press-inner,.presse-inner,.project-inner,.status-inner,.support-inner,.gaestebuch-inner{grid-template-columns:1fr;gap:3rem}
+      .presse-img-col{position:static}
+      .alben-grid{grid-template-columns:1fr 1fr}
+      .blog-grid{grid-template-columns:1fr 1fr}
+      .team-grid{grid-template-columns:1fr 1fr}
+      .footer-inner{grid-template-columns:1fr 1fr}
+      .story-right{grid-template-columns:1fr 1fr}
+    }
+    @media(max-width:600px){
+      :root{--gap:4rem}
+      .alben-grid{grid-template-columns:1fr}
+      .blog-grid{grid-template-columns:1fr}
+      .team-grid{grid-template-columns:1fr}
+      .footer-inner{grid-template-columns:1fr;gap:2rem}
+      .hero-meta{flex-direction:column;align-items:flex-start}
+      .hero-audio{margin-left:0}
+      .input-row{flex-direction:column}
+      .input-row input{border-right:1px solid var(--border);border-bottom:none}
+      .story-right{grid-template-columns:1fr}
+    }
+  </style>
+</head>
+<body>
+
+<audio id="bgAudio" src="assets/heart_and_soul.opus" loop preload="none"></audio>
+<audio id="trackAudio" preload="none"></audio>
+
+<div class="mobile-menu" id="mobileMenu" role="dialog">
+  <button class="mobile-close" onclick="toggleMenu()">✕</button>
+  <a href="/" onclick="toggleMenu()">Startseite</a>
+  <a href="/presse/" onclick="toggleMenu()">Presse</a>
+  <a href="/blog/" onclick="toggleMenu()">Blog</a>
+  <a href="/gaestebuch/" onclick="toggleMenu()">Gästebuch</a>
+  <a href="#filmteam" onclick="toggleMenu()">Filmteam</a>
+  <a href="#support" onclick="toggleMenu()">Unterstützer</a>
+  <a href="https://www.paypal.com/paypalme/punchlinestudio" target="_blank" rel="noopener" onclick="toggleMenu()">Jetzt unterstützen</a>
+</div>
+
+<nav class="nav" id="mainNav">
+  <div class="nav-inner">
+    <a href="/" class="nav-logo">HEART AND SOUL<span>Ein Film von Punchline Studio</span></a>
+    <ul class="nav-links">
+      <li><a href="/" class="active">Startseite</a></li>
+      <li><a href="/presse/">Presse</a></li>
+      <li><a href="/blog/">Blog</a></li>
+      <li><a href="/gaestebuch/">Gästebuch</a></li>
+      <li><a href="#filmteam">Filmteam</a></li>
+      <li><a href="#support">Unterstützer</a></li>
+      <li><a href="https://www.paypal.com/paypalme/punchlinestudio" target="_blank" rel="noopener" class="nav-cta">Jetzt unterstützen</a></li>
+    </ul>
+    <button class="nav-hamburger" onclick="toggleMenu()"><span></span><span></span><span></span></button>
+  </div>
+</nav>
+
+<div class="filmstrip" aria-hidden="true">
+  <div class="filmstrip-track">
+    <div class="filmstrip-item">Heart and Soul</div>
+    <div class="filmstrip-item">Scaramouche Lahr</div>
+    <div class="filmstrip-item">Punchline Studio</div>
+    <div class="filmstrip-item">Dokumentarfilm</div>
+    <div class="filmstrip-item">Acres Wild · 1985–1993</div>
+    <div class="filmstrip-item">Scaramouche · 1993–2001</div>
+    <div class="filmstrip-item">Deep Purple</div>
+    <div class="filmstrip-item">The Scorpions</div>
+    <div class="filmstrip-item">SWR1 · Prädikat besonders wertvoll</div>
+    <div class="filmstrip-item">Born in December · 1995</div>
+    <div class="filmstrip-item">Warner Music</div>
+    <div class="filmstrip-item">Ortenau · Lahr · Schwarzwald</div>
+    <div class="filmstrip-item">Heart and Soul</div>
+    <div class="filmstrip-item">Scaramouche Lahr</div>
+    <div class="filmstrip-item">Punchline Studio</div>
+    <div class="filmstrip-item">Dokumentarfilm</div>
+    <div class="filmstrip-item">Acres Wild · 1985–1993</div>
+    <div class="filmstrip-item">Scaramouche · 1993–2001</div>
+    <div class="filmstrip-item">Deep Purple</div>
+    <div class="filmstrip-item">The Scorpions</div>
+    <div class="filmstrip-item">SWR1 · Prädikat besonders wertvoll</div>
+    <div class="filmstrip-item">Born in December · 1995</div>
+    <div class="filmstrip-item">Warner Music</div>
+    <div class="filmstrip-item">Ortenau · Lahr · Schwarzwald</div>
+  </div>
+</div>
+
+<header class="hero">
+  <div class="hero-img" aria-hidden="true"></div>
+  <div class="hero-overlay" aria-hidden="true"></div>
+  <div class="hero-figures" aria-hidden="true">
+    <img src="assets/figura_yellow.webp" class="hero-fig hero-fig-1" alt="" />
+    <img src="assets/figura_gold.webp" class="hero-fig hero-fig-2" alt="" />
+    <img src="assets/figura_orange.webp" class="hero-fig hero-fig-3" alt="" />
+  </div>
+  <div class="hero-content">
+    <p class="hero-presented"><a href="https://film-und-ton.de" target="_blank" rel="noopener">Punchline Studio</a> präsentiert</p>
+    <h1 class="hero-title"><em>Heart</em><br/>and Soul</h1>
+    <p class="hero-sub">Scaramouche – eine Erfolgsgeschichte</p>
+    <div class="hero-meta">
+      <span class="hero-badge">Dokumentarfilm</span>
+      <span class="hero-badge hero-badge-dark">Lahr · Ortenau · 1993–2001</span>
+      <span class="hero-badge hero-badge-dark">In Produktion</span>
+      <div class="hero-audio">
+        <button class="audio-btn" id="audioToggle" onclick="toggleAudio()" aria-label="Hintergrundmusik abspielen">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path id="audioIcon" d="M8 5v14l11-7z"/></svg>
+          <span id="audioLabel">Heart and Soul</span>
+        </button>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- STORY -->
+<section class="story" id="story">
+  <div class="container">
+    <div class="story-inner">
+      <div class="story-left fade-up">
+        <p class="eyebrow">Der Dokumentarfilm</p>
+        <h2 class="section-title">Eine Band, die alles hatte – und aufhörte zu glauben.</h2>
+        <p class="lead">Es war einmal eine Zeit ohne Smartphones. Die Stars fand man im Fernsehen, in Hochglanzmagazinen – und auf der Bühne.</p>
+        <p>Unsere Musikdokumentation erzählt eine fast vergessene Geschichte jener Zeit: die Geschichte der Kultband Scaramouche aus Lahr. Zwischen 1993 und 2001 traten sie bis zu 80 Mal im Jahr auf, veröffentlichten drei Studioalben bei Warner Music – und lösten sich trotzdem auf. Weil sie selbst nicht mehr an den „großen Durchbruch" glaubten.</p>
+        <p>Der Film stellt die Frage, die seitdem unbeantwortet blieb: Was ist eigentlich dieser Erfolg, den wir alle ständig suchen? Die Antwort findet sich in den Erinnerungen von Frank Vetter, Marc Vetter, Gert Endres und Thomas Schwendemann – und in Hunderten von Stunden Archivmaterial, das wir restaurieren.</p>
+      </div>
+      <div class="story-right fade-up">
+        <div class="fact-card">
+          <div class="fact-num">80+</div>
+          <div class="fact-label">Konzerte pro Jahr</div>
+          <div class="fact-text">Deutschlandweit und in Luxemburg auf allen Bühnen.</div>
+        </div>
+        <div class="fact-card">
+          <div class="fact-num">3</div>
+          <div class="fact-label">Studioalben</div>
+          <div class="fact-text">Born in December, The Bigger The Better, Belle – alle Warner Music.</div>
+        </div>
+        <div class="fact-card">
+          <div class="fact-num">8</div>
+          <div class="fact-label">Jahre Karriere</div>
+          <div class="fact-text">Als Acres Wild und Scaramouche – eine Ortenauer Generation ist damit aufgewachsen.</div>
+        </div>
+        <div class="fact-card">
+          <div class="fact-num">2001</div>
+          <div class="fact-label">Bandauflösung</div>
+          <div class="fact-text">Mitten im Erfolg. Die Frage warum – das ist der Film.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="img-break fade-up">
+  <img src="assets/scaramouche_stage_warm.webp" alt="Scaramouche live auf der Bühne – Archivaufnahme 1990er" loading="lazy" />
+  <div class="img-break-overlay"></div>
+  <span class="img-caption">Scaramouche · Archivaufnahme 1990er</span>
+</div>
+
+<!-- ALBEN -->
+<section class="alben" id="alben">
+  <div class="container">
+    <div class="alben-header fade-up">
+      <p class="eyebrow">Die Discografie</p>
+      <h2 class="section-title">Drei Alben. Eine Ära.</h2>
+      <p>Alle drei Studioalben erschienen über Warner Music und erzählen die musikalische Reise von Scaramouche.</p>
+    </div>
+    <div class="alben-grid">
+      <article class="album-card fade-up">
+        <img src="assets/born_in_december_flat.webp" alt="Scaramouche – Born in December (1995)" class="album-img" loading="lazy" />
+        <div class="album-body">
+          <p class="album-year">1995 · Warner Music</p>
+          <h3 class="album-title">Born in December</h3>
+          <p class="album-label">Das Debütalbum. Single des Monats von Warner Music: „Jeans Song". Der Überraschungserfolg, der alles startete.</p>
+        </div>
+      </article>
+      <article class="album-card fade-up">
+        <img src="assets/bigger_better_cover.webp" alt="Scaramouche – The Bigger The Better (1996)" class="album-img" loading="lazy" />
+        <div class="album-body">
+          <p class="album-year">1996 · Warner Music</p>
+          <h3 class="album-title">The Bigger The Better</h3>
+          <p class="album-label">Das zweite Album. Konzertreisen, Festivalauftritte, Bühne an Bühne mit Deep Purple und den Scorpions.</p>
+        </div>
+      </article>
+      <article class="album-card fade-up">
+        <img src="assets/belle_cover.webp" alt="Scaramouche – Belle (1999)" class="album-img" loading="lazy" />
+        <div class="album-body">
+          <p class="album-year">1999 · Warner Music</p>
+          <h3 class="album-title">Belle</h3>
+          <p class="album-label">Das letzte Studioalbum vor der Auflösung. Zwei Jahre später löste sich die Band auf – trotz weiter guter Kritiken.</p>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- PRESS -->
+<section class="press-quote" id="presse">
+  <div class="container">
+    <div class="press-inner">
+      <div class="press-img-wrap fade-up">
+        <img src="assets/swr1_unplugged.webp" alt="Scaramouche Unplugged bei SWR1 Baden-Württemberg, Mai 2019" class="press-img" loading="lazy" />
+      </div>
+      <div class="press-text fade-up">
+        <p class="eyebrow">Presse &amp; Auszeichnungen</p>
+        <blockquote>„Scaramouche kommt auf die Leinwand."</blockquote>
+        <cite>SWR1 Baden-Württemberg, 2019 — Prädikat: besonders wertvoll</cite>
+        <div class="on-stage">
+          <p class="on-stage-label">Auf der Bühne mit</p>
+          <div class="band-pills">
+            <span class="band-pill">Deep Purple</span>
+            <span class="band-pill">The Scorpions</span>
+            <span class="band-pill">James Brown</span>
+            <span class="band-pill">Inner Circle</span>
+            <span class="band-pill">PUR</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- MUSIK -->
+<section class="audio-section" id="audio">
+  <div class="container">
+    <div class="audio-section-header fade-up">
+      <p class="eyebrow" style="margin-bottom:.75rem">Musik</p>
+      <h2 class="section-title" style="font-size:clamp(1.5rem,3vw,2.25rem);margin-bottom:1.25rem">Scaramouche Songs</h2>
+      <p style="color:var(--body);font-size:.95rem">Live-Aufnahmen vom letzten Konzert im Jazzhaus Freiburg 2001 und Studio-Tracks.</p>
+    </div>
+    <img src="assets/scaramouche_stage_warm.webp" alt="Scaramouche live auf der Bühne – Archivaufnahme" class="audio-section-photo fade-up" loading="lazy" />
+    <div class="audio-grid">
+      <div class="audio-player fade-up">
+        <button class="ap-btn" onclick="playTrack(this,'assets/scaramouche_heart_and_soul_live.opus')"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></button>
+        <div class="ap-info"><div class="ap-title">Heart and Soul (Live)</div><div class="ap-meta">Scaramouche · Jazzhaus Freiburg 2001</div></div>
+        <div class="ap-progress"><div class="ap-bar"></div></div>
+        <span class="ap-time">0:00</span>
+      </div>
+      <div class="audio-player fade-up">
+        <button class="ap-btn" onclick="playTrack(this,'assets/scaramouche_behind_the_smile.opus')"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></button>
+        <div class="ap-info"><div class="ap-title">Behind the Smile (Live)</div><div class="ap-meta">Scaramouche · Jazzhaus Freiburg 2001</div></div>
+        <div class="ap-progress"><div class="ap-bar"></div></div>
+        <span class="ap-time">0:00</span>
+      </div>
+      <div class="audio-player fade-up">
+        <button class="ap-btn" onclick="playTrack(this,'assets/scaramouche_face_of_a_lover.opus')"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></button>
+        <div class="ap-info"><div class="ap-title">Face of a Lover</div><div class="ap-meta">Scaramouche</div></div>
+        <div class="ap-progress"><div class="ap-bar"></div></div>
+        <span class="ap-time">0:00</span>
+      </div>
+      <div class="audio-player fade-up">
+        <button class="ap-btn" onclick="playTrack(this,'assets/scaramouche_hey_there_angel.opus')"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></button>
+        <div class="ap-info"><div class="ap-title">Hey There Angel</div><div class="ap-meta">Scaramouche</div></div>
+        <div class="ap-progress"><div class="ap-bar"></div></div>
+        <span class="ap-time">0:00</span>
+      </div>
+      <div class="audio-player fade-up">
+        <button class="ap-btn" onclick="playTrack(this,'assets/scaramouche_sensation.opus')"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></button>
+        <div class="ap-info"><div class="ap-title">Sensation</div><div class="ap-meta">Scaramouche</div></div>
+        <div class="ap-progress"><div class="ap-bar"></div></div>
+        <span class="ap-time">0:00</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- RADIO & INTERVIEWS -->
+<section class="audio-section">
+  <div class="container">
+    <div class="audio-section-header fade-up">
+      <p class="eyebrow" style="margin-bottom:.75rem">Radio &amp; Interviews</p>
+      <h2 class="section-title" style="font-size:clamp(1.5rem,3vw,2.25rem);margin-bottom:1.25rem">Hört rein.</h2>
+      <p style="color:var(--body);font-size:.95rem">SWR1, Radio OHR – Scaramouche war wieder in aller Munde.</p>
+    </div>
+    <img src="assets/swr1_studio.webp" alt="Im SWR1 Studio – Maik und Pirmin Styrnol mit der Scaramouche-Band, 3. Mai 2019" class="audio-section-photo fade-up" loading="lazy" />
+    <div class="audio-grid">
+      <div class="audio-player fade-up">
+        <button class="ap-btn" onclick="playTrack(this,'assets/swr1_corvin_04may.opus')"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></button>
+        <div class="ap-info"><div class="ap-title">SWR1 – Interview &amp; Unplugged-Konzert</div><div class="ap-meta">Corvin Tondera-Klein · 04.05.2019</div></div>
+        <div class="ap-progress"><div class="ap-bar"></div></div>
+        <span class="ap-time">0:00</span>
+      </div>
+      <div class="audio-player fade-up">
+        <button class="ap-btn" onclick="playTrack(this,'assets/swr1_ingo_maik_19apr.opus')"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></button>
+        <div class="ap-info"><div class="ap-title">SWR1 – Interview &amp; Side By Side</div><div class="ap-meta">Ingo Lege &amp; Maik Styrnol · 19.04.2020</div></div>
+        <div class="ap-progress"><div class="ap-bar"></div></div>
+        <span class="ap-time">0:00</span>
+      </div>
+    </div>
+    <div style="margin-top:2rem">
+      <a href="presse/" class="blog-link">Alle Radio- &amp; TV-Berichte →</a>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- PROJECT UNITED -->
+<section class="project-united" id="project-united">
+  <div class="container">
+    <div class="project-inner">
+      <div class="fade-up" style="display:flex;flex-direction:column;gap:1rem">
+        <img src="assets/project_united.webp" alt="Project United – 70 Musiker aus 10 Ländern spielen Side by Side von Scaramouche, 2020" class="project-img" loading="lazy" />
+        <a href="https://www.youtube.com/watch?v=YHXstXiPXsY" target="_blank" rel="noopener"
+           style="display:flex;align-items:center;gap:.75rem;background:#ff0000;color:#fff;padding:.75rem 1.25rem;font-family:var(--ff-m);font-size:.72rem;letter-spacing:.15em;text-transform:uppercase;font-weight:700;transition:background .2s;text-decoration:none"
+           onmouseover="this.style.background='#cc0000'" onmouseout="this.style.background='#ff0000'">
+          <svg viewBox="0 0 24 24" fill="currentColor" style="width:20px;height:20px;flex-shrink:0"><path d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.5 12 3.5 12 3.5s-7.5 0-9.4.6A3 3 0 0 0 .5 6.2C0 8.1 0 12 0 12s0 3.9.5 5.8a3 3 0 0 0 2.1 2.1c1.9.6 9.4.6 9.4.6s7.5 0 9.4-.6a3 3 0 0 0 2.1-2.1C24 15.9 24 12 24 12s0-3.9-.5-5.8zM9.7 15.5V8.5l6.3 3.5-6.3 3.5z"/></svg>
+          Video auf YouTube ansehen
+        </a>
+      </div>
+      <div class="project-text fade-up">
+        <p class="eyebrow">2020 · Project United</p>
+        <h2 class="section-title">Side by Side – 70 Musiker. 10 Länder.</h2>
+        <p>Als die Corona-Pandemie die Dreharbeiten stoppte, starteten wir Project United: 70 Musikerinnen und Musiker aus zehn Ländern nahmen gemeinsam den 30 Jahre alten Scaramouche-Song „Side by Side" auf – jede Person in ihrer eigenen Wohnung.</p>
+        <p>Das Ergebnis wurde zum Zeichen für Zusammenhalt und Hoffnung – und zum Beweis, dass diese Geschichte Menschen weit über Lahr hinaus berührt.</p>
+        <div class="project-stat">
+          <span class="project-stat-num">70</span>
+          <span class="project-stat-label">Musiker aus<br/>10 Ländern</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- STATUS -->
+<section class="status" id="status">
+  <div class="container">
+    <div class="status-inner">
+      <div class="status-text fade-up">
+        <p class="eyebrow">Produktionsstatus</p>
+        <h2 class="section-title">Der Film entsteht – verfolgt ihn live.</h2>
+        <p>Die Dreharbeiten laufen. Die Kameras stehen wieder, nach allen Unterbrechungen. Wir sind näher am Ziel als je zuvor.</p>
+        <ul class="progress-list">
+          <li class="done">Crowdfunding erfolgreich (2019)</li>
+          <li class="done">Drehbuch fertiggestellt</li>
+          <li class="done">SWR1 Interviews &amp; Unplugged-Konzert</li>
+          <li class="done">Project United – 70 Musiker, 10 Länder</li>
+          <li class="done">Sommerinterviews mit Bandmitgliedern</li>
+          <li class="done">Archivrecherche &amp; Tonbandrestaurierung</li>
+          <li>Finaler Schnitt</li>
+          <li>Postproduktion &amp; Color Grading</li>
+          <li>Premiere &amp; Kinoauswertung</li>
+        </ul>
+      </div>
+      <div class="notify-box fade-up">
+        <h3>Bleibt auf dem Laufenden</h3>
+        <p>Alle Neuigkeiten zum Filmfortschritt, Drehterminen und der Premiere veröffentlichen wir direkt im Produktionsblog – schaut einfach regelmäßig vorbei.</p>
+        <a href="blog/" class="btn-primary" style="display:inline-block;text-align:center;text-decoration:none">Zum Blog →</a>
+        <div style="margin-top:2rem;padding-top:1.5rem;border-top:1px solid var(--border)">
+          <p style="font-family:var(--ff-m);font-size:.65rem;letter-spacing:.15em;text-transform:uppercase;color:var(--muted);margin-bottom:1rem">Oder folgt uns auf</p>
+          <div class="social-btns">
+            <a href="https://instagram.com/heartandsoul_der_film" target="_blank" rel="noopener" class="btn-outline">Instagram</a>
+            <a href="http://www.facebook.com/punchlinestudio" target="_blank" rel="noopener" class="btn-outline">Facebook</a>
+            <a href="https://www.youtube.com/channel/UCstLyw7-0YWXjwmUICo2-OA" target="_blank" rel="noopener" class="btn-outline">YouTube</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- SUPPORT -->
+<section class="support" id="support">
+  <div class="container">
+    <div class="support-inner">
+      <div class="support-text fade-up">
+        <p class="eyebrow">Jetzt unterstützen</p>
+        <h2 class="section-title">Macht diesen Film möglich.</h2>
+        <p>Unabhängige Dokumentarfilme entstehen nicht von alleine. Jeder Beitrag – egal in welcher Höhe – hilft uns, diese Geschichte zu erzählen und zu bewahren. Euer Name erscheint im Abspann.</p>
+        <a href="https://www.paypal.com/paypalme/punchlinestudio" target="_blank" rel="noopener" class="btn-paypal">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M7.076 21.337H2.47a.641.641 0 0 1-.633-.74L4.944.901C5.026.382 5.474 0 5.998 0h7.46c2.57 0 4.578.543 5.69 1.81 1.01 1.15 1.304 2.42 1.012 4.287-.023.143-.047.288-.077.437-.983 5.05-4.349 6.797-8.647 6.797h-2.19c-.524 0-.968.382-1.05.9l-1.12 7.106zm14.146-14.42a3.35 3.35 0 0 0-.607-.541c-.013.076-.026.175-.041.26-.93 4.778-4.005 7.201-9.138 7.201h-2.19a.563.563 0 0 0-.556.479l-1.187 7.527h-.506l-.24 1.516a.56.56 0 0 0 .554.647h3.882c.46 0 .85-.334.922-.788.06-.26.76-4.852.816-5.09a.932.932 0 0 1 .923-.788h.58c3.76 0 6.705-1.528 7.565-5.946.36-1.847.174-3.388-.777-4.477z"/></svg>
+          Via PayPal unterstützen
+        </a>
+        <p class="support-note">Euer Name erscheint im Abspann · Unterstützer werden auf dieser Website gelistet</p>
+      </div>
+      <div class="fade-up">
+        <img src="assets/pressordner.webp" alt="Scaramouche Presse-Ordner von 1996 bis 1999 – das Archivmaterial des Films" class="support-img" loading="lazy" />
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- UNTERSTUETZER -->
+<section class="unterstuetzer">
+  <div class="container">
+    <p class="unterstuetzer-label">Das Filmteam dankt seinen Unterstützern</p>
+    <div class="supporter-logos">
+      <img src="assets/stadt_lahr.webp" alt="Stadt Lahr" loading="lazy" />
+      <img src="assets/volksbank.webp" alt="Volksbank Lahr eG" loading="lazy" />
+      <img src="assets/zermet.webp" alt="Zermet Zerspanungstechnik GmbH & Co KG" loading="lazy" />
+      <img src="assets/rockwerkstatt.webp" alt="Lahrer Rockwerkstatt e.V." loading="lazy" style="height:65px;border-radius:2px" />
+      <img src="assets/four_zero_logo.webp" alt="Four Zero" loading="lazy" />
+      <img src="assets/organics_logo.webp" alt="&amp;Organics" loading="lazy" />
+      <img src="assets/red_lion_entertainment_logo.webp" alt="Red Lion Entertainment" loading="lazy" />
+      <img src="assets/klassik_life_logo.webp" alt="Klassik Life" loading="lazy" />
+    </div>
+    <div class="unterstuetzer-more">
+      <a href="unterstuetzer/" class="blog-link">Alle Unterstützer &amp; Crowdfunding-Danke →</a>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- BLOG -->
+<section class="blog" id="blog">
+  <div class="container">
+    <div class="blog-header fade-up">
+      <div>
+        <p class="eyebrow" style="margin-bottom:1rem">Aus der Produktion</p>
+        <h2 class="section-title">Der Blog</h2>
+      </div>
+      <a href="/blog/" class="blog-link">Alle Einträge →</a>
+    </div>
+    <div class="blog-grid">
+      <article class="blog-card fade-up">
+        <img src="assets/tonband.webp" alt="Thomas Körffer bei der Tonband-Restaurierung für Heart and Soul" class="blog-card-img" loading="lazy" />
+        <div class="blog-card-body">
+          <p class="blog-card-date">25. Juni 2024 · 2 Min.</p>
+          <h3 class="blog-card-title">Wenn Tonbänder im Backofen schmoren…</h3>
+          <p class="blog-card-excerpt">Tonbänder im Backofen – ein untrügliches Zeichen dafür, dass Profis am Werk sind. Die Restaurierung des Archivmaterials beginnt.</p>
+          <a href="/blog/wenn-tonbänder-im-backofen-schmoren/" class="blog-card-arrow">Beitrag lesen →</a>
+        </div>
+      </article>
+      <article class="blog-card fade-up">
+        <img src="assets/kasetten.webp" alt="Hi8 Kassetten und altes Videomaterial aus den 1990er Jahren" class="blog-card-img" loading="lazy" />
+        <div class="blog-card-body">
+          <p class="blog-card-date">8. Dez. 2023 · 5 Min.</p>
+          <h3 class="blog-card-title">Badischer Underground, Bon Jovi und Proberaumgeschichten</h3>
+          <p class="blog-card-excerpt">„Acres Wild waren sowas wie die Popstars von Lahr. Und wir waren halt der Badische Underground." Es gibt Momente als Filmemacher, in…</p>
+          <a href="/blog/badischer-underground-bon-jovi-und-andere-proberaumgeschichten/" class="blog-card-arrow">Beitrag lesen →</a>
+        </div>
+      </article>
+      <article class="blog-card fade-up">
+        <img src="assets/marc_vetter_interview.webp" alt="Frank Vetter beim Sommerinterview für den Dokumentarfilm Heart and Soul" class="blog-card-img" loading="lazy" />
+        <div class="blog-card-body">
+          <p class="blog-card-date">11. Aug. 2023 · 3 Min.</p>
+          <h3 class="blog-card-title">Von Spargel und Pfifferlingen: Die Sommerinterviews</h3>
+          <p class="blog-card-excerpt">Sommer, Sonne, Nieselregen. So könnte man unsere jüngsten Drehtage zusammenfassen. Die Sommerinterviews sind im Kasten.</p>
+          <a href="/blog/von-spargel-und-pfifferlingen-die-heart-soul-sommerinterviews/" class="blog-card-arrow">Beitrag lesen →</a>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- GAESTEBUCH -->
+<section class="gaestebuch" id="gaestebuch">
+  <div class="container">
+    <div class="gaestebuch-inner">
+      <div class="gaestebuch-left fade-up">
+        <p class="eyebrow">Gästebuch</p>
+        <h2 class="section-title">Eure Stimmen zum Film.</h2>
+        <p>Ihr kennt Scaramouche? Habt ein Konzert besucht, die Alben gehört, erinnert euch an die Lahrer Musikszene der 90er? Schreibt uns – diese Geschichten sind Teil des Films.</p>
+        <div class="entry-sample">
+          <p class="entry-name">Katrin M. · Lahr</p>
+          <p class="entry-text">„Ich war bei fast jedem Konzert in der Ortenau. Dass jetzt ein Film entsteht, macht mich so glücklich."</p>
+        </div>
+        <div class="entry-sample">
+          <p class="entry-name">Thomas K. · Freiburg</p>
+          <p class="entry-text">„Jeans Song lief auf meinem ersten Kassettenrecorder. Diese Band hat meine Jugend mitgeprägt."</p>
+        </div>
+        <a href="/gaestebuch/" class="blog-link" style="display:inline-block;margin-top:.5rem">Alle Einträge lesen →</a>
+      </div>
+      <div class="fade-up">
+        <form class="gb-form" onsubmit="handleGaestebuch(event)" novalidate>
+          <p class="eyebrow" style="margin-bottom:1.5rem">Eintrag hinterlassen</p>
+          <div class="form-group">
+            <label for="gb-name">Name</label>
+            <input type="text" id="gb-name" placeholder="Euer Name" autocomplete="name" required />
+          </div>
+          <div class="form-group">
+            <label for="gb-ort">Ort (optional)</label>
+            <input type="text" id="gb-ort" placeholder="z.B. Lahr, Offenburg, …" autocomplete="address-level2" />
+          </div>
+          <div class="form-group">
+            <label for="gb-text">Euer Eintrag</label>
+            <textarea id="gb-text" placeholder="Eure Erinnerung, euer Erlebnis, eure Erwartung an den Film…" required></textarea>
+          </div>
+          <button type="submit" class="btn-outline">Eintrag senden</button>
+          <p id="gbMsg" style="font-family:var(--ff-m);font-size:.65rem;color:var(--muted);margin-top:.75rem;display:none"></p>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- FILMTEAM -->
+<section class="filmteam" id="filmteam">
+  <div class="container">
+    <div class="filmteam-intro fade-up">
+      <p class="eyebrow">Das Filmteam</p>
+      <h2 class="section-title">Gemacht von Leuten, die Musik lieben.</h2>
+      <p>Punchline Studio aus Lahr – Pirmin und Maik Styrnol – produzieren Musik und Filme, die bleiben. Heart and Soul ist ihr persönlichstes Projekt.</p>
+    </div>
+    <div class="team-grid" style="grid-template-columns:1.4fr 1fr">
+      <div class="team-card fade-up">
+        <img src="assets/team_maik_pirmin.webp" alt="Maik Styrnol (links) und Pirmin Styrnol (rechts) – Punchline Studio Lahr" class="team-card-img" loading="lazy" />
+        <div class="team-card-body">
+          <h3 class="team-name">Maik &amp; Pirmin Styrnol</h3>
+          <p class="team-role">Maik: Kreativdirektion · Ton · Musik · Kamera<br/>Pirmin: Regie · Skript · Color Grading · Sprecher</p>
+        </div>
+      </div>
+      <div class="team-card fade-up">
+        <img src="assets/punchline_logo_weiss.webp" alt="punchline studio – Pirmin &amp; Maik Styrnol GbR, Lahr/Schwarzwald" class="team-card-img" loading="lazy" style="object-fit:contain;padding:2rem;background:var(--deep)" />
+        <div class="team-card-body">
+          <h3 class="team-name">punchline studio</h3>
+          <p class="team-role">Audioproduktion · Filmproduktion · Lahr</p>
+        </div>
+      </div>
+    </div>
+    <div style="margin-top:2rem">
+      <a href="https://film-und-ton.de" target="_blank" rel="noopener" class="blog-link">Punchline Studio → film-und-ton.de</a>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<footer>
+  <div class="container">
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <div class="nav-logo" style="margin-bottom:1rem">HEART AND SOUL<span>Ein Film von Punchline Studio</span></div>
+        <p>Dokumentarfilm über die Kultband Scaramouche aus Lahr. Punchline Studio, Lahr/Schwarzwald. Derzeit in Produktion.</p>
+        <div class="social-row">
+          <a href="https://instagram.com/heartandsoul_der_film" target="_blank" rel="noopener" class="social-link" aria-label="Instagram">IG</a>
+          <a href="http://www.facebook.com/punchlinestudio" target="_blank" rel="noopener" class="social-link" aria-label="Facebook">FB</a>
+          <a href="https://www.youtube.com/channel/UCstLyw7-0YWXjwmUICo2-OA" target="_blank" rel="noopener" class="social-link" aria-label="YouTube">YT</a>
+          <a href="https://vimeo.com/punchlinestudio" target="_blank" rel="noopener" class="social-link" aria-label="Vimeo">Vi</a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h4>Der Film</h4>
+        <ul>
+          <li><a href="#story">Über den Film</a></li>
+          <li><a href="#alben">Discografie</a></li>
+          <li><a href="#status">Produktionsstatus</a></li>
+          <li><a href="#filmteam">Das Filmteam</a></li>
+          <li><a href="/presse/">Presse</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Community</h4>
+        <ul>
+          <li><a href="#blog">Blog</a></li>
+          <li><a href="#gaestebuch">Gästebuch</a></li>
+          <li><a href="#support">Alle Unterstützer</a></li>
+          <li><a href="#support">Jetzt unterstützen</a></li>
+          <li><a href="#audio">Radio &amp; Interviews</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Kontakt</h4>
+        <ul>
+          <li><a href="mailto:studio@film-und-ton.de">studio@film-und-ton.de</a></li>
+          <li><a href="https://film-und-ton.de" target="_blank" rel="noopener">film-und-ton.de</a></li>
+          <li><a href="/impressum/">Impressum</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2024 Pirmin Styrnol &amp; Maik Styrnol GbR · Punchline Studio · Lahr/Schwarzwald</p>
+      <p><a href="/impressum/">Impressum</a> · <a href="mailto:studio@film-und-ton.de">Kontakt</a></p>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // NAV
+  // MOBILE MENU
+  function toggleMenu() {
+    const m = document.getElementById('mobileMenu');
+    const open = m.classList.toggle('open');
+    document.body.style.overflow = open ? 'hidden' : '';
+  }
+
+  // INTERSECTION OBSERVER
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target); }});
+  }, {threshold:.08});
+  document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+
+  // BG AUDIO
+  const bgAudio = document.getElementById('bgAudio');
+  let bgPlaying = false;
+  function toggleAudio() {
+    if (bgPlaying) {
+      bgAudio.pause();
+      document.getElementById('audioIcon').setAttribute('d','M8 5v14l11-7z');
+      document.getElementById('audioLabel').textContent = 'Heart and Soul';
+    } else {
+      bgAudio.volume = 0.25;
+      bgAudio.play();
+      document.getElementById('audioIcon').setAttribute('d','M6 19h4V5H6v14zm8-14v14h4V5h-4z');
+      document.getElementById('audioLabel').textContent = 'Pause';
+    }
+    bgPlaying = !bgPlaying;
+  }
+
+  // TRACK PLAYER (mit Fortschrittsbalken)
+  let currentAudio = null;
+  let currentBtn = null;
+  function playTrack(btn, src) {
+    if (currentAudio && !currentAudio.paused) {
+      currentAudio.pause();
+      if (currentBtn) { currentBtn.classList.remove('playing'); currentBtn.querySelector('path').setAttribute('d','M8 5v14l11-7z'); }
+      if (currentBtn === btn) { currentAudio = null; currentBtn = null; return; }
+    }
+    if (bgPlaying) { bgAudio.pause(); bgPlaying = false; document.getElementById('audioIcon').setAttribute('d','M8 5v14l11-7z'); document.getElementById('audioLabel').textContent = 'Heart and Soul'; }
+
+    const audio = new Audio(src);
+    audio.volume = 0.85;
+    audio.play();
+    btn.classList.add('playing');
+    btn.querySelector('path').setAttribute('d','M6 19h4V5H6v14zm8-14v14h4V5h-4z');
+
+    const player = btn.closest('.audio-player');
+    const bar = player ? player.querySelector('.ap-bar') : null;
+    const timeEl = player ? player.querySelector('.ap-time') : null;
+
+    audio.addEventListener('timeupdate', () => {
+      if (bar && audio.duration) bar.style.width = (audio.currentTime / audio.duration * 100) + '%';
+      if (timeEl) {
+        const m = Math.floor(audio.currentTime/60);
+        const s = Math.floor(audio.currentTime%60).toString().padStart(2,'0');
+        timeEl.textContent = m + ':' + s;
+      }
+    });
+    audio.addEventListener('ended', () => {
+      btn.classList.remove('playing');
+      btn.querySelector('path').setAttribute('d','M8 5v14l11-7z');
+      if (bar) bar.style.width = '0%';
+      if (timeEl) timeEl.textContent = '0:00';
+      currentAudio = null; currentBtn = null;
+    });
+    if (bar) {
+      bar.parentElement.addEventListener('click', (e) => {
+        const rect = e.currentTarget.getBoundingClientRect();
+        const pct = (e.clientX - rect.left) / rect.width;
+        if (audio.duration) audio.currentTime = pct * audio.duration;
+      });
+    }
+    currentAudio = audio;
+    currentBtn = btn;
+  }
+
+  // GAESTEBUCH
+  function handleGaestebuch(e) {
+    e.preventDefault();
+    const name = document.getElementById('gb-name').value.trim();
+    const text = document.getElementById('gb-text').value.trim();
+    const msg = document.getElementById('gbMsg');
+    if (!name || !text) { msg.textContent = '⚠ Bitte Name und Eintrag ausfüllen.'; msg.style.color = '#9b2335'; msg.style.display = 'block'; return; }
+    msg.textContent = '✓ Danke für euren Eintrag! Er erscheint nach kurzer Prüfung im Gästebuch.';
+    msg.style.color = 'var(--gold)';
+    msg.style.display = 'block';
+    document.getElementById('gb-name').value = '';
+    document.getElementById('gb-ort').value = '';
+    document.getElementById('gb-text').value = '';
+  }
+</script>
+</body>
+</html>
