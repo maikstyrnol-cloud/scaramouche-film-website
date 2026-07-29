@@ -85,8 +85,8 @@ function renderNav(activePage) {
     {href:'/presse/', label:'Presse'},
     {href:'/blog/', label:'Blog'},
     {href:'/gaestebuch/', label:'Gästebuch'},
-    {href:'/#filmteam', label:'Filmteam'},
-    {href:'/#support', label:'Unterstützer'},
+    {href:'/filmteam/', label:'Filmteam'},
+    {href:'/unterstuetzer/', label:'Unterstützer'},
   ];
   const links = pages.map(p => `<li><a href="${p.href}"${p.label===activePage?' class="active"':''}>${p.label}</a></li>`).join('');
   return `
