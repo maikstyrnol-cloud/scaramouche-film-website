@@ -90,10 +90,10 @@
 
     /* HERO */
     .hero{min-height:100svh;display:flex;flex-direction:column;justify-content:flex-start;position:relative;overflow:hidden}
-    .hero-img{position:absolute;inset:0;background-image:url('assets/hero_concert.webp');background-size:cover;background-position:center 5%;filter:drop-shadow(4px 0 8px rgba(255,43,77,.45)) drop-shadow(-4px 0 8px rgba(40,224,255,.4)) contrast(1.08) saturate(1.15)}
-    .hero-img::before,.hero-img::after{content:'';position:absolute;inset:0;background-image:inherit;background-size:cover;background-position:inherit;mix-blend-mode:screen;opacity:0;pointer-events:none}
-    .hero-img::before{filter:sepia(1) saturate(7) hue-rotate(320deg) brightness(.85);animation:heroChromaGlitch 7s infinite}
-    .hero-img::after{filter:sepia(1) saturate(7) hue-rotate(155deg) brightness(.85);animation:heroChromaGlitch 7s infinite .04s reverse}
+    .hero-img{position:absolute;inset:0;background-image:url('assets/hero_concert.webp');background-size:cover;background-position:center 5%;filter:contrast(1.08) saturate(1.15)}
+    .hero-img::before,.hero-img::after{content:'';position:absolute;inset:0;mix-blend-mode:screen;opacity:0;pointer-events:none;will-change:opacity,transform}
+    .hero-img::before{background:rgba(255,43,77,.4);animation:heroChromaGlitch 7s infinite}
+    .hero-img::after{background:rgba(40,224,255,.35);animation:heroChromaGlitch 7s infinite .04s reverse}
     @keyframes heroChromaGlitch{0%,91%,100%{opacity:0;transform:translate(0,0)}92%{opacity:.55;transform:translate(-7px,1px)}93.5%{opacity:.5;transform:translate(6px,-1px)}95%{opacity:.5;transform:translate(-4px,0)}96.5%{opacity:0;transform:translate(0,0)}}
     .hero-overlay{position:absolute;inset:0;background:linear-gradient(180deg,rgba(10,10,15,.82) 0%,rgba(10,10,15,.55) 22%,rgba(10,10,15,.15) 42%,rgba(10,10,15,.1) 60%,var(--ink) 100%)}
     .hero-figures{position:absolute;inset:0;pointer-events:none;overflow:hidden}
@@ -135,7 +135,7 @@
       background:radial-gradient(70% 45% at 42% 18%,rgba(255,255,255,.07),rgba(255,255,255,0) 60%),
         linear-gradient(115deg,transparent 38%,rgba(255,255,255,.045) 47%,rgba(255,255,255,.015) 52%,transparent 60%),
         radial-gradient(120% 108% at 50% 50%,transparent 66%,rgba(0,0,0,.35) 85%,rgba(0,0,0,.8) 96%,#020203 100%);
-      box-shadow:inset 0 0 1.4vw .4vw rgba(0,0,0,.65),inset 2vw 0 2.2vw -2vw rgba(0,0,0,.6),inset -2vw 0 2.2vw -2vw rgba(0,0,0,.6),inset 0 1.6vw 2vw -1.8vw rgba(0,0,0,.55),inset 0 -1.6vw 2vw -1.8vw rgba(0,0,0,.55)}
+      box-shadow:inset 0 0 0 3px #020203,inset 0 0 1.4vw .4vw rgba(0,0,0,.65),inset 2vw 0 2.2vw -2vw rgba(0,0,0,.6),inset -2vw 0 2.2vw -2vw rgba(0,0,0,.6),inset 0 1.6vw 2vw -1.8vw rgba(0,0,0,.55),inset 0 -1.6vw 2vw -1.8vw rgba(0,0,0,.55)}
     @keyframes vhsRoll{0%{background-position:0 0}100%{background-position:0 100px}}
     @keyframes vhsNoise{0%{transform:translate(0,0)}25%{transform:translate(-1.5%,1.5%)}50%{transform:translate(1.5%,-1.5%)}75%{transform:translate(-1.5%,-1.5%)}100%{transform:translate(0,0)}}
     .vhs-boot{position:fixed;inset:0;margin:var(--crt-inset-top) var(--crt-inset-right) var(--crt-inset-bottom) var(--crt-inset-left);overflow:hidden;z-index:20000;background:var(--ink);pointer-events:none;display:flex;align-items:center;justify-content:center;animation:vhsBootOut .55s ease-out forwards}
