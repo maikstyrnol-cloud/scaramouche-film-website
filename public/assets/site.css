@@ -122,7 +122,7 @@ footer{border-top:1px solid var(--border);padding:3rem 0 2rem;margin-top:6rem}
 /* CRT / viewfinder bezel — a real photographed TV housing, sliced 9-patch style so the four
    corner tiles (with their photographed curvature) stay crisp and unstretched, while the four
    edge strips stretch to fit any screen size. Falls back to flat grey if the image can't load. */
-.crt-frame{position:fixed;inset:0;z-index:8998;pointer-events:none;
+.crt-frame{position:fixed;inset:0;z-index:40000;pointer-events:none;
   border-width:var(--crt-bezel);border-style:solid;border-color:#55555a;
   border-image-source:url('assets/tv_bezel.webp');
   border-image-slice:9% 10% 11% 10%;
