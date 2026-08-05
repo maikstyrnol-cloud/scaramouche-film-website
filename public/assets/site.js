@@ -1,13 +1,45 @@
 // ===== SHARED SITE JS =====
 
+// Old-TV-style "CH 03" corner readout, shown briefly on every page load.
+// (Declared before initVhsChrome() uses it — a const referenced before its
+// own declaration line runs throws, which previously broke every page.)
+const CHANNELS = {
+  '/': '01', '/presse/': '02', '/blog/': '03', '/gaestebuch/': '04',
+  '/filmteam/': '05', '/unterstuetzer/': '06', '/impressum/': '07'
+};
+function currentChannelNumber() {
+  const path = window.location.pathname;
+  if (CHANNELS[path]) return CHANNELS[path];
+  if (path.startsWith('/blog/')) return '03';
+  return '08';
+}
+function showChannelOsd() {
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  const osd = document.createElement('div');
+  osd.className = 'channel-osd';
+  osd.setAttribute('aria-hidden', 'true');
+  osd.innerHTML = '<div class="ch-label">CH</div><div class="ch-num">' + currentChannelNumber() + '</div>';
+  document.body.appendChild(osd);
+  setTimeout(() => osd.classList.add('show'), 120);
+  setTimeout(() => osd.remove(), 2700);
+}
+
 // ===== VHS CHROME (persistent overlays injected on every page) =====
 function initVhsChrome() {
-  if (document.querySelector('.vhs-boot')) return;
-  const boot = document.createElement('div');
-  boot.className = 'vhs-boot';
-  boot.setAttribute('aria-hidden', 'true');
-  boot.innerHTML = '<div class="vhs-boot-bars"><span></span><span></span><span></span><span></span><span></span><span></span></div><div class="grain"></div><div class="vhs-boot-text">▶ PLAY · HEART AND SOUL</div>';
-  document.body.prepend(boot);
+  if (document.querySelector('.vhs-overlay')) return;
+
+  // Only play the full colour-bar "boot" on a fresh visit — not when we
+  // just came from an internal channel-switch click (that already showed
+  // the snow burst on the previous page).
+  const cameFromNav = sessionStorage.getItem('vhsNav') === '1';
+  sessionStorage.removeItem('vhsNav');
+  if (!cameFromNav) {
+    const boot = document.createElement('div');
+    boot.className = 'vhs-boot';
+    boot.setAttribute('aria-hidden', 'true');
+    boot.innerHTML = '<div class="vhs-boot-bars"><span></span><span></span><span></span><span></span><span></span><span></span></div><div class="grain"></div><div class="vhs-boot-text">▶ PLAY · HEART AND SOUL</div>';
+    document.body.prepend(boot);
+  }
 
   const overlay = document.createElement('div');
   overlay.className = 'vhs-overlay';
@@ -24,28 +56,6 @@ function initVhsChrome() {
   showChannelOsd();
 }
 initVhsChrome();
-
-// Old-TV-style "CH 03" corner readout, shown briefly on every page load.
-const CHANNELS = {
-  '/': '01', '/presse/': '02', '/blog/': '03', '/gaestebuch/': '04',
-  '/filmteam/': '05', '/unterstuetzer/': '06', '/impressum/': '07'
-};
-function currentChannelNumber() {
-  const path = window.location.pathname;
-  if (CHANNELS[path]) return CHANNELS[path];
-  if (path.startsWith('/blog/')) return '03';
-  return '08';
-}
-function showChannelOsd() {
-  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
-  const osd = document.createElement('div');
-  osd.className = 'channel-osd';
-  osd.setAttribute('aria-hidden', 'true');
-  osd.innerHTML = '<div class="ch-label">CHANNEL</div><div class="ch-num">' + currentChannelNumber() + '</div>';
-  document.body.appendChild(osd);
-  setTimeout(() => osd.classList.add('show'), 550);
-  setTimeout(() => osd.remove(), 3300);
-}
 
 // Channel-switch page transition: intercept internal link clicks and play
 // a brief white-noise "snow" burst before navigating.
@@ -64,6 +74,7 @@ function initChannelSwitchNav() {
     if (url.origin !== window.location.origin) return;
     if (url.pathname === window.location.pathname && url.search === window.location.search) return;
     e.preventDefault();
+    sessionStorage.setItem('vhsNav', '1');
     const overlay = document.createElement('div');
     overlay.className = 'tv-transition';
     overlay.setAttribute('aria-hidden', 'true');

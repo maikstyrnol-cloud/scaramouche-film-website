@@ -127,10 +127,10 @@
     .vhs-boot-bars span:nth-child(5){background:#2a2a38}.vhs-boot-bars span:nth-child(6){background:#c9a84c}
     .vhs-boot-text{position:relative;z-index:2;font-family:var(--ff-m);font-size:1.4rem;letter-spacing:.3em;color:var(--light);text-shadow:2px 0 #ff2b4d,-2px 0 #28e0ff;animation:vhsNoise .08s steps(2) infinite}
     @keyframes vhsBootOut{0%{opacity:1}55%{opacity:1}100%{opacity:0;visibility:hidden}}
-    .channel-osd{position:fixed;bottom:1.75rem;right:1.75rem;z-index:15000;background:rgba(10,10,15,.72);border:2px solid rgba(232,232,240,.55);padding:.6rem 1.1rem;text-align:right;pointer-events:none;opacity:0}
-    .channel-osd.show{animation:channelOsdShow 2.6s ease-out forwards}
-    .channel-osd .ch-label{font-family:var(--ff-m);font-size:.6rem;letter-spacing:.35em;color:var(--gold);opacity:.85}
-    .channel-osd .ch-num{font-family:var(--ff-m);font-weight:700;font-size:2.1rem;line-height:1.1;color:var(--light);text-shadow:2px 0 #ff2b4d,-2px 0 #28e0ff}
+    .channel-osd{position:fixed;top:3.25rem;right:1.75rem;z-index:15000;background:rgba(6,14,8,.7);border:2px solid rgba(76,255,130,.4);padding:.5rem 1rem;text-align:right;pointer-events:none;opacity:0}
+    .channel-osd.show{animation:channelOsdShow 2.4s ease-out forwards}
+    .channel-osd .ch-label{font-family:var(--ff-m);font-size:.58rem;letter-spacing:.35em;color:#4cff82;opacity:.85}
+    .channel-osd .ch-num{font-family:var(--ff-m);font-weight:700;font-size:2.1rem;line-height:1.1;color:#6bff96;text-shadow:0 0 10px rgba(76,255,130,.85),0 0 2px rgba(76,255,130,.6)}
     @keyframes channelOsdShow{0%{opacity:0;transform:translateX(10px)}6%{opacity:1;transform:translateX(0)}82%{opacity:1}100%{opacity:0}}
     @media(prefers-reduced-motion:reduce){
       .vhs-overlay,.vhs-boot,.vhs-tracking,.tv-transition,.channel-osd{display:none}
@@ -1078,6 +1078,14 @@
 </footer>
 
 <script>
+  // Skip the colour-bar boot flicker if we just arrived via an internal
+  // channel-switch click (the snow burst already played on the previous page).
+  if (sessionStorage.getItem('vhsNav') === '1') {
+    sessionStorage.removeItem('vhsNav');
+    const bootEl = document.querySelector('.vhs-boot');
+    if (bootEl) bootEl.remove();
+  }
+
   // Always open at the top, regardless of browser scroll-restoration
   // (important now that the VHS boot overlay briefly covers the page on load).
   if ('scrollRestoration' in history) history.scrollRestoration = 'manual';
@@ -1100,6 +1108,7 @@
       if (url.origin !== window.location.origin) return;
       if (url.pathname === window.location.pathname && url.search === window.location.search) return;
       e.preventDefault();
+      sessionStorage.setItem('vhsNav', '1');
       const overlay = document.createElement('div');
       overlay.className = 'tv-transition';
       overlay.setAttribute('aria-hidden', 'true');
@@ -1116,10 +1125,10 @@
     const osd = document.createElement('div');
     osd.className = 'channel-osd';
     osd.setAttribute('aria-hidden', 'true');
-    osd.innerHTML = '<div class="ch-label">CHANNEL</div><div class="ch-num">01</div>';
+    osd.innerHTML = '<div class="ch-label">CH</div><div class="ch-num">01</div>';
     document.body.appendChild(osd);
-    setTimeout(() => osd.classList.add('show'), 550);
-    setTimeout(() => osd.remove(), 3300);
+    setTimeout(() => osd.classList.add('show'), 120);
+    setTimeout(() => osd.remove(), 2700);
   })();
 
   // NAV
