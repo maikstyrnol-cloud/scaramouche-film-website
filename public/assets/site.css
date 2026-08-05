@@ -28,7 +28,8 @@ a{color:inherit;text-decoration:none}
 .filmstrip::before{left:0;background:linear-gradient(to right,var(--ink),transparent)}
 .filmstrip::after{right:0;background:linear-gradient(to left,var(--ink),transparent)}
 .filmstrip-track{display:flex;gap:2rem;width:max-content;animation:filmroll 30s linear infinite}
-.filmstrip-item{font-family:var(--ff-m);font-size:.6rem;letter-spacing:.25em;text-transform:uppercase;color:var(--gold-dim);white-space:nowrap;padding:0 .75rem;display:flex;align-items:center;gap:1rem}
+.filmstrip-track:hover{animation-duration:120s}
+.filmstrip-item{font-family:var(--ff-m);font-size:.6rem;letter-spacing:.25em;text-transform:uppercase;color:var(--gold);white-space:nowrap;padding:0 .75rem;display:flex;align-items:center;gap:1rem}
 .filmstrip-item::before{content:'◆';font-size:.35rem;color:var(--red)}
 @keyframes filmroll{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
 
