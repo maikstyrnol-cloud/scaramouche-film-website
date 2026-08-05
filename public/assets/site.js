@@ -57,12 +57,6 @@ function initVhsChrome() {
   crtVignette.setAttribute('aria-hidden', 'true');
   document.body.appendChild(crtVignette);
 
-  const crtFx = document.createElement('div');
-  crtFx.className = 'crt-frame-fx';
-  crtFx.setAttribute('aria-hidden', 'true');
-  crtFx.innerHTML = '<div class="grain"></div><div class="scanlines"></div>';
-  document.body.appendChild(crtFx);
-
   showChannelOsd();
 }
 initVhsChrome();
