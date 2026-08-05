@@ -74,9 +74,19 @@
     .hero-overlay{position:absolute;inset:0;background:linear-gradient(180deg,rgba(10,10,15,.82) 0%,rgba(10,10,15,.55) 22%,rgba(10,10,15,.15) 42%,rgba(10,10,15,.1) 60%,var(--ink) 100%)}
     .hero-figures{position:absolute;inset:0;pointer-events:none;overflow:hidden}
     .hero-fig{position:absolute;opacity:.18;mix-blend-mode:screen}
-    .hero-fig-1{right:8%;top:10%;width:280px;transform:rotate(12deg)}
-    .hero-fig-2{right:25%;top:5%;width:200px;transform:rotate(-8deg)}
-    .hero-fig-3{right:3%;top:35%;width:180px;transform:rotate(5deg);opacity:.12}
+    .hero-fig-1{right:8%;top:10%;width:280px;animation:figDrift1 9s ease-in-out infinite}
+    .hero-fig-2{right:25%;top:5%;width:200px;animation:figDrift2 11s ease-in-out infinite -3s}
+    .hero-fig-3{right:3%;top:35%;width:180px;opacity:.12;animation:figDrift3 13s ease-in-out infinite -6s}
+    @media(prefers-reduced-motion:no-preference){
+      @keyframes figDrift1{0%,100%{transform:translateY(0) rotate(12deg)}50%{transform:translateY(-16px) rotate(16deg)}}
+      @keyframes figDrift2{0%,100%{transform:translateY(0) rotate(-8deg)}50%{transform:translateY(12px) rotate(-4deg)}}
+      @keyframes figDrift3{0%,100%{transform:translateY(0) rotate(5deg)}50%{transform:translateY(-10px) rotate(9deg)}}
+    }
+    @media(prefers-reduced-motion:reduce){
+      .hero-fig-1{transform:rotate(12deg)}
+      .hero-fig-2{transform:rotate(-8deg)}
+      .hero-fig-3{transform:rotate(5deg)}
+    }
     .hero-content{position:relative;z-index:2;max-width:var(--max);margin:0 auto;padding:6.5rem 2rem 0;width:100%}
     .hero-presented{font-family:var(--ff-m);font-size:.7rem;letter-spacing:.3em;text-transform:uppercase;color:var(--muted);margin-bottom:1rem;text-shadow:0 2px 10px rgba(0,0,0,.85)}
     .hero-presented a{color:var(--gold);transition:color .2s}
@@ -93,7 +103,14 @@
     .audio-btn svg{width:14px;height:14px;flex-shrink:0}
 
     /* STORY */
-    .story{padding:var(--gap) 0}
+    .story{padding:var(--gap) 0;position:relative;overflow:hidden}
+    .story-fig{position:absolute;left:-3%;bottom:-6%;width:220px;opacity:.1;mix-blend-mode:screen;pointer-events:none;z-index:0}
+    .story .container{position:relative;z-index:1}
+    @media(prefers-reduced-motion:no-preference){
+      .story-fig{animation:figDrift4 15s ease-in-out infinite}
+      @keyframes figDrift4{0%,100%{transform:translateY(0) rotate(-6deg)}50%{transform:translateY(-14px) rotate(-2deg)}}
+    }
+    @media(prefers-reduced-motion:reduce){.story-fig{transform:rotate(-6deg)}}
     .story-inner{display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:start}
     .story-left .eyebrow{margin-bottom:1.5rem}
     .story-left .section-title{margin-bottom:2rem}
@@ -228,7 +245,14 @@
     .support-img{width:100%;object-fit:cover;aspect-ratio:4/3;border:1px solid var(--border)}
 
     /* UNTERSTUETZER */
-    .unterstuetzer{padding:5rem 0;background:var(--panel);border-top:1px solid var(--border);border-bottom:1px solid var(--border)}
+    .unterstuetzer{padding:5rem 0;background:var(--panel);border-top:1px solid var(--border);border-bottom:1px solid var(--border);position:relative;overflow:hidden}
+    .unterstuetzer-fig{position:absolute;right:-2%;top:-8%;width:160px;opacity:.09;mix-blend-mode:screen;pointer-events:none;z-index:0}
+    .unterstuetzer .container{position:relative;z-index:1}
+    @media(prefers-reduced-motion:no-preference){
+      .unterstuetzer-fig{animation:figDrift5 12s ease-in-out infinite}
+      @keyframes figDrift5{0%,100%{transform:translateY(0) rotate(8deg)}50%{transform:translateY(10px) rotate(4deg)}}
+    }
+    @media(prefers-reduced-motion:reduce){.unterstuetzer-fig{transform:rotate(8deg)}}
     .unterstuetzer-label{font-family:var(--ff-m);font-size:.7rem;letter-spacing:.25em;text-transform:uppercase;color:var(--muted);text-align:center;margin-bottom:3rem}
     .supporter-logos{display:flex;align-items:center;justify-content:center;gap:4rem;flex-wrap:wrap}
     .supporter-logos img{height:130px;object-fit:contain;filter:grayscale(1) brightness(0.85);transition:filter .3s;max-width:320px}
@@ -419,6 +443,7 @@
 
 <!-- STORY -->
 <section class="story" id="story">
+  <img src="assets/figura_olive.webp" class="story-fig" alt="" aria-hidden="true" />
   <div class="container">
     <div class="story-inner">
       <div class="story-left fade-up">
@@ -695,6 +720,7 @@
 
 <!-- UNTERSTUETZER -->
 <section class="unterstuetzer">
+  <img src="assets/figura_rust.webp" class="unterstuetzer-fig" alt="" aria-hidden="true" />
   <div class="container">
     <p class="unterstuetzer-label">Das Filmteam dankt seinen Unterstützern</p>
     <div class="supporter-logos">
