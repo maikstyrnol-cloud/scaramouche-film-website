@@ -32,7 +32,6 @@
       --max:1140px;--gap:7rem;
       --crt-bezel:clamp(20px,4.6vw,84px);
       --crt-radius:clamp(20px,3.6vw,58px);
-      --crt-radius-outer:calc(var(--crt-bezel) + var(--crt-radius));
     }
     *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
     html{scroll-behavior:smooth}
@@ -118,14 +117,12 @@
     .vhs-overlay .grain{opacity:.14;animation:vhsNoise .5s steps(2) infinite}
     .vhs-tracking{position:absolute;left:0;right:0;height:22px;background:linear-gradient(0deg,transparent,rgba(232,232,240,.5) 40%,rgba(232,232,240,.9) 50%,rgba(232,232,240,.5) 60%,transparent);mix-blend-mode:overlay;animation:vhsTrackSweep 11s cubic-bezier(.4,0,.2,1) infinite;opacity:0}
     @keyframes vhsTrackSweep{0%{top:-5%;opacity:0}2%{opacity:.9}6%{opacity:.9}9%{top:108%;opacity:0}100%{top:108%;opacity:0}}
-    .crt-frame{position:fixed;inset:0;padding:var(--crt-bezel);border-radius:var(--crt-radius-outer);z-index:8998;pointer-events:none;
-      background:
-        radial-gradient(120% 90% at 20% 6%,rgba(255,255,255,.16),rgba(255,255,255,0) 40%),
-        radial-gradient(140% 120% at 82% 98%,rgba(0,0,0,.32),rgba(0,0,0,0) 45%),
-        linear-gradient(160deg,#6f6f74 0%,#59595e 30%,#4a4a4f 60%,#3b3b3f 100%);
-      -webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);-webkit-mask-composite:xor;
-      mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);mask-composite:exclude;
-      box-shadow:0 12px 40px rgba(0,0,0,.5)}
+    .crt-frame{position:fixed;inset:0;margin:var(--crt-bezel);border-radius:var(--crt-radius);z-index:8998;pointer-events:none;
+      box-shadow:
+        0 0 0 calc(var(--crt-bezel)*.16) #78787d,
+        0 0 0 calc(var(--crt-bezel)*.55) #55555a,
+        0 0 0 100vmax #3c3c40,
+        inset 0 0 0 2px rgba(255,255,255,.08)}
     .crt-vignette{position:fixed;inset:0;z-index:8997;pointer-events:none;border-radius:var(--crt-radius);
       background:radial-gradient(130% 95% at 50% 36%,rgba(255,255,255,.05),rgba(255,255,255,0) 40%),radial-gradient(115% 100% at 50% 50%,transparent 48%,rgba(0,0,0,.22) 78%,rgba(0,0,0,.55) 100%);
       box-shadow:inset 0 0 0 3px rgba(0,0,0,.6),inset 0 0 0 4px rgba(255,255,255,.04),inset 0 0 2.6vw .9vw rgba(0,0,0,.6),inset 3.4vw 0 4vw -3vw rgba(0,0,0,.5),inset -3.4vw 0 4vw -3vw rgba(0,0,0,.5),inset 0 2.6vw 3.4vw -3vw rgba(0,0,0,.45),inset 0 -2.6vw 3.4vw -3vw rgba(0,0,0,.45)}
