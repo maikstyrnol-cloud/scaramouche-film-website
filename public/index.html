@@ -46,11 +46,9 @@
     .filmstrip::before,.filmstrip::after{content:'';position:absolute;top:0;bottom:0;width:4rem;z-index:2;pointer-events:none}
     .filmstrip::before{left:0;background:linear-gradient(to right,var(--ink),transparent)}
     .filmstrip::after{right:0;background:linear-gradient(to left,var(--ink),transparent)}
-    .filmstrip-track{display:flex;gap:2rem;width:max-content;animation:filmroll 30s linear infinite}
-    .filmstrip-track:hover{animation-duration:120s}
+    .filmstrip-track{display:flex;gap:2rem;width:max-content;will-change:transform}
     .filmstrip-item{font-family:var(--ff-m);font-size:.6rem;letter-spacing:.25em;text-transform:uppercase;color:var(--gold);white-space:nowrap;padding:0 .75rem;display:flex;align-items:center;gap:1rem}
     .filmstrip-item::before{content:'◆';font-size:.35rem;color:var(--red)}
-    @keyframes filmroll{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
 
     /* NAV */
     .nav{position:sticky;top:0;z-index:100;background:rgba(10,10,15,.96);backdrop-filter:blur(12px);border-bottom:1px solid var(--border);padding:.9rem 0}
@@ -73,22 +71,22 @@
     /* HERO */
     .hero{min-height:100svh;display:flex;flex-direction:column;justify-content:flex-start;position:relative;overflow:hidden}
     .hero-img{position:absolute;inset:0;background-image:url('assets/hero_concert.webp');background-size:cover;background-position:center 5%}
-    .hero-overlay{position:absolute;inset:0;background:linear-gradient(180deg,rgba(10,10,15,.55) 0%,rgba(10,10,15,.15) 28%,rgba(10,10,15,.1) 60%,var(--ink) 100%)}
+    .hero-overlay{position:absolute;inset:0;background:linear-gradient(180deg,rgba(10,10,15,.82) 0%,rgba(10,10,15,.55) 22%,rgba(10,10,15,.15) 42%,rgba(10,10,15,.1) 60%,var(--ink) 100%)}
     .hero-figures{position:absolute;inset:0;pointer-events:none;overflow:hidden}
     .hero-fig{position:absolute;opacity:.18;mix-blend-mode:screen}
     .hero-fig-1{right:8%;top:10%;width:280px;transform:rotate(12deg)}
     .hero-fig-2{right:25%;top:5%;width:200px;transform:rotate(-8deg)}
     .hero-fig-3{right:3%;top:35%;width:180px;transform:rotate(5deg);opacity:.12}
     .hero-content{position:relative;z-index:2;max-width:var(--max);margin:0 auto;padding:6.5rem 2rem 0;width:100%}
-    .hero-presented{font-family:var(--ff-m);font-size:.7rem;letter-spacing:.3em;text-transform:uppercase;color:var(--muted);margin-bottom:1rem}
-    .hero-presented a{color:var(--gold-dim);transition:color .2s}
-    .hero-presented a:hover{color:var(--gold)}
-    .hero-title{font-family:var(--ff-d);font-size:clamp(2.6rem,6.5vw,5.5rem);font-weight:900;line-height:1.02;color:var(--light);margin-bottom:.5rem;letter-spacing:-.02em}
+    .hero-presented{font-family:var(--ff-m);font-size:.7rem;letter-spacing:.3em;text-transform:uppercase;color:var(--muted);margin-bottom:1rem;text-shadow:0 2px 10px rgba(0,0,0,.85)}
+    .hero-presented a{color:var(--gold);transition:color .2s}
+    .hero-presented a:hover{color:var(--cream)}
+    .hero-title{font-family:var(--ff-d);font-size:clamp(2.6rem,6.5vw,5.5rem);font-weight:900;line-height:1.02;color:var(--light);margin-bottom:.5rem;letter-spacing:-.02em;text-shadow:0 4px 24px rgba(0,0,0,.8)}
     .hero-title em{font-style:italic;color:var(--gold)}
-    .hero-sub{font-family:var(--ff-d);font-size:clamp(1rem,2.5vw,1.5rem);font-weight:400;font-style:italic;color:var(--muted);margin-bottom:2rem;display:block}
+    .hero-sub{font-family:var(--ff-d);font-size:clamp(1rem,2.5vw,1.5rem);font-weight:400;font-style:italic;color:var(--body);margin-bottom:2rem;display:block;text-shadow:0 2px 14px rgba(0,0,0,.85)}
     .hero-meta{display:flex;align-items:center;gap:2rem;flex-wrap:wrap}
-    .hero-badge{font-family:var(--ff-m);font-size:.65rem;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);border:1px solid var(--gold-dim);padding:.4rem .8rem}
-    .hero-badge-dark{color:var(--muted);border-color:var(--border)}
+    .hero-badge{font-family:var(--ff-m);font-size:.65rem;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);border:1px solid var(--gold-dim);padding:.4rem .8rem;background:rgba(10,10,15,.5);backdrop-filter:blur(2px)}
+    .hero-badge-dark{color:var(--light);border-color:var(--border)}
     .hero-audio{display:flex;align-items:center;gap:1rem;margin-left:auto}
     .audio-btn{background:none;border:1px solid var(--border);color:var(--muted);font-family:var(--ff-m);font-size:.62rem;letter-spacing:.15em;text-transform:uppercase;padding:.5rem .9rem;cursor:pointer;transition:border-color .2s,color .2s;display:flex;align-items:center;gap:.5rem}
     .audio-btn:hover{border-color:var(--gold-dim);color:var(--gold)}
@@ -304,7 +302,6 @@
       .fade-up{opacity:0;transform:translateY(20px);transition:opacity .55s ease,transform .55s ease}
       .fade-up.visible{opacity:1;transform:translateY(0)}
     }
-    @media(prefers-reduced-motion:reduce){.filmstrip-track{animation:none}}
 
     /* RESPONSIVE */
     @media(max-width:1150px){
@@ -443,8 +440,8 @@
           <div class="fact-text">Born in December, The Bigger The Better, Belle – alle Warner Music.</div>
         </div>
         <div class="fact-card">
-          <div class="fact-num">8</div>
-          <div class="fact-label">Jahre Karriere</div>
+          <div class="fact-num">16</div>
+          <div class="fact-label">Jahre Bandgeschichte</div>
           <div class="fact-text">Als Acres Wild und Scaramouche – eine Ortenauer Generation ist damit aufgewachsen.</div>
         </div>
         <div class="fact-card">
@@ -900,6 +897,31 @@
     entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target); }});
   }, {threshold:.08});
   document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+
+  // FILMSTRIP TICKER (JS-driven so hover can slow it without a position jump)
+  function initFilmstripTicker(track) {
+    if (!track) return;
+    const wrap = track.closest('.filmstrip') || track.parentElement;
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    const baseSpeed = 45;
+    let speed = baseSpeed;
+    let pos = 0;
+    let last = null;
+    wrap.addEventListener('mouseenter', () => { speed = baseSpeed * 0.22; });
+    wrap.addEventListener('mouseleave', () => { speed = baseSpeed; });
+    function step(ts) {
+      if (last === null) last = ts;
+      const dt = Math.min((ts - last) / 1000, 0.05);
+      last = ts;
+      pos -= speed * dt;
+      const half = track.scrollWidth / 2;
+      if (half > 0 && -pos >= half) pos += half;
+      track.style.transform = `translateX(${pos}px)`;
+      requestAnimationFrame(step);
+    }
+    requestAnimationFrame(step);
+  }
+  document.querySelectorAll('.filmstrip-track').forEach(initFilmstripTicker);
 
   // BG AUDIO
   const bgAudio = document.getElementById('bgAudio');
