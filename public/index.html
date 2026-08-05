@@ -41,6 +41,16 @@
     .section-title{font-family:var(--ff-d);font-size:clamp(2rem,4vw,3rem);font-weight:700;color:var(--light);line-height:1.15}
     .divider{width:100%;height:1px;background:linear-gradient(to right,transparent,var(--border),transparent)}
 
+    /* ANALOG / VHS LOOK */
+    .grain{position:absolute;inset:0;pointer-events:none;opacity:.16;mix-blend-mode:overlay;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
+    .scanlines{position:absolute;inset:0;pointer-events:none;mix-blend-mode:overlay;opacity:.5;background:repeating-linear-gradient(0deg,rgba(255,255,255,.06) 0px,rgba(255,255,255,.06) 1px,transparent 1px,transparent 3px)}
+    .vhs-vignette{position:absolute;inset:0;pointer-events:none;box-shadow:inset 0 0 12rem rgba(0,0,0,.65)}
+    .rec-hud{position:absolute;z-index:4;display:flex;align-items:center;gap:.5rem;font-family:var(--ff-m);font-size:.68rem;letter-spacing:.12em;color:var(--light);text-shadow:0 2px 8px rgba(0,0,0,.9)}
+    .rec-dot{width:7px;height:7px;border-radius:50%;background:var(--red);box-shadow:0 0 6px var(--red);animation:recBlink 1.3s step-start infinite}
+    @keyframes recBlink{50%{opacity:.15}}
+    .tape-corner{position:absolute;z-index:4;font-family:var(--ff-m);font-size:.62rem;letter-spacing:.1em;color:var(--light);opacity:.75;text-shadow:0 2px 8px rgba(0,0,0,.9)}
+    @media(prefers-reduced-motion:reduce){.rec-dot{animation:none}}
+
     /* FILMSTRIP */
     .filmstrip{width:100%;overflow:hidden;background:var(--ink);padding:.5rem 0;position:relative;border-bottom:1px solid var(--border)}
     .filmstrip::before,.filmstrip::after{content:'';position:absolute;top:0;bottom:0;width:4rem;z-index:2;pointer-events:none}
@@ -126,6 +136,8 @@
       .press-arrow{width:38px;height:38px}
       .press-arrow-prev{left:.75rem}
       .press-arrow-next{right:.75rem}
+      .rec-hud{top:1.25rem!important;left:1.25rem!important;font-size:.6rem}
+      .tape-corner{display:none}
     }
     .audio-btn:hover{border-color:var(--gold-dim);color:var(--gold)}
     .audio-btn svg{width:14px;height:14px;flex-shrink:0}
@@ -137,8 +149,10 @@
     .band-photo-wrap{display:flex;justify-content:center;position:relative;margin-bottom:5rem}
     .band-photo-card{background:var(--cream);padding:1rem 1rem 2.75rem;max-width:600px;width:100%;box-shadow:0 24px 60px rgba(0,0,0,.55);transform:rotate(-2.2deg);position:relative;z-index:2;transition:transform .5s cubic-bezier(.2,.8,.2,1)}
     .band-photo-card:hover{transform:rotate(0deg) scale(1.015)}
+    .band-photo-frame{position:relative;overflow:hidden}
     .band-photo-img{width:100%;display:block}
     .band-photo-caption{margin-top:1rem;text-align:center;font-family:var(--ff-m);font-size:.62rem;letter-spacing:.18em;text-transform:uppercase;color:var(--ink);opacity:.7}
+    .band-photo-datestamp{position:absolute;right:.9rem;bottom:.7rem;font-family:'Courier New',monospace;font-size:1rem;letter-spacing:.06em;color:#ff8a1f;text-shadow:0 0 6px rgba(255,120,20,.7),0 1px 0 rgba(0,0,0,.4);font-weight:700;z-index:2}
     .band-photo-fig{position:absolute;width:170px;right:-4rem;bottom:-2.5rem;z-index:1;opacity:.9;pointer-events:none;animation:figDrift6 8s ease-in-out infinite}
     @keyframes figDrift6{0%,100%{transform:translateY(0) rotate(8deg)}50%{transform:translateY(-10px) rotate(13deg)}}
     @media(max-width:700px){.band-photo-fig{display:none}}
@@ -456,6 +470,7 @@
 <header class="hero">
   <div class="hero-img" aria-hidden="true"></div>
   <div class="hero-overlay" aria-hidden="true"></div>
+  <div class="grain" aria-hidden="true" style="opacity:.1"></div>
   <div class="hero-figures" aria-hidden="true">
     <img src="assets/figura_yellow.webp" class="hero-fig hero-fig-1" alt="" />
     <img src="assets/figura_gold.webp" class="hero-fig hero-fig-2" alt="" />
@@ -489,10 +504,19 @@
   <div class="press-slide" style="background-image:url('assets/press_slide_7.webp')" data-quote="„Material von Scaramouche gesucht“" data-source="RTL Radio"></div>
   <div class="press-slide" style="background-image:url('assets/press_slide_8.webp')" data-quote="„Erinnerung an eine Lahrer Kultband“" data-source="Lahrer Zeitung, 2018"></div>
   <div class="press-slide-overlay" aria-hidden="true"></div>
+  <div class="scanlines" aria-hidden="true"></div>
+  <div class="grain" aria-hidden="true"></div>
+  <div class="vhs-vignette" aria-hidden="true"></div>
+  <div class="rec-hud" style="top:2rem;left:3rem">
+    <span class="rec-dot"></span>
+    <span>REC</span>
+    <span id="pressTimecode">00:00:00:00</span>
+  </div>
+  <div class="tape-corner" style="top:2rem;right:3rem">SP · PRESSESTIMMEN <span id="pressCounter">01/08</span></div>
   <button class="press-arrow press-arrow-prev" id="pressPrev" aria-label="Vorherige Pressestimme"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg></button>
   <button class="press-arrow press-arrow-next" id="pressNext" aria-label="Nächste Pressestimme"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18l6-6-6-6"/></svg></button>
   <div class="press-slider-content">
-    <p class="press-eyebrow">Pressestimmen</p>
+    <p class="press-eyebrow">▶ Pressestimmen</p>
     <p class="press-slide-quote" id="pressQuote">„Scaramouche kommt auf die Leinwand“</p>
     <p class="press-source" id="pressSource">SWR1 Baden-Württemberg, 2019</p>
   </div>
@@ -505,7 +529,11 @@
   <div class="container">
     <div class="band-photo-wrap fade-up">
       <div class="band-photo-card">
-        <img src="assets/band_bw_photo.webp" class="band-photo-img" alt="Scaramouche – Bandporträt, Archivaufnahme" loading="lazy" />
+        <div class="band-photo-frame">
+          <img src="assets/band_bw_photo.webp" class="band-photo-img" alt="Scaramouche – Bandporträt, Archivaufnahme" loading="lazy" />
+          <div class="grain" aria-hidden="true"></div>
+          <span class="band-photo-datestamp">08 1995</span>
+        </div>
         <p class="band-photo-caption">Scaramouche · Archivporträt</p>
         <img src="assets/figura_gold.webp" class="band-photo-fig" alt="" aria-hidden="true" />
       </div>
@@ -1033,12 +1061,29 @@
     const dots = Array.from(dotsWrap.children);
     const prevBtn = document.getElementById('pressPrev');
     const nextBtn = document.getElementById('pressNext');
+    const counterEl = document.getElementById('pressCounter');
     function go(i) {
       idx = (i + slides.length) % slides.length;
       slides.forEach((s, j) => s.classList.toggle('active', j === idx));
       dots.forEach((d, j) => d.classList.toggle('active', j === idx));
       quoteEl.textContent = slides[idx].dataset.quote;
       sourceEl.textContent = slides[idx].dataset.source;
+      if (counterEl) counterEl.textContent = String(idx + 1).padStart(2, '0') + '/' + String(slides.length).padStart(2, '0');
+    }
+    // fake camcorder timecode HH:MM:SS:FF, runs continuously while the slider is in view
+    const tcEl = document.getElementById('pressTimecode');
+    if (tcEl && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      let frame = 0;
+      setInterval(() => {
+        frame++;
+        const ff = frame % 25;
+        const totalSec = Math.floor(frame / 25);
+        const ss = totalSec % 60;
+        const mm = Math.floor(totalSec / 60) % 60;
+        const hh = Math.floor(totalSec / 3600);
+        const p2 = n => String(n).padStart(2, '0');
+        tcEl.textContent = p2(hh) + ':' + p2(mm) + ':' + p2(ss) + ':' + p2(ff);
+      }, 40);
     }
     function restart() {
       clearInterval(timer);
