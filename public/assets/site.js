@@ -53,6 +53,16 @@ function initVhsChrome() {
   corners.innerHTML = '<span></span><span></span><span></span><span></span>';
   document.body.appendChild(corners);
 
+  const crtFrame = document.createElement('div');
+  crtFrame.className = 'crt-frame';
+  crtFrame.setAttribute('aria-hidden', 'true');
+  document.body.appendChild(crtFrame);
+
+  const crtVignette = document.createElement('div');
+  crtVignette.className = 'crt-vignette';
+  crtVignette.setAttribute('aria-hidden', 'true');
+  document.body.appendChild(crtVignette);
+
   showChannelOsd();
 }
 initVhsChrome();
