@@ -9,6 +9,7 @@
   --max:1140px;
   --crt-bezel:clamp(20px,4.6vw,84px);
   --crt-radius:clamp(20px,3.6vw,58px);
+  --crt-radius-outer:calc(var(--crt-bezel) + var(--crt-radius));
 }
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth}
@@ -117,7 +118,7 @@ footer{border-top:1px solid var(--border);padding:3rem 0 2rem;margin-top:6rem}
 .vhs-tracking{position:absolute;left:0;right:0;height:22px;background:linear-gradient(0deg,transparent,rgba(232,232,240,.5) 40%,rgba(232,232,240,.9) 50%,rgba(232,232,240,.5) 60%,transparent);mix-blend-mode:overlay;animation:vhsTrackSweep 14s cubic-bezier(.4,0,.2,1) infinite;opacity:0}
 @keyframes vhsTrackSweep{0%{top:-5%;opacity:0}2%{opacity:.9}6%{opacity:.9}9%{top:108%;opacity:0}100%{top:108%;opacity:0}}
 /* CRT / viewfinder bezel — molded plastic TV housing, static shading only, no motion/texture */
-.crt-frame{position:fixed;inset:0;padding:var(--crt-bezel);border-radius:var(--crt-radius);z-index:8998;pointer-events:none;
+.crt-frame{position:fixed;inset:0;padding:var(--crt-bezel);border-radius:var(--crt-radius-outer);z-index:8998;pointer-events:none;
   background:
     radial-gradient(120% 90% at 20% 6%,rgba(255,255,255,.16),rgba(255,255,255,0) 40%),
     radial-gradient(140% 120% at 82% 98%,rgba(0,0,0,.32),rgba(0,0,0,0) 45%),
