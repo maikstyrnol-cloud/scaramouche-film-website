@@ -7,7 +7,7 @@
   --ff-b:'Inter',system-ui,sans-serif;
   --ff-m:'Courier Prime','Courier New',monospace;
   --max:1140px;
-  --crt-bezel:clamp(20px,4.6vw,84px);
+  --crt-bezel:clamp(34px,4.6vw,90px);
   --crt-radius:clamp(20px,3.6vw,58px);
 }
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
@@ -119,12 +119,16 @@ footer{border-top:1px solid var(--border);padding:3rem 0 2rem;margin-top:6rem}
 .vhs-overlay .grain{opacity:.14;animation:vhsNoise .5s steps(2) infinite}
 .vhs-tracking{position:absolute;left:0;right:0;height:22px;background:linear-gradient(0deg,transparent,rgba(232,232,240,.5) 40%,rgba(232,232,240,.9) 50%,rgba(232,232,240,.5) 60%,transparent);mix-blend-mode:overlay;animation:vhsTrackSweep 14s cubic-bezier(.4,0,.2,1) infinite;opacity:0}
 @keyframes vhsTrackSweep{0%{top:-5%;opacity:0}2%{opacity:.9}6%{opacity:.9}9%{top:108%;opacity:0}100%{top:108%;opacity:0}}
-/* CRT / viewfinder bezel — molded plastic TV housing. The real browser-window edge stays a hard
-   rectangle (huge box-shadow spread flattens the curve to nothing out there); only the inner
-   edge, right where the housing meets the screen, is actually rounded. Flat colour bands (no
-   gradients) fake a bit of shading while keeping that geometry exact. */
-.crt-frame{position:fixed;inset:0;margin:var(--crt-bezel);border-radius:var(--crt-radius);z-index:8998;pointer-events:none;
-  box-shadow:0 0 0 100vmax #55555a,inset 0 0 0 2px rgba(255,255,255,.08)}
+/* CRT / viewfinder bezel — a real photographed TV housing, sliced 9-patch style so the four
+   corner tiles (with their photographed curvature) stay crisp and unstretched, while the four
+   edge strips stretch to fit any screen size. Falls back to flat grey if the image can't load. */
+.crt-frame{position:fixed;inset:0;z-index:8998;pointer-events:none;
+  border-width:var(--crt-bezel);border-style:solid;border-color:#55555a;
+  border-image-source:url('assets/tv_bezel.webp');
+  border-image-slice:9% 10% 11% 10%;
+  border-image-width:1;
+  border-image-outset:0;
+  border-image-repeat:stretch}
 /* dark gasket line where the plastic meets the glass, plus the curved-glass illusion inside the screen */
 .crt-vignette{position:fixed;inset:0;z-index:8997;pointer-events:none;border-radius:var(--crt-radius);
   background:radial-gradient(130% 95% at 50% 36%,rgba(255,255,255,.05),rgba(255,255,255,0) 40%),radial-gradient(115% 100% at 50% 50%,transparent 48%,rgba(0,0,0,.22) 78%,rgba(0,0,0,.55) 100%);
