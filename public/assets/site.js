@@ -20,11 +20,35 @@ function initVhsChrome() {
   corners.setAttribute('aria-hidden', 'true');
   corners.innerHTML = '<span></span><span></span><span></span><span></span>';
   document.body.appendChild(corners);
+
+  showChannelOsd();
 }
 initVhsChrome();
 
+// Old-TV-style "CH 03" corner readout, shown briefly on every page load.
+const CHANNELS = {
+  '/': '01', '/presse/': '02', '/blog/': '03', '/gaestebuch/': '04',
+  '/filmteam/': '05', '/unterstuetzer/': '06', '/impressum/': '07'
+};
+function currentChannelNumber() {
+  const path = window.location.pathname;
+  if (CHANNELS[path]) return CHANNELS[path];
+  if (path.startsWith('/blog/')) return '03';
+  return '08';
+}
+function showChannelOsd() {
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  const osd = document.createElement('div');
+  osd.className = 'channel-osd';
+  osd.setAttribute('aria-hidden', 'true');
+  osd.innerHTML = '<div class="ch-label">CHANNEL</div><div class="ch-num">' + currentChannelNumber() + '</div>';
+  document.body.appendChild(osd);
+  setTimeout(() => osd.classList.add('show'), 550);
+  setTimeout(() => osd.remove(), 3300);
+}
+
 // Channel-switch page transition: intercept internal link clicks and play
-// a brief "changing channel" flash/roll before navigating.
+// a brief white-noise "snow" burst before navigating.
 function initChannelSwitchNav() {
   if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
   document.addEventListener('click', function (e) {
@@ -43,10 +67,10 @@ function initChannelSwitchNav() {
     const overlay = document.createElement('div');
     overlay.className = 'tv-transition';
     overlay.setAttribute('aria-hidden', 'true');
-    overlay.innerHTML = '<div class="vhs-boot-bars"><span></span><span></span><span></span><span></span><span></span><span></span></div><div class="grain"></div>';
+    overlay.innerHTML = '<div class="snow"></div>';
     document.body.appendChild(overlay);
     requestAnimationFrame(() => overlay.classList.add('active'));
-    setTimeout(() => { window.location.href = url.href; }, 260);
+    setTimeout(() => { window.location.href = url.href; }, 130);
   });
 }
 initChannelSwitchNav();
