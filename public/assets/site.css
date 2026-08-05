@@ -10,10 +10,10 @@
   /* the transparent "screen" cutout in the photographed TV frame sits at these fractions of the
      image, so content is inset by the same fractions of the viewport — they always line up,
      however the frame image gets stretched (background-size:100% 100%) at any window size. */
-  --crt-inset-top:clamp(18px,7.6vh,120px);
-  --crt-inset-right:clamp(20px,9.2vw,140px);
-  --crt-inset-bottom:clamp(26px,11vh,170px);
-  --crt-inset-left:clamp(22px,10.3vw,150px);
+  --crt-inset-top:7.6vh;
+  --crt-inset-right:9.2vw;
+  --crt-inset-bottom:11vh;
+  --crt-inset-left:10.3vw;
 }
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth}
@@ -131,6 +131,12 @@ footer{border-top:1px solid var(--border);padding:3rem 0 2rem;margin-top:6rem}
   background-size:100% 100%;
   background-repeat:no-repeat;
   background-position:center}
+/* soft optical falloff right at the screen edge — sharp in the middle, gently blurred toward
+   the rim, like a real curved CRT/tube losing focus at the corners */
+.crt-edge-blur{position:fixed;inset:0;margin:var(--crt-inset-top) var(--crt-inset-right) var(--crt-inset-bottom) var(--crt-inset-left);z-index:8996;pointer-events:none;
+  backdrop-filter:blur(3px);-webkit-backdrop-filter:blur(3px);
+  mask-image:radial-gradient(120% 100% at 50% 50%,transparent 58%,rgba(0,0,0,.5) 82%,rgba(0,0,0,.95) 100%);
+  -webkit-mask-image:radial-gradient(120% 100% at 50% 50%,transparent 58%,rgba(0,0,0,.5) 82%,rgba(0,0,0,.95) 100%)}
 /* dark gasket line where the plastic meets the glass, plus the curved-glass illusion inside the screen */
 .crt-vignette{position:fixed;inset:0;margin:var(--crt-inset-top) var(--crt-inset-right) var(--crt-inset-bottom) var(--crt-inset-left);z-index:8997;pointer-events:none;
   background:radial-gradient(130% 95% at 50% 36%,rgba(255,255,255,.05),rgba(255,255,255,0) 40%),radial-gradient(115% 100% at 50% 50%,transparent 48%,rgba(0,0,0,.22) 78%,rgba(0,0,0,.55) 100%);
