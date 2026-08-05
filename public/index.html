@@ -112,7 +112,7 @@
     @media(prefers-reduced-motion:reduce){.hero-title{animation:none}}
 
     /* ===== SITE-WIDE VHS LAYER ===== */
-    .vhs-overlay{position:fixed;inset:0;z-index:9000;pointer-events:none}
+    .vhs-overlay{position:fixed;inset:0;margin:var(--crt-bezel);border-radius:var(--crt-radius);overflow:hidden;z-index:9000;pointer-events:none}
     .vhs-overlay .scanlines{opacity:.6;background-size:100% 2px;animation:vhsRoll 6s linear infinite}
     .vhs-overlay .grain{opacity:.14;animation:vhsNoise .5s steps(2) infinite}
     .vhs-tracking{position:absolute;left:0;right:0;height:22px;background:linear-gradient(0deg,transparent,rgba(232,232,240,.5) 40%,rgba(232,232,240,.9) 50%,rgba(232,232,240,.5) 60%,transparent);mix-blend-mode:overlay;animation:vhsTrackSweep 11s cubic-bezier(.4,0,.2,1) infinite;opacity:0}
@@ -133,7 +133,7 @@
     .vhs-boot-bars span:nth-child(5){background:#2a2a38}.vhs-boot-bars span:nth-child(6){background:#c9a84c}
     .vhs-boot-text{position:relative;z-index:2;font-family:var(--ff-m);font-size:1.4rem;letter-spacing:.3em;color:var(--light);text-shadow:2px 0 #ff2b4d,-2px 0 #28e0ff;animation:vhsNoise .08s steps(2) infinite}
     @keyframes vhsBootOut{0%{opacity:1}55%{opacity:1}100%{opacity:0;visibility:hidden}}
-    .channel-osd{position:fixed;top:3.25rem;right:1.75rem;z-index:15000;background:rgba(6,14,8,.7);border:2px solid rgba(76,255,130,.4);padding:.5rem 1rem;text-align:right;pointer-events:none;opacity:0}
+    .channel-osd{position:fixed;top:calc(var(--crt-bezel) + 1.25rem);right:calc(var(--crt-bezel) + 1rem);z-index:15000;background:rgba(6,14,8,.7);border:2px solid rgba(76,255,130,.4);padding:.5rem 1rem;text-align:right;pointer-events:none;opacity:0}
     .channel-osd.show{animation:channelOsdShow 2.4s ease-out forwards}
     .channel-osd .ch-label{font-family:var(--ff-m);font-size:.58rem;letter-spacing:.35em;color:#4cff82;opacity:.85}
     .channel-osd .ch-num{font-family:var(--ff-m);font-weight:700;font-size:2.1rem;line-height:1.1;color:#6bff96;text-shadow:0 0 10px rgba(76,255,130,.85),0 0 2px rgba(76,255,130,.6)}
