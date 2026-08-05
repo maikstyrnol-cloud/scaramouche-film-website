@@ -1,5 +1,56 @@
 // ===== SHARED SITE JS =====
 
+// ===== VHS CHROME (persistent overlays injected on every page) =====
+function initVhsChrome() {
+  if (document.querySelector('.vhs-boot')) return;
+  const boot = document.createElement('div');
+  boot.className = 'vhs-boot';
+  boot.setAttribute('aria-hidden', 'true');
+  boot.innerHTML = '<div class="vhs-boot-bars"><span></span><span></span><span></span><span></span><span></span><span></span></div><div class="grain"></div><div class="vhs-boot-text">▶ PLAY · HEART AND SOUL</div>';
+  document.body.prepend(boot);
+
+  const overlay = document.createElement('div');
+  overlay.className = 'vhs-overlay';
+  overlay.setAttribute('aria-hidden', 'true');
+  overlay.innerHTML = '<div class="scanlines"></div><div class="grain"></div><div class="vhs-tracking"></div>';
+  document.body.appendChild(overlay);
+
+  const corners = document.createElement('div');
+  corners.className = 'vhs-frame-corners';
+  corners.setAttribute('aria-hidden', 'true');
+  corners.innerHTML = '<span></span><span></span><span></span><span></span>';
+  document.body.appendChild(corners);
+}
+initVhsChrome();
+
+// Channel-switch page transition: intercept internal link clicks and play
+// a brief "changing channel" flash/roll before navigating.
+function initChannelSwitchNav() {
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  document.addEventListener('click', function (e) {
+    if (e.defaultPrevented) return;
+    const a = e.target.closest('a[href]');
+    if (!a) return;
+    if (a.target === '_blank' || a.hasAttribute('download')) return;
+    if (e.metaKey || e.ctrlKey || e.shiftKey || e.altKey || e.button !== 0) return;
+    const href = a.getAttribute('href');
+    if (!href || href.startsWith('#') || href.startsWith('mailto:') || href.startsWith('tel:') || href.startsWith('javascript:')) return;
+    let url;
+    try { url = new URL(href, window.location.href); } catch (err) { return; }
+    if (url.origin !== window.location.origin) return;
+    if (url.pathname === window.location.pathname && url.search === window.location.search) return;
+    e.preventDefault();
+    const overlay = document.createElement('div');
+    overlay.className = 'tv-transition';
+    overlay.setAttribute('aria-hidden', 'true');
+    overlay.innerHTML = '<div class="vhs-boot-bars"><span></span><span></span><span></span><span></span><span></span><span></span></div><div class="grain"></div>';
+    document.body.appendChild(overlay);
+    requestAnimationFrame(() => overlay.classList.add('active'));
+    setTimeout(() => { window.location.href = url.href; }, 260);
+  });
+}
+initChannelSwitchNav();
+
 // Mobile menu
 function toggleMenu() {
   const m = document.getElementById('mobileMenu');
@@ -132,7 +183,8 @@ function renderNav(activePage) {
       </ul>
       <button class="nav-hamburger" onclick="toggleMenu()"><span></span><span></span><span></span></button>
     </div>
-  </nav>`;
+  </nav>
+  <div class="vhs-stripe" aria-hidden="true"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div>`;
 }
 
 // Shared footer HTML
