@@ -7,6 +7,8 @@
   --ff-b:'Inter',system-ui,sans-serif;
   --ff-m:'Courier Prime','Courier New',monospace;
   --max:1140px;
+  --crt-bezel:clamp(20px,4.6vw,84px);
+  --crt-radius:clamp(20px,3.6vw,58px);
 }
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth}
@@ -32,7 +34,8 @@ a{color:inherit;text-decoration:none}
 .filmstrip-item::before{content:'◆';font-size:.35rem;color:var(--red)}
 
 /* SHARED NAV */
-.nav{position:sticky;top:0;z-index:100;background:rgba(10,10,15,.96);backdrop-filter:blur(12px);border-bottom:1px solid var(--border);padding:.9rem 0}
+body{padding:var(--crt-bezel)}
+.nav{position:sticky;top:var(--crt-bezel);z-index:9200;background:rgba(10,10,15,.96);backdrop-filter:blur(12px);border-bottom:1px solid var(--border);padding:.9rem 0}
 .nav-inner{max-width:var(--max);margin:0 auto;padding:0 2rem;display:flex;align-items:center;justify-content:space-between;gap:2rem}
 .nav-logo{font-family:var(--ff-d);font-size:1rem;font-weight:900;color:var(--gold);letter-spacing:.04em;line-height:1}
 .nav-logo span{display:block;font-size:.5rem;font-family:var(--ff-m);font-weight:400;letter-spacing:.3em;color:var(--muted);text-transform:uppercase;margin-top:.1rem}
@@ -113,17 +116,20 @@ footer{border-top:1px solid var(--border);padding:3rem 0 2rem;margin-top:6rem}
 .vhs-overlay .grain{opacity:.14;animation:vhsNoise .5s steps(2) infinite}
 .vhs-tracking{position:absolute;left:0;right:0;height:22px;background:linear-gradient(0deg,transparent,rgba(232,232,240,.5) 40%,rgba(232,232,240,.9) 50%,rgba(232,232,240,.5) 60%,transparent);mix-blend-mode:overlay;animation:vhsTrackSweep 14s cubic-bezier(.4,0,.2,1) infinite;opacity:0}
 @keyframes vhsTrackSweep{0%{top:-5%;opacity:0}2%{opacity:.9}6%{opacity:.9}9%{top:108%;opacity:0}100%{top:108%;opacity:0}}
-.vhs-frame-corners span{position:fixed;width:26px;height:26px;border:2px solid rgba(201,168,76,.55);z-index:9001;pointer-events:none}
-.vhs-frame-corners span:nth-child(1){top:14px;left:14px;border-right:none;border-bottom:none}
-.vhs-frame-corners span:nth-child(2){top:14px;right:14px;border-left:none;border-bottom:none}
-.vhs-frame-corners span:nth-child(3){bottom:14px;left:14px;border-right:none;border-top:none}
-.vhs-frame-corners span:nth-child(4){bottom:14px;right:14px;border-left:none;border-top:none}
-/* CRT / viewfinder bezel — makes the whole site read as "playing inside a screen" */
-.crt-frame{position:fixed;inset:0;margin:clamp(9px,1.7vw,30px);border-radius:clamp(22px,3.6vw,58px);box-shadow:0 0 0 100vmax #000;z-index:8998;pointer-events:none}
-.crt-vignette{position:fixed;inset:0;margin:clamp(9px,1.7vw,30px);border-radius:clamp(22px,3.6vw,58px);z-index:8997;pointer-events:none;box-shadow:inset 0 0 2.4vw .8vw rgba(0,0,0,.85),inset 0 0 7vw 2vw rgba(0,0,0,.4),inset 0 0 0 2px rgba(232,232,240,.05)}
+/* CRT / viewfinder bezel — makes the whole site read as "playing inside an old monitor/Hi8 screen" */
+.crt-frame{position:fixed;inset:0;margin:var(--crt-bezel);border-radius:var(--crt-radius);box-shadow:0 0 0 100vmax #050506;z-index:8998;pointer-events:none}
+.crt-vignette{position:fixed;inset:0;z-index:8997;pointer-events:none;box-shadow:inset 0 0 2.6vw .9vw rgba(0,0,0,.72),inset 0 0 7vw 2vw rgba(0,0,0,.32);border-radius:var(--crt-radius)}
+/* reception distortion living inside the bezel ring itself */
+.crt-frame-fx{position:fixed;inset:0;padding:var(--crt-bezel);border-radius:var(--crt-radius);z-index:8999;pointer-events:none;overflow:hidden;
+  -webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);-webkit-mask-composite:xor;
+  mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);mask-composite:exclude}
+.crt-frame-fx .grain{position:absolute;inset:-20%;opacity:.6;animation:vhsNoise .35s steps(2) infinite}
+.crt-frame-fx .scanlines{position:absolute;inset:-20%;opacity:.5;background-size:100% 3px;animation:vhsRoll 5s linear infinite}
+.crt-frame-fx::after{content:'';position:absolute;left:-20%;right:-20%;height:26px;background:linear-gradient(0deg,transparent,rgba(232,232,240,.4) 45%,rgba(232,232,240,.85) 50%,rgba(232,232,240,.4) 55%,transparent);mix-blend-mode:overlay;opacity:0;animation:crtEdgeRoll 8s cubic-bezier(.4,0,.2,1) infinite}
+@keyframes crtEdgeRoll{0%{top:-15%;opacity:0}3%{opacity:.9}9%{opacity:.9}14%{top:115%;opacity:0}100%{top:115%;opacity:0}}
 @keyframes vhsRoll{0%{background-position:0 0}100%{background-position:0 100px}}
 @keyframes vhsNoise{0%{transform:translate(0,0)}25%{transform:translate(-1.5%,1.5%)}50%{transform:translate(1.5%,-1.5%)}75%{transform:translate(-1.5%,-1.5%)}100%{transform:translate(0,0)}}
-.vhs-boot{position:fixed;inset:0;margin:clamp(9px,1.7vw,30px);border-radius:clamp(22px,3.6vw,58px);overflow:hidden;z-index:20000;background:var(--ink);pointer-events:none;display:flex;align-items:center;justify-content:center;animation:vhsBootOut .55s ease-out forwards}
+.vhs-boot{position:fixed;inset:0;margin:var(--crt-bezel);border-radius:var(--crt-radius);overflow:hidden;z-index:20000;background:var(--ink);pointer-events:none;display:flex;align-items:center;justify-content:center;animation:vhsBootOut .55s ease-out forwards}
 .vhs-boot .grain{opacity:.95;animation:vhsNoise .05s steps(2) infinite}
 .vhs-boot-bars{position:absolute;inset:0;display:flex;opacity:.75}
 .vhs-boot-bars span{flex:1}
@@ -139,7 +145,7 @@ footer{border-top:1px solid var(--border);padding:3rem 0 2rem;margin-top:6rem}
 .vhs-stripe span:nth-child(5){background:#8a6f2e}.vhs-stripe span:nth-child(6){background:#c9a84c}
 .vhs-stripe span:nth-child(7){background:#9b2335}.vhs-stripe span:nth-child(8){background:#e8e8f0}
 /* channel-switch page transition: pure white-noise "snow" burst, fast */
-.tv-transition{position:fixed;inset:0;margin:clamp(9px,1.7vw,30px);border-radius:clamp(22px,3.6vw,58px);z-index:30000;background:#9a9a9a;opacity:0;pointer-events:none;overflow:hidden}
+.tv-transition{position:fixed;inset:0;margin:var(--crt-bezel);border-radius:var(--crt-radius);z-index:30000;background:#9a9a9a;opacity:0;pointer-events:none;overflow:hidden}
 .tv-transition.active{opacity:1}
 .tv-transition .snow{position:absolute;inset:-20%;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.98' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");filter:contrast(2.4) brightness(1.3) grayscale(1);animation:vhsNoise .045s steps(2) infinite}
 /* channel number OSD, old-TV style: green phosphor readout, top-right */

@@ -47,12 +47,6 @@ function initVhsChrome() {
   overlay.innerHTML = '<div class="scanlines"></div><div class="grain"></div><div class="vhs-tracking"></div>';
   document.body.appendChild(overlay);
 
-  const corners = document.createElement('div');
-  corners.className = 'vhs-frame-corners';
-  corners.setAttribute('aria-hidden', 'true');
-  corners.innerHTML = '<span></span><span></span><span></span><span></span>';
-  document.body.appendChild(corners);
-
   const crtFrame = document.createElement('div');
   crtFrame.className = 'crt-frame';
   crtFrame.setAttribute('aria-hidden', 'true');
@@ -62,6 +56,12 @@ function initVhsChrome() {
   crtVignette.className = 'crt-vignette';
   crtVignette.setAttribute('aria-hidden', 'true');
   document.body.appendChild(crtVignette);
+
+  const crtFx = document.createElement('div');
+  crtFx.className = 'crt-frame-fx';
+  crtFx.setAttribute('aria-hidden', 'true');
+  crtFx.innerHTML = '<div class="grain"></div><div class="scanlines"></div>';
+  document.body.appendChild(crtFx);
 
   showChannelOsd();
 }

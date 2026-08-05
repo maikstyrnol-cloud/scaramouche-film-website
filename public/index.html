@@ -30,10 +30,12 @@
       --ff-b:'Inter',system-ui,sans-serif;
       --ff-m:'Courier Prime','Courier New',monospace;
       --max:1140px;--gap:7rem;
+      --crt-bezel:clamp(20px,4.6vw,84px);
+      --crt-radius:clamp(20px,3.6vw,58px);
     }
     *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
     html{scroll-behavior:smooth}
-    body{background:var(--ink);color:var(--body);font-family:var(--ff-b);font-size:1rem;line-height:1.7;overflow-x:hidden}
+    body{background:var(--ink);color:var(--body);font-family:var(--ff-b);font-size:1rem;line-height:1.7;overflow-x:hidden;padding:var(--crt-bezel)}
     img{max-width:100%;display:block}
     a{color:inherit;text-decoration:none}
     .container{max-width:var(--max);margin:0 auto;padding:0 2rem}
@@ -61,7 +63,7 @@
     .filmstrip-item::before{content:'◆';font-size:.35rem;color:var(--red)}
 
     /* NAV */
-    .nav{position:sticky;top:0;z-index:100;background:rgba(10,10,15,.96);backdrop-filter:blur(12px);border-bottom:1px solid var(--border);padding:.9rem 0}
+    .nav{position:sticky;top:var(--crt-bezel);z-index:9200;background:rgba(10,10,15,.96);backdrop-filter:blur(12px);border-bottom:1px solid var(--border);padding:.9rem 0}
     .nav-inner{max-width:var(--max);margin:0 auto;padding:0 2rem;display:flex;align-items:center;justify-content:space-between;gap:2rem}
     .nav-logo{font-family:var(--ff-d);font-size:1rem;font-weight:900;color:var(--gold);letter-spacing:.04em;line-height:1}
     .nav-logo span{display:block;font-size:.5rem;font-family:var(--ff-m);font-weight:400;letter-spacing:.3em;color:var(--muted);text-transform:uppercase;margin-top:.1rem}
@@ -80,7 +82,11 @@
 
     /* HERO */
     .hero{min-height:100svh;display:flex;flex-direction:column;justify-content:flex-start;position:relative;overflow:hidden}
-    .hero-img{position:absolute;inset:0;background-image:url('assets/hero_concert.webp');background-size:cover;background-position:center 5%}
+    .hero-img{position:absolute;inset:0;background-image:url('assets/hero_concert.webp');background-size:cover;background-position:center 5%;filter:drop-shadow(4px 0 8px rgba(255,43,77,.45)) drop-shadow(-4px 0 8px rgba(40,224,255,.4)) contrast(1.08) saturate(1.15)}
+    .hero-img::before,.hero-img::after{content:'';position:absolute;inset:0;background-image:inherit;background-size:cover;background-position:inherit;mix-blend-mode:screen;opacity:0;pointer-events:none}
+    .hero-img::before{filter:sepia(1) saturate(7) hue-rotate(320deg) brightness(.85);animation:heroChromaGlitch 7s infinite}
+    .hero-img::after{filter:sepia(1) saturate(7) hue-rotate(155deg) brightness(.85);animation:heroChromaGlitch 7s infinite .04s reverse}
+    @keyframes heroChromaGlitch{0%,91%,100%{opacity:0;transform:translate(0,0)}92%{opacity:.55;transform:translate(-7px,1px)}93.5%{opacity:.5;transform:translate(6px,-1px)}95%{opacity:.5;transform:translate(-4px,0)}96.5%{opacity:0;transform:translate(0,0)}}
     .hero-overlay{position:absolute;inset:0;background:linear-gradient(180deg,rgba(10,10,15,.82) 0%,rgba(10,10,15,.55) 22%,rgba(10,10,15,.15) 42%,rgba(10,10,15,.1) 60%,var(--ink) 100%)}
     .hero-figures{position:absolute;inset:0;pointer-events:none;overflow:hidden}
     .hero-fig{position:absolute;opacity:.42;mix-blend-mode:screen}
@@ -111,13 +117,15 @@
     .vhs-overlay .grain{opacity:.14;animation:vhsNoise .5s steps(2) infinite}
     .vhs-tracking{position:absolute;left:0;right:0;height:22px;background:linear-gradient(0deg,transparent,rgba(232,232,240,.5) 40%,rgba(232,232,240,.9) 50%,rgba(232,232,240,.5) 60%,transparent);mix-blend-mode:overlay;animation:vhsTrackSweep 11s cubic-bezier(.4,0,.2,1) infinite;opacity:0}
     @keyframes vhsTrackSweep{0%{top:-5%;opacity:0}2%{opacity:.9}6%{opacity:.9}9%{top:108%;opacity:0}100%{top:108%;opacity:0}}
-    .vhs-frame-corners span{position:fixed;width:26px;height:26px;border:2px solid rgba(201,168,76,.55);z-index:9001;pointer-events:none}
-    .vhs-frame-corners span:nth-child(1){top:14px;left:14px;border-right:none;border-bottom:none}
-    .vhs-frame-corners span:nth-child(2){top:14px;right:14px;border-left:none;border-bottom:none}
-    .vhs-frame-corners span:nth-child(3){bottom:14px;left:14px;border-right:none;border-top:none}
-    .vhs-frame-corners span:nth-child(4){bottom:14px;right:14px;border-left:none;border-top:none}
-    .crt-frame{position:fixed;inset:0;margin:clamp(9px,1.7vw,30px);border-radius:clamp(22px,3.6vw,58px);box-shadow:0 0 0 100vmax #000;z-index:8998;pointer-events:none}
-    .crt-vignette{position:fixed;inset:0;margin:clamp(9px,1.7vw,30px);border-radius:clamp(22px,3.6vw,58px);z-index:8997;pointer-events:none;box-shadow:inset 0 0 2.4vw .8vw rgba(0,0,0,.85),inset 0 0 7vw 2vw rgba(0,0,0,.4),inset 0 0 0 2px rgba(232,232,240,.05)}
+    .crt-frame{position:fixed;inset:0;margin:var(--crt-bezel);border-radius:var(--crt-radius);box-shadow:0 0 0 100vmax #050506;z-index:8998;pointer-events:none}
+    .crt-vignette{position:fixed;inset:0;z-index:8997;pointer-events:none;box-shadow:inset 0 0 2.6vw .9vw rgba(0,0,0,.72),inset 0 0 7vw 2vw rgba(0,0,0,.32);border-radius:var(--crt-radius)}
+    .crt-frame-fx{position:fixed;inset:0;padding:var(--crt-bezel);border-radius:var(--crt-radius);z-index:8999;pointer-events:none;overflow:hidden;
+      -webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);-webkit-mask-composite:xor;
+      mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);mask-composite:exclude}
+    .crt-frame-fx .grain{position:absolute;inset:-20%;opacity:.6;animation:vhsNoise .35s steps(2) infinite}
+    .crt-frame-fx .scanlines{position:absolute;inset:-20%;opacity:.5;background-size:100% 3px;animation:vhsRoll 5s linear infinite}
+    .crt-frame-fx::after{content:'';position:absolute;left:-20%;right:-20%;height:26px;background:linear-gradient(0deg,transparent,rgba(232,232,240,.4) 45%,rgba(232,232,240,.85) 50%,rgba(232,232,240,.4) 55%,transparent);mix-blend-mode:overlay;opacity:0;animation:crtEdgeRoll 8s cubic-bezier(.4,0,.2,1) infinite}
+    @keyframes crtEdgeRoll{0%{top:-15%;opacity:0}3%{opacity:.9}9%{opacity:.9}14%{top:115%;opacity:0}100%{top:115%;opacity:0}}
     @keyframes vhsRoll{0%{background-position:0 0}100%{background-position:0 100px}}
     @keyframes vhsNoise{0%{transform:translate(0,0)}25%{transform:translate(-1.5%,1.5%)}50%{transform:translate(1.5%,-1.5%)}75%{transform:translate(-1.5%,-1.5%)}100%{transform:translate(0,0)}}
     .vhs-boot{position:fixed;inset:0;margin:clamp(9px,1.7vw,30px);border-radius:clamp(22px,3.6vw,58px);overflow:hidden;z-index:20000;background:var(--ink);pointer-events:none;display:flex;align-items:center;justify-content:center;animation:vhsBootOut .55s ease-out forwards}
@@ -482,9 +490,9 @@
   <div class="grain"></div>
   <div class="vhs-tracking"></div>
 </div>
-<div class="vhs-frame-corners" aria-hidden="true"><span></span><span></span><span></span><span></span></div>
 <div class="crt-frame" aria-hidden="true"></div>
 <div class="crt-vignette" aria-hidden="true"></div>
+<div class="crt-frame-fx" aria-hidden="true"><div class="grain"></div><div class="scanlines"></div></div>
 
 
 <audio id="bgAudio" src="assets/heart_and_soul.opus" loop preload="none"></audio>
@@ -551,7 +559,9 @@
 <header class="hero">
   <div class="hero-img" aria-hidden="true"></div>
   <div class="hero-overlay" aria-hidden="true"></div>
-  <div class="grain" aria-hidden="true" style="opacity:.1"></div>
+  <div class="scanlines" aria-hidden="true" style="opacity:.4;background-size:100% 2px;animation:vhsRoll 6s linear infinite"></div>
+  <div class="grain" aria-hidden="true" style="opacity:.26;animation:vhsNoise .4s steps(2) infinite"></div>
+  <div class="vhs-tracking" aria-hidden="true" style="animation-duration:8s"></div>
   <div class="hero-figures" aria-hidden="true">
     <img src="assets/figura_yellow.webp" class="hero-fig hero-fig-1" alt="" />
     <img src="assets/figura_gold.webp" class="hero-fig hero-fig-2" alt="" />
