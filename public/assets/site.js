@@ -52,11 +52,6 @@ function initVhsChrome() {
   crtFrame.setAttribute('aria-hidden', 'true');
   document.body.appendChild(crtFrame);
 
-  const crtEdgeBlur = document.createElement('div');
-  crtEdgeBlur.className = 'crt-edge-blur';
-  crtEdgeBlur.setAttribute('aria-hidden', 'true');
-  document.body.appendChild(crtEdgeBlur);
-
   const crtVignette = document.createElement('div');
   crtVignette.className = 'crt-vignette';
   crtVignette.setAttribute('aria-hidden', 'true');

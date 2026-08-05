@@ -31,10 +31,10 @@
       --ff-b:'Inter',system-ui,sans-serif;
       --ff-m:'Courier Prime','Courier New',monospace;
       --max:1140px;--gap:7rem;
-      --crt-inset-top:7.6vh;
-      --crt-inset-right:9.2vw;
-      --crt-inset-bottom:11vh;
-      --crt-inset-left:10.3vw;
+      --crt-inset-top:8.6vh;
+      --crt-inset-right:10.1vw;
+      --crt-inset-bottom:12vh;
+      --crt-inset-left:11.2vw;
     }
     *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
     html{scroll-behavior:smooth}
@@ -126,13 +126,9 @@
       background-size:100% 100%;
       background-repeat:no-repeat;
       background-position:center}
-    .crt-edge-blur{position:fixed;inset:0;margin:var(--crt-inset-top) var(--crt-inset-right) var(--crt-inset-bottom) var(--crt-inset-left);z-index:8996;pointer-events:none;
-      backdrop-filter:blur(3px);-webkit-backdrop-filter:blur(3px);
-      mask-image:radial-gradient(120% 100% at 50% 50%,transparent 58%,rgba(0,0,0,.5) 82%,rgba(0,0,0,.95) 100%);
-      -webkit-mask-image:radial-gradient(120% 100% at 50% 50%,transparent 58%,rgba(0,0,0,.5) 82%,rgba(0,0,0,.95) 100%)}
     .crt-vignette{position:fixed;inset:0;margin:var(--crt-inset-top) var(--crt-inset-right) var(--crt-inset-bottom) var(--crt-inset-left);z-index:8997;pointer-events:none;
-      background:radial-gradient(130% 95% at 50% 36%,rgba(255,255,255,.05),rgba(255,255,255,0) 40%),radial-gradient(115% 100% at 50% 50%,transparent 48%,rgba(0,0,0,.22) 78%,rgba(0,0,0,.55) 100%);
-      box-shadow:inset 0 0 2.6vw .9vw rgba(0,0,0,.6),inset 3.4vw 0 4vw -3vw rgba(0,0,0,.5),inset -3.4vw 0 4vw -3vw rgba(0,0,0,.5),inset 0 2.6vw 3.4vw -3vw rgba(0,0,0,.45),inset 0 -2.6vw 3.4vw -3vw rgba(0,0,0,.45)}
+      background:radial-gradient(130% 95% at 50% 36%,rgba(255,255,255,.05),rgba(255,255,255,0) 40%),radial-gradient(100% 90% at 50% 50%,transparent 32%,rgba(0,0,0,.5) 62%,rgba(0,0,0,.85) 84%,#050506 100%);
+      box-shadow:inset 0 0 4vw 1.6vw rgba(0,0,0,.85),inset 6vw 0 7vw -3vw rgba(0,0,0,.8),inset -6vw 0 7vw -3vw rgba(0,0,0,.8),inset 0 5vw 6.5vw -3vw rgba(0,0,0,.75),inset 0 -5vw 6.5vw -3vw rgba(0,0,0,.75)}
     @keyframes vhsRoll{0%{background-position:0 0}100%{background-position:0 100px}}
     @keyframes vhsNoise{0%{transform:translate(0,0)}25%{transform:translate(-1.5%,1.5%)}50%{transform:translate(1.5%,-1.5%)}75%{transform:translate(-1.5%,-1.5%)}100%{transform:translate(0,0)}}
     .vhs-boot{position:fixed;inset:0;margin:var(--crt-inset-top) var(--crt-inset-right) var(--crt-inset-bottom) var(--crt-inset-left);overflow:hidden;z-index:20000;background:var(--ink);pointer-events:none;display:flex;align-items:center;justify-content:center;animation:vhsBootOut .55s ease-out forwards}
@@ -498,7 +494,6 @@
   <div class="vhs-tracking"></div>
 </div>
 <div class="crt-frame" aria-hidden="true"></div>
-<div class="crt-edge-blur" aria-hidden="true"></div>
 <div class="crt-vignette" aria-hidden="true"></div>
 
 
