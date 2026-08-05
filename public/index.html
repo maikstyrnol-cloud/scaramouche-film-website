@@ -1061,6 +1061,12 @@
 </footer>
 
 <script>
+  // Always open at the top, regardless of browser scroll-restoration
+  // (important now that the VHS boot overlay briefly covers the page on load).
+  if ('scrollRestoration' in history) history.scrollRestoration = 'manual';
+  window.scrollTo(0, 0);
+  window.addEventListener('load', () => window.scrollTo(0, 0));
+
   // NAV
   // MOBILE MENU
   function toggleMenu() {
