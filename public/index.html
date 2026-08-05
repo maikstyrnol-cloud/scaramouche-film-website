@@ -63,7 +63,7 @@
     .filmstrip-item::before{content:'◆';font-size:.35rem;color:var(--red)}
 
     /* NAV */
-    .nav{position:sticky;top:var(--crt-bezel);z-index:9200;background:rgba(10,10,15,.96);backdrop-filter:blur(12px);border-bottom:1px solid var(--border);padding:.9rem 0}
+    .nav{position:sticky;top:var(--crt-bezel);z-index:9200;background:rgba(10,10,15,.96);backdrop-filter:blur(12px);border-bottom:1px solid var(--border);padding:.9rem 0;border-top-left-radius:var(--crt-radius);border-top-right-radius:var(--crt-radius);overflow:hidden}
     .nav-inner{max-width:var(--max);margin:0 auto;padding:0 2rem;display:flex;align-items:center;justify-content:space-between;gap:2rem}
     .nav-logo{font-family:var(--ff-d);font-size:1rem;font-weight:900;color:var(--gold);letter-spacing:.04em;line-height:1}
     .nav-logo span{display:block;font-size:.5rem;font-family:var(--ff-m);font-weight:400;letter-spacing:.3em;color:var(--muted);text-transform:uppercase;margin-top:.1rem}
@@ -118,7 +118,7 @@
     .vhs-tracking{position:absolute;left:0;right:0;height:22px;background:linear-gradient(0deg,transparent,rgba(232,232,240,.5) 40%,rgba(232,232,240,.9) 50%,rgba(232,232,240,.5) 60%,transparent);mix-blend-mode:overlay;animation:vhsTrackSweep 11s cubic-bezier(.4,0,.2,1) infinite;opacity:0}
     @keyframes vhsTrackSweep{0%{top:-5%;opacity:0}2%{opacity:.9}6%{opacity:.9}9%{top:108%;opacity:0}100%{top:108%;opacity:0}}
     .crt-frame{position:fixed;inset:0;margin:var(--crt-bezel);border-radius:var(--crt-radius);z-index:8998;pointer-events:none;
-      box-shadow:0 0 0 100vmax #0c0c10,inset 0 0 0 2px rgba(255,255,255,.07),inset 0 1px 0 rgba(255,255,255,.05),inset 0 0 22px rgba(0,0,0,.65)}
+      box-shadow:0 0 0 100vmax #58585d,inset 0 0 0 2px rgba(255,255,255,.08),inset 0 1px 0 rgba(255,255,255,.06),inset 0 0 18px rgba(0,0,0,.35)}
     .crt-vignette{position:fixed;inset:0;z-index:8997;pointer-events:none;border-radius:var(--crt-radius);
       background:radial-gradient(120% 90% at 50% 38%,rgba(255,255,255,.035),rgba(255,255,255,0) 45%),radial-gradient(140% 110% at 50% 50%,transparent 55%,rgba(0,0,0,.4) 100%);
       box-shadow:inset 0 0 2.2vw .7vw rgba(0,0,0,.55)}
