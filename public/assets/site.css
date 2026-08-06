@@ -16,10 +16,10 @@
   /* the transparent "screen" cutout in the photographed TV frame sits at these fractions of the
      image, so content is inset by the same fractions of the viewport — they always line up,
      however the frame image gets stretched (background-size:100% 100%) at any window size. */
-  --crt-inset-top:13vh;
-  --crt-inset-right:14.1vw;
-  --crt-inset-bottom:17.4vh;
-  --crt-inset-left:14.9vw;
+  --crt-inset-top:7.6vh;
+  --crt-inset-right:10.1vw;
+  --crt-inset-bottom:11vh;
+  --crt-inset-left:11.2vw;
 }
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth}
