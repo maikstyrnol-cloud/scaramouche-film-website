@@ -186,7 +186,7 @@ footer{border-top:1px solid var(--border);padding:3rem 0 2rem;margin-top:6rem}
    curved screen opening (which a straight 9-slice border-image can't represent) pixel-accurate
    at any size, since background-size:100% 100% scales both axes independently to fit. */
 .crt-frame{position:fixed;inset:0;z-index:40000;pointer-events:none;
-  background-image:url('assets/tv_bezel_full.webp');
+  background-image:url('/assets/tv_bezel_full.webp');
   background-size:100% 100%;
   background-repeat:no-repeat;
   background-position:center}
