@@ -44,7 +44,7 @@ function initVhsChrome() {
   const overlay = document.createElement('div');
   overlay.className = 'vhs-overlay';
   overlay.setAttribute('aria-hidden', 'true');
-  overlay.innerHTML = '<div class="scanlines"></div><div class="grain"></div><div class="vhs-tracking"></div>';
+  overlay.innerHTML = '<div class="scanlines"></div><div class="grain"></div><div class="vhs-tracking"></div><div class="vhs-glitch vhs-glitch-r"></div><div class="vhs-glitch vhs-glitch-c"></div>';
   document.body.appendChild(overlay);
 
   const crtFrame = document.createElement('div');
