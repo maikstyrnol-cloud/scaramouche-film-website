@@ -255,7 +255,7 @@ function renderFooter() {
         </ul></div>
         <div class="footer-col"><h4>Kontakt</h4><ul>
           <li><a href="mailto:studio@film-und-ton.de">studio@film-und-ton.de</a></li>
-          <li><a href="https://film-und-ton.de" target="_blank" rel="noopener">film-und-ton.de</a></li>
+          <li><a href="https://www.film-und-ton.de/" target="_blank" rel="noopener">film-und-ton.de</a></li>
           <li><a href="/impressum/">Impressum</a></li>
         </ul></div>
       </div>
