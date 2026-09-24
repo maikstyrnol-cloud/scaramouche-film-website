@@ -241,7 +241,7 @@ footer{border-top:1px solid var(--border);padding:3rem 0 2rem;margin-top:6rem}
 
 /* Kompaktere Nav fuer kleine Laptops (MacBook Air etc.) */
 @media(max-width:1440px){
-  .nav-inner{padding:0 1.25rem;gap:1rem}
+  .nav-inner{padding:0 2.25rem;gap:1rem}
   .nav-logo{font-size:.9rem}
   .nav-logo span{font-size:.45rem;letter-spacing:.2em}
   .nav-links{gap:clamp(.75rem,1.2vw,1.5rem)}
@@ -251,6 +251,7 @@ footer{border-top:1px solid var(--border);padding:3rem 0 2rem;margin-top:6rem}
 
 /* RESPONSIVE */
 @media(max-width:1240px){
+  .nav-inner{padding:0 clamp(2.5rem,6vw,4rem)}
   .nav-links{display:none}
   .nav-hamburger{display:flex}
 }
