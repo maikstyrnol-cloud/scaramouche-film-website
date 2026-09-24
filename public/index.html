@@ -83,8 +83,8 @@
     /* NAV */
     .nav{position:sticky;top:var(--crt-inset-top);z-index:8950;background:rgba(10,10,15,.96);backdrop-filter:blur(12px);border-bottom:1px solid var(--border);padding:calc(.9rem + 3vh) 0 .9rem}
     .nav-inner{max-width:var(--max);margin:0 auto;padding:0 2rem;display:flex;align-items:center;justify-content:space-between;gap:2rem}
-    .nav-logo{font-family:var(--ff-d);font-size:1rem;font-weight:900;color:var(--gold);letter-spacing:.04em;line-height:1;text-shadow:var(--glow-gold)}
-    .nav-logo span{display:block;font-size:.5rem;font-family:var(--ff-m);font-weight:400;letter-spacing:.3em;color:var(--body);text-transform:uppercase;margin-top:.1rem;text-shadow:none}
+    .nav-logo{white-space:nowrap;flex-shrink:0;font-family:var(--ff-d);font-size:1rem;font-weight:900;color:var(--gold);letter-spacing:.04em;line-height:1;text-shadow:var(--glow-gold)}
+    .nav-logo span{display:block;white-space:nowrap;font-size:.5rem;font-family:var(--ff-m);font-weight:400;letter-spacing:.3em;color:var(--body);text-transform:uppercase;margin-top:.1rem;text-shadow:none}
     .nav-links{display:flex;align-items:center;gap:1.5rem;list-style:none}
     .nav-links a{font-size:.75rem;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);transition:color .2s;font-weight:500;text-shadow:none}
     .nav-links a:hover,.nav-links a.active{color:var(--light);text-shadow:var(--glow-white)}
@@ -543,8 +543,17 @@
       .fade-up.visible{opacity:1;transform:translateY(0)}
     }
 
+    /* Kompaktere Nav fuer kleine Laptops (MacBook Air etc.) */
+    @media(max-width:1440px){
+      .nav-inner{padding:0 1.25rem;gap:1rem}
+      .nav-logo{font-size:.9rem}
+      .nav-logo span{font-size:.45rem;letter-spacing:.2em}
+      .nav-links{gap:clamp(.75rem,1.2vw,1.5rem)}
+      .nav-links a{font-size:.68rem;letter-spacing:.05em;white-space:nowrap}
+      .nav-cta{font-size:.6rem;letter-spacing:.08em;padding:.35rem .65rem}
+    }
     /* RESPONSIVE */
-    @media(max-width:1150px){
+    @media(max-width:1240px){
       .nav-links{display:none}
       .nav-hamburger{display:flex}
     }
