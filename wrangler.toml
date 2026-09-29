@@ -14,7 +14,7 @@ run_worker_first = ["/api/*", "/admin", "/admin/*", "/gaestebuch", "/gaestebuch/
 [[d1_databases]]
 binding = "DB"
 database_name = "heart-and-soul-kommentare"
-database_id = "HIER_DIE_ID_AUS_WRANGLER_D1_CREATE_EINSETZEN"
+database_id = "a3100b88-bc36-42a6-bc8c-c2a9bdda0453"
 
 # Moderation (Llama Guard 3 + Spam-Check)
 [ai]
