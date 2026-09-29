@@ -30,7 +30,12 @@
       overscroll-behavior:contain;
     }
     @media(max-height:800px){.gb-form-wrap{padding:1.75rem}.gb-form-wrap > p{margin-bottom:1.25rem}}
-    @media(max-width:900px){.gb-layout{grid-template-columns:1fr;gap:3rem}.gb-form-wrap{position:static}}
+    /* Eine Spalte: das Formular nach oben. Hinter 31 Einträgen würde es
+       niemand mehr finden. */
+    @media(max-width:900px){
+      .gb-layout{grid-template-columns:1fr;gap:2.5rem;padding-top:2.5rem}
+      .gb-form-wrap{position:static;max-height:none;overflow:visible;order:-1;padding:1.75rem}
+    }
   </style>
   <link rel="preload" as="image" href="/assets/tv_bezel_full.webp" fetchpriority="high" />
 </head>
