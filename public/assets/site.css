@@ -238,6 +238,12 @@ footer{border-top:1px solid var(--border);padding:3rem 0 2rem;margin-top:6rem}
      das sind 13% mehr Textbreite, ohne den Rahmen anzufassen. */
   .container{padding:0 1rem}
   .nav-inner{padding:0 1rem}
+  /* Der Seitenkopf nahm 454px der 750px nutzbarer Höhe ein – auf dem Handy
+     blieb darunter kaum etwas übrig. */
+  .page-hero{padding:1.75rem 0 1.5rem}
+  .page-hero .eyebrow{margin-bottom:.5rem}
+  .page-hero h1{font-size:2.25rem;margin-bottom:.6rem}
+  .page-hero p{font-size:.95rem}
   .rec-hud{font-size:.6rem}
   .tape-corner{display:none}
   .mobile-menu{gap:1.1rem;padding:5.5rem 1.5rem 2.5rem}
@@ -283,6 +289,9 @@ footer{border-top:1px solid var(--border);padding:3rem 0 2rem;margin-top:6rem}
 .gb-date{font-family:var(--ff-m);font-size:.58rem;color:var(--muted);margin-bottom:.5rem}
 .gb-date time{color:inherit}
 .gb-text{font-size:.9rem;color:var(--body);line-height:1.65}
+/* Lange Namen und Wortbrocken dürfen die Spalte nicht auseinanderdrücken –
+   sonst wächst sie über den Container hinaus unter den TV-Rahmen. */
+.gb-entry,.gb-author,.gb-text{overflow-wrap:anywhere}
 .gb-empty{font-size:.9rem;color:var(--muted)}
 
 /* Formular */

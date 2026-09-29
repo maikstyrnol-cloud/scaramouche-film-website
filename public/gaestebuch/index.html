@@ -17,6 +17,9 @@
   <link rel="apple-touch-icon" sizes="180x180" href="/assets/apple-touch-icon.png" />
   <style>
     .gb-layout{display:grid;grid-template-columns:1fr 1.1fr;gap:5rem;padding:4rem 0 6rem;align-items:start}
+    /* Ohne min-width:0 wächst eine Grid-Spalte auf ihren längsten
+       unumbrechbaren Inhalt – auf dem Handy ragte sie 38px unter den Rahmen. */
+    .gb-layout > *{min-width:0}
     /* Der Formularkasten klebt beim Scrollen mit. Sichtbar ist aber nur die
        Mattscheibe: oben und unten schneidet der TV-Rahmen ab (--crt-inset-*).
        Höhe deshalb auf die Mattscheibe begrenzen, abzüglich der Navigation –
@@ -33,8 +36,12 @@
     /* Eine Spalte: das Formular nach oben. Hinter 31 Einträgen würde es
        niemand mehr finden. */
     @media(max-width:900px){
-      .gb-layout{grid-template-columns:1fr;gap:2.5rem;padding-top:2.5rem}
-      .gb-form-wrap{position:static;max-height:none;overflow:visible;order:-1;padding:1.75rem}
+      .gb-layout{grid-template-columns:1fr;gap:2rem;padding:1.25rem 0 3rem}
+      .gb-form-wrap{position:static;max-height:none;overflow:visible;order:-1;padding:1.5rem}
+      .gb-form-wrap h2{font-size:1.3rem}
+      .gb-form-wrap > p{font-size:.85rem;margin-bottom:1.1rem}
+      .form-group{margin-bottom:.8rem}
+      .form-group textarea{min-height:90px}
     }
   </style>
   <link rel="preload" as="image" href="/assets/tv_bezel_full.webp" fetchpriority="high" />
