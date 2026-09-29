@@ -115,9 +115,14 @@ async function loadApproved(env, page) {
   const roots = [];
   for (const r of rows) {
     const node = byId.get(r.id);
-    const parent = r.parent_id != null ? byId.get(r.parent_id) : null;
-    if (parent) parent.replies.push(node);
-    else roots.push(node);
+    if (r.parent_id != null) {
+      const parent = byId.get(r.parent_id);
+      if (parent) parent.replies.push(node);
+      // Ist der Eintrag versteckt, verschwindet die Antwort mit ihm –
+      // sonst stünde sie plötzlich zusammenhanglos als eigener Eintrag da.
+    } else {
+      roots.push(node);
+    }
   }
   for (const r of roots) r.replies.sort((a, b) => (a.created_at < b.created_at ? -1 : 1));
   return roots;
@@ -466,29 +471,24 @@ function adminLogin(msg) {
 }
 
 async function adminPage(env) {
-  const { results: pending } = await env.DB.prepare(
-    `SELECT * FROM comments WHERE status='pending' ORDER BY created_at DESC`,
+  const { results } = await env.DB.prepare(
+    `SELECT * FROM comments ORDER BY created_at DESC, id DESC`,
   ).all();
-  const { results: letzte } = await env.DB.prepare(
-    `SELECT * FROM comments WHERE status<>'pending' ORDER BY created_at DESC LIMIT 40`,
-  ).all();
+  const rows = results || [];
 
-  const card = (r, withQueueActions) => `
-    <article class="card${r.status === 'rejected' ? ' hidden' : ''}">
-      <header>
-        <strong>${esc(r.name)}</strong>${r.ort ? ' aus ' + esc(r.ort) : ''}
-        <span class="meta">${esc(r.page)} · ${fmtDate(r.created_at, r.date_precision)} · ${esc(r.status)}${r.parent_id ? ' · Antwort' : ''}</span>
-        ${r.flag_reason ? `<span class="flag">${esc(r.flag_reason)}</span>` : ''}
-      </header>
-      <p>${esc(r.body)}</p>
-      <div class="actions">
-        ${withQueueActions ? `
-        <form method="POST" action="/admin/aktion"><input type="hidden" name="id" value="${r.id}" /><button name="aktion" value="freigeben">Freigeben</button></form>
-        <form method="POST" action="/admin/aktion"><input type="hidden" name="id" value="${r.id}" /><button name="aktion" value="verstecken">Verwerfen</button></form>` : `
-        <form method="POST" action="/admin/aktion"><input type="hidden" name="id" value="${r.id}" /><button name="aktion" value="${r.status === 'approved' ? 'verstecken' : 'freigeben'}">${r.status === 'approved' ? 'Verstecken' : 'Wieder zeigen'}</button></form>`}
-        <form method="POST" action="/admin/aktion" onsubmit="return confirm('Endgültig löschen?')"><input type="hidden" name="id" value="${r.id}" /><button name="aktion" value="loeschen" class="danger">Löschen</button></form>
-      </div>
-      ${r.parent_id ? '' : `
+  const kinder = new Map();
+  for (const r of rows) {
+    if (r.parent_id == null) continue;
+    if (!kinder.has(r.parent_id)) kinder.set(r.parent_id, []);
+    kinder.get(r.parent_id).push(r);
+  }
+  for (const list of kinder.values()) list.sort((a, b) => (a.created_at < b.created_at ? -1 : 1));
+
+  const byId = new Map(rows.map((r) => [r.id, r]));
+  const pending = rows.filter((r) => r.status === 'pending');
+  const roots = rows.filter((r) => r.parent_id == null && r.status !== 'pending');
+
+  const antwortForm = (r) => `
       <details><summary>Antworten</summary>
         <form method="POST" action="/admin/antwort">
           <input type="hidden" name="parent_id" value="${r.id}" />
@@ -496,15 +496,53 @@ async function adminPage(env) {
           <textarea name="body" rows="3" placeholder="Antwort…"></textarea>
           <button type="submit">Antwort veröffentlichen</button>
         </form>
-      </details>`}
+      </details>`;
+
+  const aktionen = (r, queue) => `
+      <div class="actions">
+        ${queue ? `
+        <form method="POST" action="/admin/aktion"><input type="hidden" name="id" value="${r.id}" /><button name="aktion" value="freigeben">Freigeben</button></form>
+        <form method="POST" action="/admin/aktion"><input type="hidden" name="id" value="${r.id}" /><button name="aktion" value="verstecken">Verwerfen</button></form>` : `
+        <form method="POST" action="/admin/aktion"><input type="hidden" name="id" value="${r.id}" /><button name="aktion" value="${r.status === 'approved' ? 'verstecken' : 'freigeben'}">${r.status === 'approved' ? 'Verstecken' : 'Wieder zeigen'}</button></form>`}
+        <form method="POST" action="/admin/aktion" onsubmit="return confirm('Endgültig löschen?')"><input type="hidden" name="id" value="${r.id}" /><button name="aktion" value="loeschen" class="danger">Löschen</button></form>
+      </div>`;
+
+  const karte = (r, { queue = false, reply = false } = {}) => `
+    <article class="card${reply ? ' antwort' : ''}${r.status === 'rejected' ? ' hidden' : ''}${r.status === 'pending' ? ' wartet' : ''}">
+      <header>
+        <strong>${esc(r.name)}</strong>${r.ort ? ' aus ' + esc(r.ort) : ''}
+        <span class="meta">${r.parent_id ? 'Antwort · ' : ''}${esc(seitenName(r.page))} · ${fmtDate(r.created_at, r.date_precision)}${r.status !== 'approved' ? ' · ' + esc(r.status) : ''}</span>
+        ${r.flag_reason ? `<span class="flag">${esc(r.flag_reason)}</span>` : ''}
+      </header>
+      <p>${esc(r.body)}</p>
+      ${aktionen(r, queue)}
+      ${r.parent_id ? '' : antwortForm(r)}
     </article>`;
+
+  // Ein Eintrag mit allem, was darunter hängt
+  const gruppe = (r, opts) => karte(r, opts)
+    + (kinder.get(r.id) || []).map((k) => karte(k, { reply: true })).join('');
+
+  const warteschlange = pending.map((r) => {
+    const eltern = r.parent_id != null ? byId.get(r.parent_id) : null;
+    return (eltern
+      ? `<p class="bezug">Antwort auf ${esc(eltern.name)}: „${esc(eltern.body.slice(0, 120))}${eltern.body.length > 120 ? '…' : ''}"</p>`
+      : '') + karte(r, { queue: true });
+  }).join('');
 
   return htmlResponse(`
     <h1>Moderation <a href="/admin/logout" class="logout">abmelden</a></h1>
     <h2>In der Prüfung (${pending.length})</h2>
-    ${pending.length ? pending.map((r) => card(r, true)).join('') : '<p class="ok">Nichts offen.</p>'}
-    <h2>Zuletzt veröffentlicht</h2>
-    ${letzte.map((r) => card(r, false)).join('')}`);
+    ${pending.length ? warteschlange : '<p class="ok">Nichts offen.</p>'}
+    <h2>Veröffentlicht (${roots.length} Einträge, Antworten eingerückt)</h2>
+    ${roots.slice(0, 40).map((r) => gruppe(r, {})).join('')}
+    ${roots.length > 40 ? `<p class="meta">… ${roots.length - 40} ältere nicht angezeigt.</p>` : ''}`);
+}
+
+/** 'blog/das-drehbuch-ist-fertig' -> 'Blog: das-drehbuch-ist-fertig' */
+function seitenName(page) {
+  if (page === 'gaestebuch') return 'Gästebuch';
+  return 'Blog: ' + String(page).replace(/^blog\//, '');
 }
 
 function htmlResponse(inner, status = 200) {
@@ -518,6 +556,10 @@ function htmlResponse(inner, status = 200) {
  a.logout{float:right;font-size:.7rem;color:#8a8279}
  .card{background:#171512;border-left:2px solid #c9a84c;padding:1rem 1.15rem;margin-bottom:1rem}
  .card.hidden{opacity:.45;border-left-color:#3a352e}
+ .card.wartet{border-left-color:#e0a851}
+ .card.antwort{margin-left:2rem;margin-top:-.5rem;border-left-color:#3a352e;background:#121110}
+ .card.antwort strong{color:#c9a84c}
+ .bezug{font-size:.75rem;color:#8a8279;margin:0 0 .25rem;font-style:italic}
  .card header{font-size:.85rem;margin-bottom:.5rem}
  .meta{display:block;font-size:.65rem;letter-spacing:.12em;text-transform:uppercase;color:#8a8279;margin-top:.2rem}
  .flag{display:inline-block;margin-top:.35rem;font-size:.65rem;background:#3a2410;color:#e0a851;padding:.15rem .5rem}
