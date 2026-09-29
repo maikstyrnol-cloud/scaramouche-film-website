@@ -1,0 +1,15 @@
+{
+  "name": "scaramouche-film-website",
+  "private": true,
+  "scripts": {
+    "dev": "wrangler dev",
+    "deploy": "wrangler deploy",
+    "db:init": "wrangler d1 execute heart-and-soul-kommentare --remote --file=db/schema.sql",
+    "db:seed": "wrangler d1 execute heart-and-soul-kommentare --remote --file=db/seed.sql && wrangler d1 execute heart-and-soul-kommentare --remote --file=db/seed_blog.sql && wrangler d1 execute heart-and-soul-kommentare --remote --file=db/seed_nachtrag.sql",
+    "db:init:local": "wrangler d1 execute heart-and-soul-kommentare --local --file=db/schema.sql",
+    "db:seed:local": "wrangler d1 execute heart-and-soul-kommentare --local --file=db/seed.sql && wrangler d1 execute heart-and-soul-kommentare --local --file=db/seed_blog.sql && wrangler d1 execute heart-and-soul-kommentare --local --file=db/seed_nachtrag.sql"
+  },
+  "devDependencies": {
+    "wrangler": "^4.0.0"
+  }
+}
