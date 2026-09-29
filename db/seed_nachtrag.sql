@@ -8,5 +8,5 @@ INSERT INTO comments (page, name, body, created_at, date_precision, status, sour
 -- Antwort des Filmteams darauf
 INSERT INTO comments (page, parent_id, name, body, created_at, date_precision, status, is_team, source)
   VALUES ('gaestebuch', (SELECT MAX(id) FROM comments), 'Filmteam',
-  'Hallo, der Ärger ist nachvollziehbar – es war viel zu lange still hier, und dafür entschuldigen wir uns. Das Projekt liegt nicht auf Eis: Nach einigen Rückschlägen geht es weiter, allerdings deutlich langsamer als ursprünglich geplant. In Kürze melden wir uns mit einem ausführlichen Update im Blog, in dem wir offen erzählen, was passiert ist, wo wir stehen und wie es weitergeht. Danke fürs Nachhaken.',
+  'Hallo, wir stimmen dir zu – es war viel zu lange still hier, und dafür entschuldigen wir uns. Das Projekt liegt nicht auf Eis: Nach einigen Rückschlägen geht es weiter, allerdings deutlich langsamer als ursprünglich geplant. In Kürze melden wir uns mit einem ausführlichen Update im Blog, in dem wir offen erzählen, was passiert ist, wo wir stehen und wie es weitergeht. Danke fürs Nachhaken.',
   '2026-09-29', 'exact', 'approved', 1, 'manual');
