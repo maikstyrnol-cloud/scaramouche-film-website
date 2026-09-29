@@ -186,6 +186,11 @@ function renderForm(page, sitekey, notice) {
       (function () {
         var f = document.getElementById('cmtForm'), m = document.getElementById('cmtMsg');
         if (!f) return;
+        // Das normale Turnstile-Widget ist fest 300px breit und schrumpft nicht.
+        // Im Formular sind auf dem Handy nur rund 215px Platz – dort also die
+        // kompakte Variante (150x140) anfordern, bevor das Widget rendert.
+        var ts = f.querySelector('.cf-turnstile');
+        if (ts && window.innerWidth < 700) ts.setAttribute('data-size', 'compact');
         f.addEventListener('submit', function (e) {
           e.preventDefault();
           var btn = f.querySelector('button[type=submit]');

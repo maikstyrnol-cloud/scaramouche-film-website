@@ -30,6 +30,17 @@
   --crt-inset-bottom:11vh;
   --crt-inset-left:11.2vw;
 }
+/* iOS Safari rechnet vh gegen den Viewport OHNE Browserleisten, positioniert
+   fixierte Elemente aber gegen den kleineren sichtbaren Bereich. Die Overlays
+   (Scanlines, Vignette) hörten dadurch unten zu früh auf und hinterließen
+   einen Streifen ohne Bildschirmeffekt. svh entspricht dem, wogegen fixierte
+   Elemente ausgerichtet werden. */
+@supports (height:1svh){
+  :root{
+    --crt-inset-top:7.6svh;
+    --crt-inset-bottom:11svh;
+  }
+}
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth}
 body{background:var(--ink);color:var(--body);font-family:var(--ff-b);font-size:1rem;line-height:1.7;overflow-x:hidden;text-shadow:var(--glow-body)}
@@ -303,7 +314,8 @@ footer{border-top:1px solid var(--border);padding:3rem 0 2rem;margin-top:6rem}
 .form-group input,.form-group textarea{width:100%;background:var(--deep);border:1px solid var(--border);color:var(--light);padding:.75rem 1rem;font-family:var(--ff-b);font-size:.9rem;outline:none;transition:border-color .2s;resize:vertical}
 .form-group input:focus,.form-group textarea:focus{border-color:var(--gold-dim)}
 .form-group textarea{min-height:130px}
-.cf-turnstile{margin:0 0 1rem}
+.cf-turnstile{margin:0 0 1rem;max-width:100%}
+.cf-turnstile iframe{max-width:100%}
 .btn-primary{background:var(--gold);color:var(--ink);border:1px solid var(--gold);padding:.8rem 1.5rem;font-family:var(--ff-m);font-size:.72rem;letter-spacing:.15em;text-transform:uppercase;cursor:pointer;font-weight:700;width:100%;transition:background .2s}
 .btn-primary:hover{background:var(--cream)}
 .btn-primary:disabled{opacity:.55;cursor:default}
