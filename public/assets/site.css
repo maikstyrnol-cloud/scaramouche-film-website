@@ -233,6 +233,11 @@ footer{border-top:1px solid var(--border);padding:3rem 0 2rem;margin-top:6rem}
   .tv-transition{display:block;opacity:0}
 }
 @media(max-width:700px){
+  /* Der TV-Rahmen frisst auf dem Handy schon rund 83px Breite. Der
+     Innenabstand des Containers muss dann nicht auch noch 2rem betragen –
+     das sind 13% mehr Textbreite, ohne den Rahmen anzufassen. */
+  .container{padding:0 1rem}
+  .nav-inner{padding:0 1rem}
   .rec-hud{font-size:.6rem}
   .tape-corner{display:none}
   .mobile-menu{gap:1.1rem;padding:5.5rem 1.5rem 2.5rem}
