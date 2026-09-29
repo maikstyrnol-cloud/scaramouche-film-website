@@ -22,7 +22,7 @@ binding = "AI"
 
 [vars]
 # Öffentlicher Turnstile-Key, darf im HTML stehen.
-TURNSTILE_SITEKEY = ""
+TURNSTILE_SITEKEY = "0x4AAAAAAFJehwnu2cSZrTpj"
 
 # Geheim, per "wrangler secret put" setzen, NICHT hier eintragen:
 #   TURNSTILE_SECRET  – Turnstile Secret Key
