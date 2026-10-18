@@ -331,7 +331,7 @@ async function moderate(env, { name, ort, body }) {
     if (typeof r === 'object' && r !== null && 'safe' in r) {
       guardRaw = JSON.stringify(r);
       if (r.safe === false) {
-        return { ok: false, reason: 'llama-guard: ' + (r.categories || []).join(',') || 'unsafe', raw: guardRaw };
+        return { ok: false, reason: 'llama-guard: ' + ((r.categories || []).join(',') || 'unsafe'), raw: guardRaw };
       }
     } else {
       guardRaw = String(r ?? '');
@@ -385,6 +385,8 @@ async function notify(env, { page, name, body, reason }) {
       body: JSON.stringify({
         content: `Neuer Beitrag in der Prüfung (${page})\nVon: ${name}\nGrund: ${reason}\n\n${body.slice(0, 500)}`,
         text: `Neuer Beitrag in der Prüfung (${page}) von ${name} – Grund: ${reason}`,
+        // Discord: @everyone/@here oder Rollen im Beitragstext loesen keine Erwaehnung aus
+        allowed_mentions: { parse: [] },
       }),
     });
   } catch (err) {

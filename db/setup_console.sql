@@ -1,9 +1,9 @@
-DROP TABLE IF EXISTS comments;
-CREATE TABLE comments ( id INTEGER PRIMARY KEY AUTOINCREMENT, page TEXT NOT NULL, parent_id INTEGER, name TEXT NOT NULL, ort TEXT, body TEXT NOT NULL, created_at TEXT NOT NULL, date_precision TEXT NOT NULL DEFAULT 'exact', status TEXT NOT NULL DEFAULT 'pending', is_team INTEGER NOT NULL DEFAULT 0, source TEXT NOT NULL DEFAULT 'web', ip_hash TEXT, flag_reason TEXT, ai_verdict TEXT, FOREIGN KEY (parent_id) REFERENCES comments(id) ON DELETE CASCADE );
-CREATE INDEX idx_comments_page ON comments(page, status, created_at DESC);
-CREATE INDEX idx_comments_parent ON comments(parent_id);
-CREATE INDEX idx_comments_queue ON comments(status, created_at DESC);
-CREATE INDEX idx_comments_rate ON comments(ip_hash, created_at);
+-- Kein DROP TABLE: ein erneuter Lauf darf die Live-Kommentare nicht loeschen.
+CREATE TABLE IF NOT EXISTS comments ( id INTEGER PRIMARY KEY AUTOINCREMENT, page TEXT NOT NULL, parent_id INTEGER, name TEXT NOT NULL, ort TEXT, body TEXT NOT NULL, created_at TEXT NOT NULL, date_precision TEXT NOT NULL DEFAULT 'exact', status TEXT NOT NULL DEFAULT 'pending', is_team INTEGER NOT NULL DEFAULT 0, source TEXT NOT NULL DEFAULT 'web', ip_hash TEXT, flag_reason TEXT, ai_verdict TEXT, FOREIGN KEY (parent_id) REFERENCES comments(id) ON DELETE CASCADE );
+CREATE INDEX IF NOT EXISTS idx_comments_page ON comments(page, status, created_at DESC);
+CREATE INDEX IF NOT EXISTS idx_comments_parent ON comments(parent_id);
+CREATE INDEX IF NOT EXISTS idx_comments_queue ON comments(status, created_at DESC);
+CREATE INDEX IF NOT EXISTS idx_comments_rate ON comments(ip_hash, created_at);
 INSERT INTO comments (page, parent_id, name, ort, body, created_at, date_precision, status, is_team, source) VALUES ('gaestebuch', NULL, 'Laura', NULL, 'Ein mega Projekt!! Wünsche euch viel Erfolg!', '2018-07-24', 'year', 'approved', 0, 'wix');
 INSERT INTO comments (page, parent_id, name, ort, body, created_at, date_precision, status, is_team, source) VALUES ('gaestebuch', NULL, 'Corinna', NULL, 'Wow! Schon fast vergessen, dass es hier mal so abging! Ich bin gespannt! Revival..?', '2018-07-24', 'year', 'approved', 0, 'wix');
 INSERT INTO comments (page, parent_id, name, ort, body, created_at, date_precision, status, is_team, source) VALUES ('gaestebuch', NULL, 'Larry B.', NULL, 'Ich bin arg gespannt auf alles was da auf die „alten" Freunde zukommen wird … Ich hab tolle Erinnerungen an viele Konzerte die wir zusammen mit Scaramouche in Luxemburg gespielt haben … War ''ne geile Zeit!!', '2018-07-24', 'year', 'approved', 0, 'wix');

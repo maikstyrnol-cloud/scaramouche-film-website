@@ -4,9 +4,9 @@
 -- Heart and Soul – Kommentare & Gästebuch
 -- Eine Tabelle für beides: page unterscheidet Gästebuch von Blogartikeln.
 
-DROP TABLE IF EXISTS comments;
+-- Kein DROP TABLE: ein erneuter Lauf darf die Live-Kommentare nicht loeschen.
 
-CREATE TABLE comments (
+CREATE TABLE IF NOT EXISTS comments (
   id             INTEGER PRIMARY KEY AUTOINCREMENT,
   page           TEXT    NOT NULL,                      -- 'gaestebuch' | 'blog/<slug>'
   parent_id      INTEGER,                               -- Antwort auf diesen Eintrag
@@ -24,10 +24,10 @@ CREATE TABLE comments (
   FOREIGN KEY (parent_id) REFERENCES comments(id) ON DELETE CASCADE
 );
 
-CREATE INDEX idx_comments_page   ON comments(page, status, created_at DESC);
-CREATE INDEX idx_comments_parent ON comments(parent_id);
-CREATE INDEX idx_comments_queue  ON comments(status, created_at DESC);
-CREATE INDEX idx_comments_rate   ON comments(ip_hash, created_at);
+CREATE INDEX IF NOT EXISTS idx_comments_page   ON comments(page, status, created_at DESC);
+CREATE INDEX IF NOT EXISTS idx_comments_parent ON comments(parent_id);
+CREATE INDEX IF NOT EXISTS idx_comments_queue  ON comments(status, created_at DESC);
+CREATE INDEX IF NOT EXISTS idx_comments_rate   ON comments(ip_hash, created_at);
 
 -- Automatisch erzeugt von db/extract_gaestebuch.py – nicht per Hand pflegen.
 -- Altbestand aus dem Wix-Gästebuch (29 Einträge + Antworten).
