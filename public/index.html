@@ -45,10 +45,13 @@
       --bloom-gold:0 0 16px rgba(201,168,76,.22),0 0 34px rgba(201,168,76,.1);
       --bloom-body:0 0 12px rgba(200,200,216,.1),0 0 26px rgba(200,200,216,.05);
       --bloom-green:0 0 16px rgba(76,255,130,.25),0 0 34px rgba(76,255,130,.12);
-      --crt-inset-top:7.6vh;
-      --crt-inset-right:10.1vw;
-      --crt-inset-bottom:11vh;
-      --crt-inset-left:11.2vw;
+      /* Rahmenfoto groesser als das Fenster: schmalerer Rand (wie in assets/site.css) */
+      --crt-sx:1.08;
+      --crt-sy:1.06;
+      --crt-inset-top:calc((7.6 * var(--crt-sy) - (var(--crt-sy) - 1) * 50) * 1vh);
+      --crt-inset-right:calc((10.1 * var(--crt-sx) - (var(--crt-sx) - 1) * 50) * 1vw);
+      --crt-inset-bottom:calc((11 * var(--crt-sy) - (var(--crt-sy) - 1) * 50) * 1vh);
+      --crt-inset-left:calc((11.2 * var(--crt-sx) - (var(--crt-sx) - 1) * 50) * 1vw);
     }
     *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
     html{scroll-behavior:smooth}
@@ -185,7 +188,7 @@
     @keyframes vhsTrackSweep{0%{top:-5%;opacity:0}2%{opacity:.9}6%{opacity:.9}9%{top:108%;opacity:0}100%{top:108%;opacity:0}}
     .crt-frame{position:fixed;inset:0;z-index:40000;pointer-events:none;
       background-image:url('assets/tv_bezel_full.webp');
-      background-size:100% 100%;
+      background-size:calc(100% * var(--crt-sx)) calc(100% * var(--crt-sy));
       background-repeat:no-repeat;
       background-position:center}
     .crt-vignette{position:fixed;inset:0;margin:var(--crt-inset-top) var(--crt-inset-right) var(--crt-inset-bottom) var(--crt-inset-left);z-index:8997;pointer-events:none;
