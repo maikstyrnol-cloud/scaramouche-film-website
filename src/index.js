@@ -51,6 +51,9 @@ export default {
       if (path === '/admin' || path.startsWith('/admin/')) {
         return await adminRouter(request, env, url);
       }
+      if (path.startsWith('/post/')) {
+        return await wixPostRedirect(env, url);
+      }
       const page = pageKey(path);
       if (page && (request.method === 'GET' || request.method === 'HEAD')) {
         return await renderPage(request, env, page, url);
@@ -399,6 +402,23 @@ async function notify(env, { page, name, body, reason }) {
   } catch (err) {
     console.error('notify', err);
   }
+}
+
+/* ------------------------------------------------- Alte Wix-Blogadressen */
+
+// /post/<slug> (Wix) -> /blog/<slug>/. _redirects konnte das nicht: es vergleicht mit der
+// prozentkodierten Adresse, Slugs mit Umlaut (z.B. "wir-zählen-auf-euch") liefen ins 404.
+// Gibt es den Artikel nicht, geht es zur Blog-Uebersicht statt auf eine Fehlerseite.
+async function wixPostRedirect(env, url) {
+  let slug = '';
+  try { slug = decodeURIComponent(url.pathname.slice('/post/'.length)); } catch (e) {}
+  slug = slug.replace(/\/+$/, '').normalize('NFC');
+  if (/^[\p{L}\p{N}-]+$/u.test(slug)) {
+    const target = '/blog/' + encodeURIComponent(slug) + '/';
+    const res = await env.ASSETS.fetch(new Request(url.origin + target, { method: 'HEAD' }));
+    if (res.status === 200) return Response.redirect(url.origin + target, 301);
+  }
+  return Response.redirect(url.origin + '/blog/', 301);
 }
 
 /* -------------------------------------------------------------------- Admin */

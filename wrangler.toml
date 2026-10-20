@@ -8,7 +8,7 @@ binding = "ASSETS"
 not_found_handling = "404-page"
 # Nur diese Pfade laufen zuerst durch den Worker – alles andere kommt
 # unverändert aus dem Asset-Storage.
-run_worker_first = ["/api/*", "/admin", "/admin/*", "/gaestebuch", "/gaestebuch/*", "/blog/*"]
+run_worker_first = ["/api/*", "/admin", "/admin/*", "/gaestebuch", "/gaestebuch/*", "/blog/*", "/post/*"]
 
 # Kommentar-Datenbank. database_id wird von "wrangler d1 create" ausgegeben.
 [[d1_databases]]
