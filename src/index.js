@@ -29,6 +29,13 @@ const LINK_RE = /https?:\/\/|\bwww\.[^\s]+|\[url|\bt\.me\/|\bbit\.ly\/|<a\s|(?<!
 const RATE_WINDOW_MIN = 10;   // ein Eintrag pro IP in diesem Zeitfenster
 const MAX_PER_WINDOW = 1;
 
+// Admin-Login
+const SESSION_DAYS = 7;
+const LOGIN_MAX_FAILS = 5;
+const LOGIN_WINDOW_MIN = 15;
+// Frueheres Cookie (Path=/) enthielt den Schluessel im Klartext - beim An-/Abmelden entfernen.
+const OLD_ADMIN_COOKIE_CLEAR = 'hs_admin=; Path=/; Max-Age=0; Secure; SameSite=Lax';
+
 /* ------------------------------------------------------------------ Routing */
 
 export default {
@@ -399,27 +406,42 @@ async function notify(env, { page, name, body, reason }) {
 async function adminRouter(request, env, url) {
   const path = url.pathname.replace(/\/+$/, '') || '/admin';
 
-  if (path === '/admin/login' && request.method === 'POST') {
-    const form = await request.formData();
-    if (env.ADMIN_KEY && String(form.get('key')) === env.ADMIN_KEY) {
-      return new Response(null, {
-        status: 302,
-        headers: {
-          Location: '/admin',
-          'Set-Cookie': `hs_admin=${env.ADMIN_KEY}; HttpOnly; Secure; SameSite=Lax; Path=/; Max-Age=2592000`,
-        },
-      });
-    }
-    return adminLogin('Falscher Schlüssel.');
+  // Admin-Formulare nur von der eigenen Seite annehmen (Schutz gegen untergeschobene POSTs).
+  if (request.method === 'POST' && !sameOrigin(request, url)) {
+    return new Response('Forbidden', { status: 403 });
   }
 
-  if (!isAdmin(request, env)) return adminLogin('');
+  if (path === '/admin/login' && request.method === 'POST') {
+    if (!env.ADMIN_KEY) return adminLogin('Admin-Zugang ist nicht eingerichtet.');
+    const ipHash = await sha256((request.headers.get('cf-connecting-ip') || '') + (env.IP_SALT || 'heart-and-soul'));
+    await env.DB.prepare(`CREATE TABLE IF NOT EXISTS admin_logins (ip_hash TEXT NOT NULL, at TEXT NOT NULL)`).run();
+    const since = new Date(Date.now() - LOGIN_WINDOW_MIN * 60000).toISOString();
+    const fails = await env.DB.prepare(`SELECT COUNT(*) AS n FROM admin_logins WHERE ip_hash = ?1 AND at > ?2`)
+      .bind(ipHash, since).first();
+    if (fails && fails.n >= LOGIN_MAX_FAILS) {
+      return adminLogin(`Zu viele Fehlversuche – bitte ${LOGIN_WINDOW_MIN} Minuten warten.`, 429);
+    }
+    const form = await request.formData();
+    // Vergleich ueber Hashes gleicher Laenge, in konstanter Zeit
+    const ok = safeEqual(await sha256(String(form.get('key') || '')), await sha256(env.ADMIN_KEY));
+    if (!ok) {
+      await env.DB.prepare(`INSERT INTO admin_logins (ip_hash, at) VALUES (?1, ?2)`).bind(ipHash, new Date().toISOString()).run();
+      return adminLogin('Falscher Schlüssel.', 401);
+    }
+    await env.DB.prepare(`DELETE FROM admin_logins WHERE ip_hash = ?1 OR at < ?2`).bind(ipHash, since).run();
+    const h = new Headers({ Location: '/admin' });
+    h.append('Set-Cookie', `hs_admin=${await makeSession(env)}; HttpOnly; Secure; SameSite=Lax; Path=/admin; Max-Age=${SESSION_DAYS * 86400}`);
+    h.append('Set-Cookie', OLD_ADMIN_COOKIE_CLEAR);
+    return new Response(null, { status: 302, headers: h });
+  }
+
+  if (!(await isAdmin(request, env))) return adminLogin('');
 
   if (path === '/admin/logout') {
-    return new Response(null, {
-      status: 302,
-      headers: { Location: '/admin', 'Set-Cookie': 'hs_admin=; Path=/; Max-Age=0' },
-    });
+    const h = new Headers({ Location: '/admin' });
+    h.append('Set-Cookie', 'hs_admin=; Path=/admin; Max-Age=0');
+    h.append('Set-Cookie', OLD_ADMIN_COOKIE_CLEAR);
+    return new Response(null, { status: 302, headers: h });
   }
 
   if (path === '/admin/aktion' && request.method === 'POST') {
@@ -454,11 +476,33 @@ async function adminRouter(request, env, url) {
   return adminPage(env);
 }
 
-function isAdmin(request, env) {
+// Sitzung = Ablaufzeit + HMAC-Signatur mit ADMIN_KEY. Das Passwort selbst steht nie im
+// Cookie; ein neuer ADMIN_KEY macht alle bestehenden Sitzungen sofort ungueltig.
+async function makeSession(env) {
+  const exp = Math.floor(Date.now() / 1000) + SESSION_DAYS * 86400;
+  return `${exp}.${await hmacHex(env.ADMIN_KEY, 'admin-session|' + exp)}`;
+}
+
+async function isAdmin(request, env) {
   if (!env.ADMIN_KEY) return false;
   const cookie = request.headers.get('cookie') || '';
-  const m = cookie.match(/(?:^|;\s*)hs_admin=([^;]+)/);
-  return !!m && safeEqual(m[1], env.ADMIN_KEY);
+  const m = cookie.match(/(?:^|;\s*)hs_admin=(\d+)\.([0-9a-f]{64})(?:;|$)/);
+  if (!m || Number(m[1]) < Date.now() / 1000) return false;
+  return safeEqual(m[2], await hmacHex(env.ADMIN_KEY, 'admin-session|' + m[1]));
+}
+
+async function hmacHex(secret, msg) {
+  const enc = new TextEncoder();
+  const key = await crypto.subtle.importKey('raw', enc.encode(secret), { name: 'HMAC', hash: 'SHA-256' }, false, ['sign']);
+  const sig = await crypto.subtle.sign('HMAC', key, enc.encode(msg));
+  return [...new Uint8Array(sig)].map((b) => b.toString(16).padStart(2, '0')).join('');
+}
+
+function sameOrigin(request, url) {
+  const origin = request.headers.get('origin');
+  if (origin) return origin === url.origin;
+  const ref = request.headers.get('referer') || '';
+  return ref.startsWith(url.origin + '/');
 }
 
 function safeEqual(a, b) {
@@ -468,13 +512,13 @@ function safeEqual(a, b) {
   return out === 0;
 }
 
-function adminLogin(msg) {
+function adminLogin(msg, status = 401) {
   return htmlResponse(`<h1>Moderation</h1>
     ${msg ? `<p class="err">${esc(msg)}</p>` : ''}
     <form method="POST" action="/admin/login">
       <label>Schlüssel <input type="password" name="key" autofocus /></label>
       <button type="submit">Anmelden</button>
-    </form>`, 401);
+    </form>`, status);
 }
 
 async function adminPage(env) {

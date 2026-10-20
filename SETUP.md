@@ -27,6 +27,8 @@ Schrauben zum Nachjustieren stehen oben in `src/index.js`:
 ## Alltag
 
 - **Moderieren:** `https://www.scaramouche-film.de/admin`, Anmeldung mit `ADMIN_KEY`.
+  Die Anmeldung gilt 7 Tage (signiertes Cookie, enthält nicht den Schlüssel). Nach 5 Fehlversuchen
+  ist der Login 15 Minuten gesperrt. Neuer `ADMIN_KEY` = alle Sitzungen sofort abgemeldet.
   Freigeben, verstecken, löschen und direkt antworten. Antworten erscheinen eingerückt
   unter ihrem Eintrag – kein Commit, kein Deploy nötig.
 - **Deploy:** passiert automatisch bei jedem `git push` (Cloudflare Workers Builds).
